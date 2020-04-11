@@ -106,9 +106,9 @@ cPlugin:
       sym.name = "KeyCodeEnum"
 
 
-when defined(SDL_Static):
-  cImport(SDL_net_Path, recurse = false, flags = &"-I={sdlIncludeDir}")
-  cImport(srcDir / "SDLnetsys.h", recurse = false, flags = &"-I={sdlIncludeDir}")
+when defined(SDL_net_Static):
+  cImport(SDL_net_Path, recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
+  cImport(srcDir / "SDLnetsys.h", recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
 else:
-  cImport(SDL_net_Path, recurse = false, dynlib = "SDL_net_LPath", flags = &"-I={sdlIncludeDir}")
-  cImport(srcDir / "SDLnetsys.h", recurse = false, flags = &"-I={sdlIncludeDir}")
+  cImport(SDL_net_Path, recurse = false, dynlib = "SDL_net_LPath", flags = &"-I={sdlIncludeDir} -f=ast2")
+  cImport(srcDir / "SDLnetsys.h", recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")

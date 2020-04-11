@@ -3,7 +3,8 @@ import nimterop/[cimport, build]
 
 const
   baseDir = currentSourcePath.parentDir().parentDir().parentDir()
-  srcDir = baseDir/"build"/"sdl2"
+  srcDir = baseDir / "build" / "sdl2"
+  buildDir = srcDir / "buildcache"
 
 getHeader(
   "SDL.h",
@@ -149,3 +150,18 @@ when defined(SDL_Static):
   cImport(SDL_Path, recurse = true)
 else:
   cImport(SDL_Path, recurse = true, dynlib = "SDL_LPath")
+
+proc getDynlibExt(): string =
+  when defined(windows):
+    result = ".dll"
+  elif defined(linux):
+    result = ".so[0-9.]*"
+  elif defined(macosx):
+    result = ".dylib[0-9.]*"
+
+proc findDynlib(): string =
+  const pathRegex = "(lib)?SDL2[_-]?(static)?[0-9.\\-]*\\" & getDynlibExt()
+  return findFile(pathRegex, buildDir, regex = true)
+
+const SDLDyLibPath* = findDynlib()
+const SDLMainLib* = buildDir / "libSDL2main.a"

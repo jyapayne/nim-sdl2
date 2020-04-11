@@ -104,7 +104,7 @@ cPlugin:
     if sym.name == "KeyCode":
       sym.name = "KeyCodeEnum"
 
-when defined(SDL_Static):
-  cImport(SDL_mixer_Path, recurse = false, flags = &"-I={sdlIncludeDir}")
+when defined(SDL_mixer_Static):
+  cImport(SDL_mixer_Path, recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
 else:
-  cImport(SDL_mixer_Path, recurse = false, dynlib = "SDL_mixer_LPath", flags = &"-I={sdlIncludeDir}")
+  cImport(SDL_mixer_Path, recurse = false, dynlib = "SDL_mixer_LPath", flags = &"-I={sdlIncludeDir} -f=ast2")
