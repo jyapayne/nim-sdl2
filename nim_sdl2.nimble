@@ -13,4 +13,4 @@ srcDir        = "src"
 requires "nim >= 1.0.6", "nimterop#head"
 
 task buildSDL2, "Build SDL2 example":
-  exec "nimble c -f -r src/sdl2.nim"
+  exec "nimble c -f -r src/sdl2_all.nim"
