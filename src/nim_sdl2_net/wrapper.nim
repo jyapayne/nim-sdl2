@@ -6,18 +6,19 @@ const
   baseDir = currentSourcePath.parentDir().parentDir().parentDir()
   buildDir = baseDir / "build"
   sdlIncludeDir = buildDir / "sdl2" / "include"
-  srcDir = buildDir / "sdl2_mixer"
+  srcDir = buildDir / "sdl2_net"
 
 getHeader(
-  "SDL_mixer.h",
-  dlurl = "https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-2.0.4.tar.gz",
+  "SDL_net.h",
+  dlurl = "https://www.libsdl.org/projects/SDL_net/release/SDL2_net-2.0.1.tar.gz",
   outdir = srcDir,
-  altNames = "SDL2_mixer"
+  altNames = "SDL2_net"
 )
 
 # static:
-  # cDebug()
-  # cDisableCaching()
+#   cDebug()
+#   cDisableCaching()
+
 
 cPlugin:
   import strutils, nre
@@ -104,7 +105,10 @@ cPlugin:
     if sym.name == "KeyCode":
       sym.name = "KeyCodeEnum"
 
+
 when defined(SDL_Static):
-  cImport(SDL_mixer_Path, recurse = false, flags = &"-I={sdlIncludeDir}")
+  cImport(SDL_net_Path, recurse = false, flags = &"-I={sdlIncludeDir}")
+  cImport(srcDir / "SDLnetsys.h", recurse = false, flags = &"-I={sdlIncludeDir}")
 else:
-  cImport(SDL_mixer_Path, recurse = false, dynlib = "SDL_mixer_LPath", flags = &"-I={sdlIncludeDir}")
+  cImport(SDL_net_Path, recurse = false, dynlib = "SDL_net_LPath", flags = &"-I={sdlIncludeDir}")
+  cImport(srcDir / "SDLnetsys.h", recurse = false, flags = &"-I={sdlIncludeDir}")

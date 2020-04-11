@@ -1,10 +1,12 @@
-import os, strutils
+import os, strutils, strformat
 import ../nim_sdl2/wrapper
 import nimterop/[cimport, build]
 
 const
   baseDir = currentSourcePath.parentDir().parentDir().parentDir()
-  srcDir = baseDir / "build" / "sdl2_image"
+  buildDir = baseDir / "build"
+  sdlIncludeDir = buildDir / "sdl2" / "include"
+  srcDir = buildDir / "sdl2_image"
 
 getHeader(
   "SDL_image.h",
@@ -13,23 +15,9 @@ getHeader(
   altNames = "SDL2_image"
 )
 
-static:
+# static:
   # cDebug()
   # cDisableCaching()
-  let contents = readFile(srcDir/"SDL_image.h")
-  let newContents = contents.replace("""#include "SDL.h"
-#include "SDL_version.h"
-#include "begin_code.h"""", """
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_version.h>
-#include <SDL2/begin_code.h>
-""").
-    replace("""#include "close_code.h"""", "#include <SDL2/close_code.h>")
-
-  writeFile(srcDir/"SDL_image.h", newContents)
-
-# cOverride:
-#   type
 
 
 cPlugin:
@@ -118,7 +106,7 @@ cPlugin:
       sym.name = "KeyCodeEnum"
 
 
-when not defined(SDL_Static):
-  cImport(SDL_image_Path, recurse = false, dynlib = "SDL_image_LPath")
+when defined(SDL_Static):
+  cImport(SDL_image_Path, recurse = false, flags = &"-I={sdlIncludeDir}")
 else:
-  cImport(SDL_image_Path, recurse = false)
+  cImport(SDL_image_Path, recurse = false, dynlib = "SDL_image_LPath", flags = &"-I={sdlIncludeDir}")

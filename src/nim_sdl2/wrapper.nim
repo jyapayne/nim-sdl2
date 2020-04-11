@@ -12,14 +12,9 @@ getHeader(
 )
 
 static:
-  cDebug()
-  cDisableCaching()
-#   # let contents = readFile(srcDir/"include/SDL_gpu.h")
-#   # let newContents = contents.replace(re"""#include "SDL.h"""", "#include <SDL2/SDL.h>", limit=1).
-#   #   replace(re"""#include "begin_code.h"""", "", limit=1).
-#   #   replace(re"""#include "close_code.h"""", "", limit=1)
-
-#   # writeFile(srcDir/"include/SDL_gpu.h", newContents)
+  cSkipSymbol @["bool"]
+  # cDebug()
+  # cDisableCaching()
 
 cOverride:
   const KEYCODE_UNDERSCORE* = ('_').KeyCodeEnum
@@ -149,28 +144,8 @@ cPlugin:
     if sym.name == "KeyCode":
       sym.name = "KeyCodeEnum"
 
-    # if sym.name == "Uint64":
-    #   sym.name = "uint64"
-    # if sym.name == "Uint32":
-    #   sym.name = "uint32"
-    # if sym.name == "Uint16":
-    #   sym.name = "uint16"
-    # if sym.name == "Uint8":
-    #   sym.name = "uint8"
 
-    # if sym.name == "Sint64":
-    #   sym.name = "int64"
-    # if sym.name == "Sint32":
-    #   sym.name = "int32"
-    # if sym.name == "Sint16":
-    #   sym.name = "int16"
-    # if sym.name == "Sint8":
-    #   sym.name = "int8"
-    # if sym.name == "Bool":
-    #   sym.name = "bool"
-
-
-when not defined(SDL_Static):
-  cImport(SDL_Path, recurse = true, dynlib = "SDL_LPath")
-else:
+when defined(SDL_Static):
   cImport(SDL_Path, recurse = true)
+else:
+  cImport(SDL_Path, recurse = true, dynlib = "SDL_LPath")

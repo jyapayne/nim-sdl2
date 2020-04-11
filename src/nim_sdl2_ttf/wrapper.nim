@@ -5,19 +5,22 @@ import nimterop/[cimport, build]
 const
   baseDir = currentSourcePath.parentDir().parentDir().parentDir()
   buildDir = baseDir / "build"
-  sdlIncludeDir = buildDir / "sdl2" / "include"
-  srcDir = buildDir / "sdl2_mixer"
+  sdlDir = buildDir / "sdl2"
+  sdlIncludeDir = sdlDir / "include"
+  cmakeModPath = baseDir / "cmake" / "sdl2"
+  srcDir = buildDir / "sdl2_ttf"
 
 getHeader(
-  "SDL_mixer.h",
-  dlurl = "https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-2.0.4.tar.gz",
+  "SDL_ttf.h",
+  dlurl = "https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-2.0.15.tar.gz",
   outdir = srcDir,
-  altNames = "SDL2_mixer"
+  altNames = "SDL2_ttf",
+  cmakeFlags = &"-DCMAKE_C_FLAGS=-I{sdlIncludeDir} -DCMAKE_MODULE_PATH={cmakeModPath} -DSDL2_LIBRARY=2.0.12 -DSDL2_PATH={sdlDir}"
 )
 
 # static:
-  # cDebug()
-  # cDisableCaching()
+#   cDebug()
+#   cDisableCaching()
 
 cPlugin:
   import strutils, nre
@@ -105,6 +108,6 @@ cPlugin:
       sym.name = "KeyCodeEnum"
 
 when defined(SDL_Static):
-  cImport(SDL_mixer_Path, recurse = false, flags = &"-I={sdlIncludeDir}")
+  cImport(SDL_ttf_Path, recurse = false, flags = &"-I={sdlIncludeDir}")
 else:
-  cImport(SDL_mixer_Path, recurse = false, dynlib = "SDL_mixer_LPath", flags = &"-I={sdlIncludeDir}")
+  cImport(SDL_ttf_Path, recurse = false, dynlib = "SDL_ttf_LPath", flags = &"-I={sdlIncludeDir}")
