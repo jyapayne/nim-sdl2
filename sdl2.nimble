@@ -13,7 +13,10 @@ requires "nim >= 1.0.6", "nimterop#head"
 
 when gorgeEx("nimble path nimterop").exitCode == 0:
   import nimterop/docs
-  task docs, "Generate docs": buildDocs(@["src/sdl2.nim"], "build/htmldocs")
+  task docs, "Generate docs":
+    buildDocs(@["src/sdl2.nim"], "build/htmldocs")
+    cpFile("build/htmldocs/dochack.js", "build/htmldocs/sdl2/dochack.js")
+
 else:
   task docs, "Do nothing": discard
 
