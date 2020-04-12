@@ -1,34 +1,26 @@
-import os, strformat
-import ../nim_sdl2/wrapper
-import nimterop/[build, cimport]
+import os, strutils, strformat
+import sdl2
+import nimterop/[cimport, build]
+
+export sdl2
 
 const
   baseDir = currentSourcePath.parentDir().parentDir().parentDir()
   buildDir = baseDir / "build"
-  sdlDir = buildDir / "sdl2"
-  sdlIncludeDir = sdlDir / "include"
-  cmakeModPath = baseDir / "cmake" / "sdl2"
-  srcDir = buildDir / "sdl2_gpu"
+  sdlIncludeDir = buildDir / "sdl2" / "include"
+  srcDir = buildDir / "sdl2_net"
 
 getHeader(
-  "SDL_gpu.h",
-  giturl = "https://github.com/grimfang4/sdl-gpu",
+  "SDL_net.h",
+  dlurl = "https://www.libsdl.org/projects/SDL_net/release/SDL2_net-$1.tar.gz",
   outdir = srcDir,
-  altNames = "SDL2_gpu",
-  cmakeFlags = &"-DCMAKE_C_FLAGS=-I{sdlIncludeDir} -DCMAKE_MODULE_PATH={cmakeModPath} -DSDL2_LIBRARY={SDLDyLibPath} " &
-               &"-DSDL2MAIN_LIBRARY={SDLMainLib} -DSDL2_PATH={sdlDir} -DSDL2_INCLUDE_DIR={sdlIncludeDir} -DSDL_gpu_BUILD_DEMOS=OFF"
+  altNames = "SDL2_net"
 )
 
 # static:
 #   cDebug()
 #   cDisableCaching()
 
-cOverride:
-  type
-    LogLevelEnum* = enum
-      LOG_LEVEL_INFO = 0
-      LOG_LEVEL_WARNING
-      LOG_LEVEL_ERROR
 
 cPlugin:
   import strutils, nre
@@ -90,12 +82,10 @@ cPlugin:
 
   # Symbol renaming examples
   proc onSymbol*(sym: var Symbol) {.exportc, dynlib.} =
-    # Remove prefixes or suffixes from procs
-    sym.name = sym.name.replace(re"^GPU_", "")
-
+    # Get rid of leading and trailing underscores
     if sym.kind == nskProc or sym.kind == nskType or sym.kind == nskConst:
       if sym.name != "_":
-        sym.name = sym.name.strip(chars = {'_'})
+        sym.name = sym.name.strip(chars={'_'}).replace("___", "_")
 
     sym.name = sym.name.replace(re"^SDL_", "")
 
@@ -105,6 +95,9 @@ cPlugin:
     if EVENT_TYPES.contains(sym.name):
       sym.name = "EVENT_" & sym.name
 
+    if sym.name == "version":
+      sym.name = "Version"
+
     if sym.name == "ThreadID":
       sym.name = "CurrentThreadID"
     if sym.name == "GLContextResetNotification":
@@ -112,7 +105,10 @@ cPlugin:
     if sym.name == "KeyCode":
       sym.name = "KeyCodeEnum"
 
-when defined(SDL_gpu_Static):
-  cImport(SDL_gpuPath, recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
+
+when defined(SDL_net_Static):
+  cImport(SDL_net_Path, recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
+  cImport(srcDir / "SDLnetsys.h", recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
 else:
-  cImport(SDL_gpuPath, recurse = false, dynlib = "SDL_gpuLPath", flags = &"-I={sdlIncludeDir} -f=ast2")
+  cImport(SDL_net_Path, recurse = false, dynlib = "SDL_net_LPath", flags = &"-I={sdlIncludeDir} -f=ast2")
+  cImport(srcDir / "SDLnetsys.h", recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")

@@ -1,25 +1,43 @@
-import os, strutils, strformat
-import ../nim_sdl2/wrapper as sdl2_wrapper
-import nimterop/[cimport, build]
+import os, strformat, strutils
+import sdl2
+import nimterop/[build, cimport]
 
-export sdl2_wrapper
+export sdl2
 
 const
   baseDir = currentSourcePath.parentDir().parentDir().parentDir()
   buildDir = baseDir / "build"
-  sdlIncludeDir = buildDir / "sdl2" / "include"
-  srcDir = buildDir / "sdl2_gfx"
+  sdlDir = buildDir / "sdl2"
+  sdlIncludeDir = sdlDir / "include"
+  cmakeModPath = baseDir / "cmake" / "sdl2"
+  srcDir = buildDir / "sdl2_gpu"
 
 getHeader(
-  "SDL2_gfxPrimitives.h",
-  dlurl = "http://www.ferzkopp.net/Software/SDL2_gfx/SDL2_gfx-$1.tar.gz",
+  "SDL_gpu.h",
+  giturl = "https://github.com/grimfang4/sdl-gpu",
   outdir = srcDir,
-  altNames = "SDL2_gfx,SDL_gfx"
+  altNames = "SDL2_gpu",
+  cmakeFlags = &"-DCMAKE_C_FLAGS=-I{sdlIncludeDir} -DCMAKE_MODULE_PATH={cmakeModPath} -DSDL2_LIBRARY={SDLDyLibPath} " &
+               &"-DSDL2MAIN_LIBRARY={SDLMainLib} -DSDL2_PATH={sdlDir} -DSDL2_INCLUDE_DIR={sdlIncludeDir} -DSDL_gpu_BUILD_DEMOS=OFF"
 )
 
-# static:
-#   cDebug()
-#   cDisableCaching()
+static:
+  cDebug()
+  cDisableCaching()
+
+  # This shouldn't be needed, but for some reason is
+  let contents = readFile(srcDir/"include/SDL_gpu.h")
+  let newContents = contents.replace("""typedef struct GPU_Renderer GPU_Renderer;
+typedef struct GPU_Target GPU_Target;""", "")
+
+  writeFile(srcDir/"include/SDL_gpu.h", newContents)
+
+cOverride:
+  type
+    LogLevelEnum* = enum
+      LOG_LEVEL_INFO = 0
+      LOG_LEVEL_WARNING
+      LOG_LEVEL_ERROR
 
 cPlugin:
   import strutils, nre
@@ -81,16 +99,17 @@ cPlugin:
 
   # Symbol renaming examples
   proc onSymbol*(sym: var Symbol) {.exportc, dynlib.} =
-    # Get rid of leading and trailing underscores
-    # sym.name = sym.name.strip(chars = {'_'})
-
     # Remove prefixes or suffixes from procs
-    if sym.name == "__MACOSX__":
-      sym.name = "MACOSX"
+    if sym.name == "SDL_init_flags":
+      sym.name = "sdlInitFlags"
+    if sym.name == "GPU_init_flags":
+      sym.name = "gpuInitFlags"
+
     if sym.kind == nskProc or sym.kind == nskType or sym.kind == nskConst:
       if sym.name != "_":
-        sym.name = sym.name.replace(re"^_+", "")
-        sym.name = sym.name.replace(re"_+$", "")
+        sym.name = sym.name.strip(chars={'_'}).replace("___", "_")
+
+    sym.name = sym.name.replace(re"^GPU_", "")
     sym.name = sym.name.replace(re"^SDL_", "")
 
     if sym.name.startsWith("SDLK_"):
@@ -99,6 +118,9 @@ cPlugin:
     if EVENT_TYPES.contains(sym.name):
       sym.name = "EVENT_" & sym.name
 
+    if sym.name == "version":
+      sym.name = "Version"
+
     if sym.name == "ThreadID":
       sym.name = "CurrentThreadID"
     if sym.name == "GLContextResetNotification":
@@ -106,14 +128,7 @@ cPlugin:
     if sym.name == "KeyCode":
       sym.name = "KeyCodeEnum"
 
-
-when defined(SDL2_GfxPrimitives_Static):
-  cImport(srcDir / "SDL2_gfxPrimitives.h", recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
-  cImport(srcDir / "SDL2_rotozoom.h", recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
-  cImport(srcDir / "SDL2_framerate.h", recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
-  cImport(srcDir / "SDL2_imageFilter.h", recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
+when defined(SDL_gpu_Static):
+  cImport(SDL_gpuPath, recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
 else:
-  cImport(srcDir / "SDL2_gfxPrimitives.h", recurse = false, dynlib="SDL2_GfxPrimitives_LPath", flags = &"-I={sdlIncludeDir} -f=ast2")
-  cImport(srcDir / "SDL2_rotozoom.h", recurse = false, dynlib="SDL2_GfxPrimitives_LPath", flags = &"-I={sdlIncludeDir} -f=ast2")
-  cImport(srcDir / "SDL2_framerate.h", recurse = false, dynlib="SDL2_GfxPrimitives_LPath", flags = &"-I={sdlIncludeDir} -f=ast2")
-  cImport(srcDir / "SDL2_imageFilter.h", recurse = false, dynlib="SDL2_GfxPrimitives_LPath", flags = &"-I={sdlIncludeDir} -f=ast2")
+  cImport(SDL_gpuPath, recurse = false, dynlib = "SDL_gpuLPath", flags = &"-I={sdlIncludeDir} -f=ast2")

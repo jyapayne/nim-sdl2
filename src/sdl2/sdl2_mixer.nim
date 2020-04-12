@@ -1,27 +1,25 @@
 import os, strutils, strformat
-import ../nim_sdl2/wrapper as sdl2_wrapper
+import sdl2
 import nimterop/[cimport, build]
+
+export sdl2
 
 const
   baseDir = currentSourcePath.parentDir().parentDir().parentDir()
   buildDir = baseDir / "build"
-  sdlDir = buildDir / "sdl2"
-  sdlIncludeDir = sdlDir / "include"
-  cmakeModPath = baseDir / "cmake" / "sdl2"
-  srcDir = buildDir / "sdl2_ttf"
+  sdlIncludeDir = buildDir / "sdl2" / "include"
+  srcDir = buildDir / "sdl2_mixer"
 
 getHeader(
-  "SDL_ttf.h",
-  dlurl = "https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-$1.tar.gz",
+  "SDL_mixer.h",
+  dlurl = "https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-$1.tar.gz",
   outdir = srcDir,
-  altNames = "SDL2_ttf",
-  cmakeFlags = &"-DCMAKE_C_FLAGS=-I{sdlIncludeDir} -DCMAKE_MODULE_PATH={cmakeModPath} " &
-               &"-DSDL2MAIN_LIBRARY={SDLMainLib} -DSDL2_LIBRARY={SDLDyLibPath} -DSDL2_PATH={sdlDir}"
+  altNames = "SDL2_mixer"
 )
 
 # static:
-#   cDebug()
-#   cDisableCaching()
+  # cDebug()
+  # cDisableCaching()
 
 cPlugin:
   import strutils, nre
@@ -84,15 +82,10 @@ cPlugin:
   # Symbol renaming examples
   proc onSymbol*(sym: var Symbol) {.exportc, dynlib.} =
     # Get rid of leading and trailing underscores
-    # sym.name = sym.name.strip(chars = {'_'})
-
-    # Remove prefixes or suffixes from procs
-    if sym.name == "__MACOSX__":
-      sym.name = "MACOSX"
     if sym.kind == nskProc or sym.kind == nskType or sym.kind == nskConst:
       if sym.name != "_":
-        sym.name = sym.name.replace(re"^_+", "")
-        sym.name = sym.name.replace(re"_+$", "")
+        sym.name = sym.name.strip(chars={'_'}).replace("___", "_")
+
     sym.name = sym.name.replace(re"^SDL_", "")
 
     if sym.name.startsWith("SDLK_"):
@@ -101,6 +94,9 @@ cPlugin:
     if EVENT_TYPES.contains(sym.name):
       sym.name = "EVENT_" & sym.name
 
+    if sym.name == "version":
+      sym.name = "Version"
+
     if sym.name == "ThreadID":
       sym.name = "CurrentThreadID"
     if sym.name == "GLContextResetNotification":
@@ -108,7 +104,7 @@ cPlugin:
     if sym.name == "KeyCode":
       sym.name = "KeyCodeEnum"
 
-when defined(SDL_ttf_Static):
-  cImport(SDL_ttf_Path, recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
+when defined(SDL_mixer_Static):
+  cImport(SDL_mixer_Path, recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
 else:
-  cImport(SDL_ttf_Path, recurse = false, dynlib = "SDL_ttf_LPath", flags = &"-I={sdlIncludeDir} -f=ast2")
+  cImport(SDL_mixer_Path, recurse = false, dynlib = "SDL_mixer_LPath", flags = &"-I={sdlIncludeDir} -f=ast2")

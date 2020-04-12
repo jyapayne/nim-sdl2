@@ -13,7 +13,7 @@ getHeader(
 )
 
 static:
-  cSkipSymbol @["bool"]
+  cSkipSymbol @["bool", "compile_time_assert_SDL_Event"]
   # cDebug()
   # cDisableCaching()
 
@@ -120,14 +120,15 @@ cPlugin:
   proc onSymbol*(sym: var Symbol) {.exportc, dynlib.} =
     # Get rid of leading and trailing underscores
     # sym.name = sym.name.strip(chars = {'_'})
+    if sym.name == "SDL_init_flags":
+      sym.name = "sdlInitFlags"
+    if sym.name == "GPU_init_flags":
+      sym.name = "gpuInitFlags"
 
-    # Remove prefixes or suffixes from procs
-    if sym.name == "__MACOSX__":
-      sym.name = "MACOSX"
     if sym.kind == nskProc or sym.kind == nskType or sym.kind == nskConst:
       if sym.name != "_":
-        sym.name = sym.name.replace(re"^_+", "")
-        sym.name = sym.name.replace(re"_+$", "")
+        sym.name = sym.name.strip(chars={'_'}).replace("___", "_")
+
     sym.name = sym.name.replace(re"^SDL_", "")
 
     if sym.name.startsWith("SDLK_"):
@@ -135,6 +136,9 @@ cPlugin:
 
     if EVENT_TYPES.contains(sym.name):
       sym.name = "EVENT_" & sym.name
+
+    if sym.name == "version":
+      sym.name = "Version"
 
     if sym.name == "ThreadID":
       sym.name = "CurrentThreadID"
