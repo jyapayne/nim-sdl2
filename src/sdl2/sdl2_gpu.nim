@@ -22,8 +22,8 @@ getHeader(
 )
 
 static:
-  cDebug()
-  cDisableCaching()
+  # cDebug()
+  # cDisableCaching()
 
   # This shouldn't be needed, but for some reason is
   let contents = readFile(srcDir/"include/SDL_gpu.h")

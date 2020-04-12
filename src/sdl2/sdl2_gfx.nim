@@ -17,9 +17,9 @@ getHeader(
   altNames = "SDL2_gfx,SDL_gfx"
 )
 
-static:
-  cDebug()
-  cDisableCaching()
+# static:
+#   cDebug()
+#   cDisableCaching()
 
 cPlugin:
   import strutils, nre
