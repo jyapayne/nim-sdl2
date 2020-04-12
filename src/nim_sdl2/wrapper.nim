@@ -8,7 +8,7 @@ const
 
 getHeader(
   "SDL.h",
-  dlurl = "https://www.libsdl.org/release/SDL2-2.0.12.tar.gz",
+  dlurl = "https://www.libsdl.org/release/SDL2-$1.tar.gz",
   outdir = srcDir
 )
 
@@ -18,8 +18,6 @@ static:
   # cDisableCaching()
 
 cOverride:
-  const KEYCODE_UNDERSCORE* = ('_').KeyCodeEnum
-
   type
     BlitMap* {.incompleteStruct.} = object
     RWops* {.incompleteStruct.} = object
@@ -145,11 +143,10 @@ cPlugin:
     if sym.name == "KeyCode":
       sym.name = "KeyCodeEnum"
 
-
 when defined(SDL_Static):
-  cImport(SDL_Path, recurse = true)
+  cImport(SDL_Path, recurse = true, flags = "-f=ast2 -DDOXYGEN_SHOULD_IGNORE_THIS")
 else:
-  cImport(SDL_Path, recurse = true, dynlib = "SDL_LPath")
+  cImport(SDL_Path, recurse = true, dynlib = "SDL_LPath", flags = "-f=ast2 -DDOXYGEN_SHOULD_IGNORE_THIS")
 
 proc getDynlibExt(): string =
   when defined(windows):

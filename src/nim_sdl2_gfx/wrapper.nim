@@ -2,22 +2,24 @@ import os, strutils, strformat
 import ../nim_sdl2/wrapper as sdl2_wrapper
 import nimterop/[cimport, build]
 
+export sdl2_wrapper
+
 const
   baseDir = currentSourcePath.parentDir().parentDir().parentDir()
   buildDir = baseDir / "build"
   sdlIncludeDir = buildDir / "sdl2" / "include"
-  srcDir = buildDir / "sdl2_mixer"
+  srcDir = buildDir / "sdl2_gfx"
 
 getHeader(
-  "SDL_mixer.h",
-  dlurl = "https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-$1.tar.gz",
+  "SDL2_gfxPrimitives.h",
+  dlurl = "http://www.ferzkopp.net/Software/SDL2_gfx/SDL2_gfx-$1.tar.gz",
   outdir = srcDir,
-  altNames = "SDL2_mixer"
+  altNames = "SDL2_gfx,SDL_gfx"
 )
 
 # static:
-  # cDebug()
-  # cDisableCaching()
+#   cDebug()
+#   cDisableCaching()
 
 cPlugin:
   import strutils, nre
@@ -104,7 +106,14 @@ cPlugin:
     if sym.name == "KeyCode":
       sym.name = "KeyCodeEnum"
 
-when defined(SDL_mixer_Static):
-  cImport(SDL_mixer_Path, recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
+
+when defined(SDL2_GfxPrimitives_Static):
+  cImport(srcDir / "SDL2_gfxPrimitives.h", recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
+  cImport(srcDir / "SDL2_rotozoom.h", recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
+  cImport(srcDir / "SDL2_framerate.h", recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
+  cImport(srcDir / "SDL2_imageFilter.h", recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
 else:
-  cImport(SDL_mixer_Path, recurse = false, dynlib = "SDL_mixer_LPath", flags = &"-I={sdlIncludeDir} -f=ast2")
+  cImport(srcDir / "SDL2_gfxPrimitives.h", recurse = false, dynlib="SDL2_GfxPrimitives_LPath", flags = &"-I={sdlIncludeDir} -f=ast2")
+  cImport(srcDir / "SDL2_rotozoom.h", recurse = false, dynlib="SDL2_GfxPrimitives_LPath", flags = &"-I={sdlIncludeDir} -f=ast2")
+  cImport(srcDir / "SDL2_framerate.h", recurse = false, dynlib="SDL2_GfxPrimitives_LPath", flags = &"-I={sdlIncludeDir} -f=ast2")
+  cImport(srcDir / "SDL2_imageFilter.h", recurse = false, dynlib="SDL2_GfxPrimitives_LPath", flags = &"-I={sdlIncludeDir} -f=ast2")

@@ -10,7 +10,7 @@ const
 
 getHeader(
   "SDL_image.h",
-  dlurl = "https://www.libsdl.org/projects/SDL_image/release/SDL2_image-2.0.5.tar.gz",
+  dlurl = "https://www.libsdl.org/projects/SDL_image/release/SDL2_image-$1.tar.gz",
   outdir = srcDir,
   altNames = "SDL2_image"
 )

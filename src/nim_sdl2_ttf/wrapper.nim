@@ -12,7 +12,7 @@ const
 
 getHeader(
   "SDL_ttf.h",
-  dlurl = "https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-2.0.15.tar.gz",
+  dlurl = "https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-$1.tar.gz",
   outdir = srcDir,
   altNames = "SDL2_ttf",
   cmakeFlags = &"-DCMAKE_C_FLAGS=-I{sdlIncludeDir} -DCMAKE_MODULE_PATH={cmakeModPath} " &

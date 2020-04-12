@@ -19,9 +19,9 @@ getHeader(
                &"-DSDL2MAIN_LIBRARY={SDLMainLib} -DSDL2_PATH={sdlDir} -DSDL2_INCLUDE_DIR={sdlIncludeDir} -DSDL_gpu_BUILD_DEMOS=OFF"
 )
 
-static:
-  cDebug()
-  cDisableCaching()
+# static:
+#   cDebug()
+#   cDisableCaching()
 
 cOverride:
   type
@@ -113,6 +113,6 @@ cPlugin:
       sym.name = "KeyCodeEnum"
 
 when defined(SDL_gpu_Static):
-  cImport(SDL_gpuPath, recurse = true, flags = &"-I={sdlIncludeDir} -f=ast2")
+  cImport(SDL_gpuPath, recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
 else:
-  cImport(SDL_gpuPath, recurse = true, dynlib = "SDL_gpuLPath", flags = &"-I={sdlIncludeDir} -f=ast2")
+  cImport(SDL_gpuPath, recurse = false, dynlib = "SDL_gpuLPath", flags = &"-I={sdlIncludeDir} -f=ast2")
