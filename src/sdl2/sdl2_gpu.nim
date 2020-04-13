@@ -2,8 +2,6 @@ import os, strformat, strutils
 import sdl2
 import nimterop/[build, cimport]
 
-export sdl2
-
 const
   baseDir = currentSourcePath.parentDir().parentDir().parentDir()
   buildDir = baseDir / "build"
@@ -22,16 +20,9 @@ getHeader(
                &"-DSDL2MAIN_LIBRARY={SDLMainLib} -DSDL2_PATH={sdlDir} -DSDL2_INCLUDE_DIR={sdlIncludeDir} -DSDL_gpu_BUILD_DEMOS=OFF"
 )
 
-static:
-  # cDebug()
-  # cDisableCaching()
-
-  # This shouldn't be needed, but for some reason is
-  let contents = readFile(srcDir/"include/SDL_gpu.h")
-  let newContents = contents.replace("""typedef struct GPU_Renderer GPU_Renderer;
-typedef struct GPU_Target GPU_Target;""", "")
-
-  writeFile(srcDir/"include/SDL_gpu.h", newContents)
+# static:
+#   cDebug()
+#   cDisableCaching()
 
 cOverride:
   type

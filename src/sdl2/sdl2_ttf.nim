@@ -2,8 +2,6 @@ import os, strutils, strformat
 import sdl2
 import nimterop/[cimport, build]
 
-export sdl2
-
 const
   baseDir = currentSourcePath.parentDir().parentDir().parentDir()
   buildDir = baseDir / "build"

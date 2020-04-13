@@ -1,4 +1,4 @@
-import os
+import os, strutils
 import nimterop/[cimport, build]
 
 const
@@ -44,10 +44,6 @@ cOverride:
       of CONTROLLER_BINDTYPE_NONE:
         discard
 
-    # This should work, but also overrides some types
-    # Nimterop bug? @genotrance, comment these out
-    # and uncomment the checks in onSymbol for it to kind of work
-    # (it compiles but overrides nim types)
     Uint64* = uint64
     Uint32* = uint32
     Uint16* = uint16
