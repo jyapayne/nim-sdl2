@@ -3,10 +3,9 @@ import sdl2
 import nimterop/[cimport, build]
 
 const
-  baseDir = currentSourcePath.parentDir().parentDir().parentDir()
-  buildDir = baseDir / "build"
-  sdlIncludeDir = buildDir / "sdl2" / "include"
-  srcDir = buildDir / "sdl2_image"
+  baseDir = SDLCacheDir
+  sdlIncludeDir = baseDir / "sdl2" / "include"
+  srcDir = baseDir / "sdl2_image"
   symbolPluginPath = currentSourcePath.parentDir() / "cleansymbols.nim"
 
 getHeader(
@@ -19,6 +18,12 @@ getHeader(
 # static:
   # cDebug()
   # cDisableCaching()
+
+cOverride:
+  const
+    GetError* = ""
+    SetError* = ""
+    ClearError* = ""
 
 cPluginPath(symbolPluginPath)
 

@@ -3,13 +3,13 @@ import sdl2
 import nimterop/[cimport, build]
 
 const
-  baseDir = currentSourcePath.parentDir().parentDir().parentDir()
-  buildDir = baseDir / "build"
-  sdlDir = buildDir / "sdl2"
+  baseDir = SDLCacheDir
+  sdlDir = baseDir / "sdl2"
   sdlIncludeDir = sdlDir / "include"
-  cmakeModPath = baseDir / "cmake" / "sdl2"
-  srcDir = buildDir / "sdl2_ttf"
-  symbolPluginPath = currentSourcePath.parentDir() / "cleansymbols.nim"
+  srcDir = baseDir / "sdl2_ttf"
+  currentPath = currentSourcePath().parentDir().parentDir()
+  cmakeModPath = currentPath / "cmake" / "sdl2"
+  symbolPluginPath = currentPath / "sdl2" / "cleansymbols.nim"
 
 getHeader(
   "SDL_ttf.h",
@@ -26,7 +26,12 @@ getHeader(
 
 cPluginPath(symbolPluginPath)
 
+cOverride:
+  const
+    GetError* = ""
+    SetError* = ""
+
 when defined(SDL_ttf_Static):
-  cImport(SDL_ttf_Path, recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
+  cImport(SDL_ttf_Path, recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2 -d")
 else:
   cImport(SDL_ttf_Path, recurse = false, dynlib = "SDL_ttf_LPath", flags = &"-I={sdlIncludeDir} -f=ast2")

@@ -1,18 +1,25 @@
-# import macros, nimterop / plugin
+import macros, nimterop / plugin
 import strutils, regex
 import sets
 
 proc firstLetterLower(m: RegexMatch, s: string): string =
-  s[m.group(0)[0]].toLowerAscii
+  if m.groupsCount > 0 and m.group(0).len > 0:
+    return s[m.group(0)[0]].toLowerAscii
 
 proc camelCase(m: RegexMatch, s: string): string =
-  s[m.group(0)[0]].toUpperAscii
+  if m.groupsCount > 0 and m.group(0).len > 0:
+    return s[m.group(0)[0]].toUpperAscii
 
 proc nothing(m: RegexMatch, s: string): string =
-  s[m.group(0)[0]]
+  if m.groupsCount > 0 and m.group(0).len > 0:
+    return s[m.group(0)[0]]
 
 const gpuReg = re"^GPU_(.)"
 const sdlReg = re"^SDL_(.)"
+const ttfReg = re"^TTF_(.)"
+const netReg = re"^SDLNet_(.)"
+const mixReg = re"^Mix_(.)"
+const imgReg = re"^IMG_(.)"
 const underscoreReg = re"_(.)"
 
 const EVENT_TYPES = toHashSet([
@@ -69,9 +76,27 @@ const EVENT_TYPES = toHashSet([
   "LASTEVENT",
 ])
 
+const INT_TYPES = toHashSet([
+  "Uint64",
+  "Uint32",
+  "Uint16",
+  "Uint8",
+  "Sint64",
+  "Sint32",
+  "Sint16",
+  "Sint8",
+])
+
+
 # Symbol renaming examples
 proc onSymbol*(sym: var Symbol) {.exportc, dynlib.} =
+  if sym.kind == nskType:
+    if sym.name == "_SDL_Haptic":
+      sym.name = "PHaptic"
+
   # Remove prefixes or suffixes from procs
+  if sym.name.startsWith("SDL_HAPTIC_"):
+    sym.name = sym.name.replace("SDL_HAPTIC_", "HAPTIC_TYPE_")
   if sym.name == "SDL_init_flags":
     sym.name = "sdlInitFlags"
   if sym.name == "GPU_init_flags":
@@ -79,14 +104,58 @@ proc onSymbol*(sym: var Symbol) {.exportc, dynlib.} =
 
   if sym.kind == nskProc or sym.kind == nskType or sym.kind == nskConst:
     if sym.name != "_":
-      sym.name = sym.name.strip(chars={'_'}).replace("___", "_")
+      sym.name = sym.name.strip(chars={'_'}).replace("__", "_")
 
   if sym.kind == nskProc:
-    sym.name = sym.name.replace(gpuReg, firstLetterLower)
-    sym.name = sym.name.replace(sdlReg, firstLetterLower)
+    try:
+      sym.name = sym.name.replace(gpuReg, firstLetterLower)
+    except:
+      discard
+    try:
+      sym.name = sym.name.replace(sdlReg, firstLetterLower)
+    except:
+      discard
+    try:
+      sym.name = sym.name.replace(ttfReg, firstLetterLower)
+    except:
+      discard
+    try:
+      sym.name = sym.name.replace(netReg, firstLetterLower)
+    except:
+      discard
+    try:
+      sym.name = sym.name.replace(mixReg, firstLetterLower)
+    except:
+      discard
+    try:
+      sym.name = sym.name.replace(imgReg, firstLetterLower)
+    except:
+      discard
   else:
-    sym.name = sym.name.replace(gpuReg, nothing)
-    sym.name = sym.name.replace(sdlReg, nothing)
+    try:
+      sym.name = sym.name.replace(gpuReg, nothing)
+    except:
+      discard
+    try:
+      sym.name = sym.name.replace(sdlReg, nothing)
+    except:
+      discard
+    try:
+      sym.name = sym.name.replace(ttfReg, nothing)
+    except:
+      discard
+    try:
+      sym.name = sym.name.replace(netReg, nothing)
+    except:
+      discard
+    try:
+      sym.name = sym.name.replace(mixReg, nothing)
+    except:
+      discard
+    try:
+      sym.name = sym.name.replace(imgReg, nothing)
+    except:
+      discard
 
   if sym.name.startsWith("SDLK_"):
     sym.name = sym.name.replace("SDLK_", "KEYCODE_")
@@ -104,5 +173,14 @@ proc onSymbol*(sym: var Symbol) {.exportc, dynlib.} =
   if sym.name == "KeyCode":
     sym.name = "KeyCodeEnum"
 
+  if sym.name == "PRIX64":
+    sym.name = "SDLPRIX64"
+
   if sym.kind == nskField:
     sym.name = sym.name.replace(underscoreReg, camelCase)
+    if sym.name == "type":
+      sym.name = "kind"
+
+  # if INT_TYPES.contains(sym.name):
+  #   sym.name = sym.name.replace("S", "")
+  #   sym.name = sym.name.toLowerAscii() & "_ty"
