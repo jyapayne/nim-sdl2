@@ -20,4 +20,4 @@ else:
   task docs, "Do nothing": discard
 
 task buildSDL2, "Build SDL2 example":
-  exec "nimble c -f -r src/sdl2_all.nim"
+  exec "nimble c -f -r src/sdl2.nim"
