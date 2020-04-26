@@ -1,0 +1,72 @@
+SDLttfStd	sdl2/sdl2_ttf.html#SDLttfStd	sdl2_ttf: SDLttfStd	
+SDLttfGit	sdl2/sdl2_ttf.html#SDLttfGit	sdl2_ttf: SDLttfGit	
+SDLttfDL	sdl2/sdl2_ttf.html#SDLttfDL	sdl2_ttf: SDLttfDL	
+SDLttfStatic	sdl2/sdl2_ttf.html#SDLttfStatic	sdl2_ttf: SDLttfStatic	
+SDLttfSetVer	sdl2/sdl2_ttf.html#SDLttfSetVer	sdl2_ttf: SDLttfSetVer	
+SDLttfLPath	sdl2/sdl2_ttf.html#SDLttfLPath	sdl2_ttf: SDLttfLPath	
+SDLttfPath	sdl2/sdl2_ttf.html#SDLttfPath	sdl2_ttf: SDLttfPath	
+SetError	sdl2/sdl2_ttf.html#SetError	sdl2_ttf: SetError	
+GetError	sdl2/sdl2_ttf.html#GetError	sdl2_ttf: GetError	
+MAJOR_VERSION	sdl2/sdl2_ttf.html#MAJOR_VERSION	sdl2_ttf: MAJOR_VERSION	
+MINOR_VERSION	sdl2/sdl2_ttf.html#MINOR_VERSION	sdl2_ttf: MINOR_VERSION	
+PATCHLEVEL	sdl2/sdl2_ttf.html#PATCHLEVEL	sdl2_ttf: PATCHLEVEL	
+UNICODE_BOM_NATIVE	sdl2/sdl2_ttf.html#UNICODE_BOM_NATIVE	sdl2_ttf: UNICODE_BOM_NATIVE	
+UNICODE_BOM_SWAPPED	sdl2/sdl2_ttf.html#UNICODE_BOM_SWAPPED	sdl2_ttf: UNICODE_BOM_SWAPPED	
+STYLE_NORMAL	sdl2/sdl2_ttf.html#STYLE_NORMAL	sdl2_ttf: STYLE_NORMAL	
+STYLE_BOLD	sdl2/sdl2_ttf.html#STYLE_BOLD	sdl2_ttf: STYLE_BOLD	
+STYLE_ITALIC	sdl2/sdl2_ttf.html#STYLE_ITALIC	sdl2_ttf: STYLE_ITALIC	
+STYLE_UNDERLINE	sdl2/sdl2_ttf.html#STYLE_UNDERLINE	sdl2_ttf: STYLE_UNDERLINE	
+STYLE_STRIKETHROUGH	sdl2/sdl2_ttf.html#STYLE_STRIKETHROUGH	sdl2_ttf: STYLE_STRIKETHROUGH	
+HINTING_NORMAL	sdl2/sdl2_ttf.html#HINTING_NORMAL	sdl2_ttf: HINTING_NORMAL	
+HINTING_LIGHT	sdl2/sdl2_ttf.html#HINTING_LIGHT	sdl2_ttf: HINTING_LIGHT	
+HINTING_MONO	sdl2/sdl2_ttf.html#HINTING_MONO	sdl2_ttf: HINTING_MONO	
+HINTING_NONE	sdl2/sdl2_ttf.html#HINTING_NONE	sdl2_ttf: HINTING_NONE	
+Font	sdl2/sdl2_ttf.html#Font	sdl2_ttf: Font	
+linked_Version	sdl2/sdl2_ttf.html#linked_Version	sdl2_ttf: linked_Version(): ptr Version	
+byteSwappedUNICODE	sdl2/sdl2_ttf.html#byteSwappedUNICODE,cint	sdl2_ttf: byteSwappedUNICODE(swapped: cint)	
+init	sdl2/sdl2_ttf.html#init	sdl2_ttf: init(): cint	
+openFont	sdl2/sdl2_ttf.html#openFont,cstring,cint	sdl2_ttf: openFont(file: cstring; ptsize: cint): ptr Font	
+openFontIndex	sdl2/sdl2_ttf.html#openFontIndex,cstring,cint,clong	sdl2_ttf: openFontIndex(file: cstring; ptsize: cint; index: clong): ptr Font	
+openFontRW	sdl2/sdl2_ttf.html#openFontRW,ptr.RWops,cint,cint	sdl2_ttf: openFontRW(src: ptr RWops; freesrc: cint; ptsize: cint): ptr Font	
+openFontIndexRW	sdl2/sdl2_ttf.html#openFontIndexRW,ptr.RWops,cint,cint,clong	sdl2_ttf: openFontIndexRW(src: ptr RWops; freesrc: cint; ptsize: cint; index: clong): ptr Font	
+getFontStyle	sdl2/sdl2_ttf.html#getFontStyle,ptr.Font	sdl2_ttf: getFontStyle(font: ptr Font): cint	
+setFontStyle	sdl2/sdl2_ttf.html#setFontStyle,ptr.Font,cint	sdl2_ttf: setFontStyle(font: ptr Font; style: cint)	
+getFontOutline	sdl2/sdl2_ttf.html#getFontOutline,ptr.Font	sdl2_ttf: getFontOutline(font: ptr Font): cint	
+setFontOutline	sdl2/sdl2_ttf.html#setFontOutline,ptr.Font,cint	sdl2_ttf: setFontOutline(font: ptr Font; outline: cint)	
+getFontHinting	sdl2/sdl2_ttf.html#getFontHinting,ptr.Font	sdl2_ttf: getFontHinting(font: ptr Font): cint	
+setFontHinting	sdl2/sdl2_ttf.html#setFontHinting,ptr.Font,cint	sdl2_ttf: setFontHinting(font: ptr Font; hinting: cint)	
+fontHeight	sdl2/sdl2_ttf.html#fontHeight,ptr.Font	sdl2_ttf: fontHeight(font: ptr Font): cint	
+fontAscent	sdl2/sdl2_ttf.html#fontAscent,ptr.Font	sdl2_ttf: fontAscent(font: ptr Font): cint	
+fontDescent	sdl2/sdl2_ttf.html#fontDescent,ptr.Font	sdl2_ttf: fontDescent(font: ptr Font): cint	
+fontLineSkip	sdl2/sdl2_ttf.html#fontLineSkip,ptr.Font	sdl2_ttf: fontLineSkip(font: ptr Font): cint	
+getFontKerning	sdl2/sdl2_ttf.html#getFontKerning,ptr.Font	sdl2_ttf: getFontKerning(font: ptr Font): cint	
+setFontKerning	sdl2/sdl2_ttf.html#setFontKerning,ptr.Font,cint	sdl2_ttf: setFontKerning(font: ptr Font; allowed: cint)	
+fontFaces	sdl2/sdl2_ttf.html#fontFaces,ptr.Font	sdl2_ttf: fontFaces(font: ptr Font): clong	
+fontFaceIsFixedWidth	sdl2/sdl2_ttf.html#fontFaceIsFixedWidth,ptr.Font	sdl2_ttf: fontFaceIsFixedWidth(font: ptr Font): cint	
+fontFaceFamilyName	sdl2/sdl2_ttf.html#fontFaceFamilyName,ptr.Font	sdl2_ttf: fontFaceFamilyName(font: ptr Font): cstring	
+fontFaceStyleName	sdl2/sdl2_ttf.html#fontFaceStyleName,ptr.Font	sdl2_ttf: fontFaceStyleName(font: ptr Font): cstring	
+glyphIsProvided	sdl2/sdl2_ttf.html#glyphIsProvided,ptr.Font,Uint16	sdl2_ttf: glyphIsProvided(font: ptr Font; ch: Uint16): cint	
+glyphMetrics	sdl2/sdl2_ttf.html#glyphMetrics,ptr.Font,Uint16,ptr.cint,ptr.cint,ptr.cint,ptr.cint,ptr.cint	sdl2_ttf: glyphMetrics(font: ptr Font; ch: Uint16; minx: ptr cint; maxx: ptr cint; miny: ptr cint;\n             maxy: ptr cint; advance: ptr cint): cint	
+sizeText	sdl2/sdl2_ttf.html#sizeText,ptr.Font,cstring,ptr.cint,ptr.cint	sdl2_ttf: sizeText(font: ptr Font; text: cstring; w: ptr cint; h: ptr cint): cint	
+sizeUTF8	sdl2/sdl2_ttf.html#sizeUTF8,ptr.Font,cstring,ptr.cint,ptr.cint	sdl2_ttf: sizeUTF8(font: ptr Font; text: cstring; w: ptr cint; h: ptr cint): cint	
+sizeUNICODE	sdl2/sdl2_ttf.html#sizeUNICODE,ptr.Font,ptr.Uint16,ptr.cint,ptr.cint	sdl2_ttf: sizeUNICODE(font: ptr Font; text: ptr Uint16; w: ptr cint; h: ptr cint): cint	
+renderText_Solid	sdl2/sdl2_ttf.html#renderText_Solid,ptr.Font,cstring,Color	sdl2_ttf: renderText_Solid(font: ptr Font; text: cstring; fg: Color): ptr Surface	
+renderUTF8_Solid	sdl2/sdl2_ttf.html#renderUTF8_Solid,ptr.Font,cstring,Color	sdl2_ttf: renderUTF8_Solid(font: ptr Font; text: cstring; fg: Color): ptr Surface	
+renderUNICODE_Solid	sdl2/sdl2_ttf.html#renderUNICODE_Solid,ptr.Font,ptr.Uint16,Color	sdl2_ttf: renderUNICODE_Solid(font: ptr Font; text: ptr Uint16; fg: Color): ptr Surface	
+renderGlyph_Solid	sdl2/sdl2_ttf.html#renderGlyph_Solid,ptr.Font,Uint16,Color	sdl2_ttf: renderGlyph_Solid(font: ptr Font; ch: Uint16; fg: Color): ptr Surface	
+renderText_Shaded	sdl2/sdl2_ttf.html#renderText_Shaded,ptr.Font,cstring,Color,Color	sdl2_ttf: renderText_Shaded(font: ptr Font; text: cstring; fg: Color; bg: Color): ptr Surface	
+renderUTF8_Shaded	sdl2/sdl2_ttf.html#renderUTF8_Shaded,ptr.Font,cstring,Color,Color	sdl2_ttf: renderUTF8_Shaded(font: ptr Font; text: cstring; fg: Color; bg: Color): ptr Surface	
+renderUNICODE_Shaded	sdl2/sdl2_ttf.html#renderUNICODE_Shaded,ptr.Font,ptr.Uint16,Color,Color	sdl2_ttf: renderUNICODE_Shaded(font: ptr Font; text: ptr Uint16; fg: Color; bg: Color): ptr Surface	
+renderGlyph_Shaded	sdl2/sdl2_ttf.html#renderGlyph_Shaded,ptr.Font,Uint16,Color,Color	sdl2_ttf: renderGlyph_Shaded(font: ptr Font; ch: Uint16; fg: Color; bg: Color): ptr Surface	
+renderText_Blended	sdl2/sdl2_ttf.html#renderText_Blended,ptr.Font,cstring,Color	sdl2_ttf: renderText_Blended(font: ptr Font; text: cstring; fg: Color): ptr Surface	
+renderUTF8_Blended	sdl2/sdl2_ttf.html#renderUTF8_Blended,ptr.Font,cstring,Color	sdl2_ttf: renderUTF8_Blended(font: ptr Font; text: cstring; fg: Color): ptr Surface	
+renderUNICODE_Blended	sdl2/sdl2_ttf.html#renderUNICODE_Blended,ptr.Font,ptr.Uint16,Color	sdl2_ttf: renderUNICODE_Blended(font: ptr Font; text: ptr Uint16; fg: Color): ptr Surface	
+renderText_Blended_Wrapped	sdl2/sdl2_ttf.html#renderText_Blended_Wrapped,ptr.Font,cstring,Color,Uint32	sdl2_ttf: renderText_Blended_Wrapped(font: ptr Font; text: cstring; fg: Color; wrapLength: Uint32): ptr Surface	
+renderUTF8_Blended_Wrapped	sdl2/sdl2_ttf.html#renderUTF8_Blended_Wrapped,ptr.Font,cstring,Color,Uint32	sdl2_ttf: renderUTF8_Blended_Wrapped(font: ptr Font; text: cstring; fg: Color; wrapLength: Uint32): ptr Surface	
+renderUNICODE_Blended_Wrapped	sdl2/sdl2_ttf.html#renderUNICODE_Blended_Wrapped,ptr.Font,ptr.Uint16,Color,Uint32	sdl2_ttf: renderUNICODE_Blended_Wrapped(font: ptr Font; text: ptr Uint16; fg: Color;\n                              wrapLength: Uint32): ptr Surface	
+renderGlyph_Blended	sdl2/sdl2_ttf.html#renderGlyph_Blended,ptr.Font,Uint16,Color	sdl2_ttf: renderGlyph_Blended(font: ptr Font; ch: Uint16; fg: Color): ptr Surface	
+closeFont	sdl2/sdl2_ttf.html#closeFont,ptr.Font	sdl2_ttf: closeFont(font: ptr Font)	
+quit	sdl2/sdl2_ttf.html#quit	sdl2_ttf: quit()	
+wasInit	sdl2/sdl2_ttf.html#wasInit	sdl2_ttf: wasInit(): cint	
+getFontKerningSize	sdl2/sdl2_ttf.html#getFontKerningSize,ptr.Font,cint,cint	sdl2_ttf: getFontKerningSize(font: ptr Font; prevIndex: cint; index: cint): cint	
+getFontKerningSizeGlyphs	sdl2/sdl2_ttf.html#getFontKerningSizeGlyphs,ptr.Font,Uint16,Uint16	sdl2_ttf: getFontKerningSizeGlyphs(font: ptr Font; previousCh: Uint16; ch: Uint16): cint	
