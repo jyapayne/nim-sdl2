@@ -94,6 +94,8 @@ cOverride:
       of CONTROLLER_BINDTYPE_NONE:
         discard
 
+    Bool* = bool
+
 cPluginPath(symbolPluginPath)
 
 static:
