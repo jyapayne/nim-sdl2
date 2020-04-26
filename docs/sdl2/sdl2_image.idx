@@ -1,0 +1,63 @@
+SDLimageStd	sdl2/sdl2_image.html#SDLimageStd	sdl2_image: SDLimageStd	
+SDLimageGit	sdl2/sdl2_image.html#SDLimageGit	sdl2_image: SDLimageGit	
+SDLimageDL	sdl2/sdl2_image.html#SDLimageDL	sdl2_image: SDLimageDL	
+SDLimageStatic	sdl2/sdl2_image.html#SDLimageStatic	sdl2_image: SDLimageStatic	
+SDLimageSetVer	sdl2/sdl2_image.html#SDLimageSetVer	sdl2_image: SDLimageSetVer	
+SDLimageLPath	sdl2/sdl2_image.html#SDLimageLPath	sdl2_image: SDLimageLPath	
+SDLimagePath	sdl2/sdl2_image.html#SDLimagePath	sdl2_image: SDLimagePath	
+InitFlags	sdl2/sdl2_image.html#InitFlags	sdl2_image: InitFlags	
+SetError	sdl2/sdl2_image.html#SetError	sdl2_image: SetError	
+GetError	sdl2/sdl2_image.html#GetError	sdl2_image: GetError	
+ClearError	sdl2/sdl2_image.html#ClearError	sdl2_image: ClearError	
+IMAGE_MAJOR_VERSION	sdl2/sdl2_image.html#IMAGE_MAJOR_VERSION	sdl2_image: IMAGE_MAJOR_VERSION	
+IMAGE_MINOR_VERSION	sdl2/sdl2_image.html#IMAGE_MINOR_VERSION	sdl2_image: IMAGE_MINOR_VERSION	
+IMAGE_PATCHLEVEL	sdl2/sdl2_image.html#IMAGE_PATCHLEVEL	sdl2_image: IMAGE_PATCHLEVEL	
+INIT_JPG	sdl2/sdl2_image.html#INIT_JPG	sdl2_image: INIT_JPG	
+INIT_PNG	sdl2/sdl2_image.html#INIT_PNG	sdl2_image: INIT_PNG	
+INIT_TIF	sdl2/sdl2_image.html#INIT_TIF	sdl2_image: INIT_TIF	
+INIT_WEBP	sdl2/sdl2_image.html#INIT_WEBP	sdl2_image: INIT_WEBP	
+linked_Version	sdl2/sdl2_image.html#linked_Version	sdl2_image: linked_Version(): ptr Version	
+init	sdl2/sdl2_image.html#init,cint	sdl2_image: init(flags: cint): cint	
+quit	sdl2/sdl2_image.html#quit	sdl2_image: quit()	
+loadTyped_RW	sdl2/sdl2_image.html#loadTyped_RW,ptr.RWops,cint,cstring	sdl2_image: loadTyped_RW(src: ptr RWops; freesrc: cint; kind: cstring): ptr Surface	
+load	sdl2/sdl2_image.html#load,cstring	sdl2_image: load(file: cstring): ptr Surface	
+load_RW	sdl2/sdl2_image.html#load_RW,ptr.RWops,cint	sdl2_image: load_RW(src: ptr RWops; freesrc: cint): ptr Surface	
+loadTexture	sdl2/sdl2_image.html#loadTexture,ptr.Renderer,cstring	sdl2_image: loadTexture(renderer: ptr Renderer; file: cstring): ptr Texture	
+loadTexture_RW	sdl2/sdl2_image.html#loadTexture_RW,ptr.Renderer,ptr.RWops,cint	sdl2_image: loadTexture_RW(renderer: ptr Renderer; src: ptr RWops; freesrc: cint): ptr Texture	
+loadTextureTyped_RW	sdl2/sdl2_image.html#loadTextureTyped_RW,ptr.Renderer,ptr.RWops,cint,cstring	sdl2_image: loadTextureTyped_RW(renderer: ptr Renderer; src: ptr RWops; freesrc: cint; kind: cstring): ptr Texture	
+isICO	sdl2/sdl2_image.html#isICO,ptr.RWops	sdl2_image: isICO(src: ptr RWops): cint	
+isCUR	sdl2/sdl2_image.html#isCUR,ptr.RWops	sdl2_image: isCUR(src: ptr RWops): cint	
+isBMP	sdl2/sdl2_image.html#isBMP,ptr.RWops	sdl2_image: isBMP(src: ptr RWops): cint	
+isGIF	sdl2/sdl2_image.html#isGIF,ptr.RWops	sdl2_image: isGIF(src: ptr RWops): cint	
+isJPG	sdl2/sdl2_image.html#isJPG,ptr.RWops	sdl2_image: isJPG(src: ptr RWops): cint	
+isLBM	sdl2/sdl2_image.html#isLBM,ptr.RWops	sdl2_image: isLBM(src: ptr RWops): cint	
+isPCX	sdl2/sdl2_image.html#isPCX,ptr.RWops	sdl2_image: isPCX(src: ptr RWops): cint	
+isPNG	sdl2/sdl2_image.html#isPNG,ptr.RWops	sdl2_image: isPNG(src: ptr RWops): cint	
+isPNM	sdl2/sdl2_image.html#isPNM,ptr.RWops	sdl2_image: isPNM(src: ptr RWops): cint	
+isSVG	sdl2/sdl2_image.html#isSVG,ptr.RWops	sdl2_image: isSVG(src: ptr RWops): cint	
+isTIF	sdl2/sdl2_image.html#isTIF,ptr.RWops	sdl2_image: isTIF(src: ptr RWops): cint	
+isXCF	sdl2/sdl2_image.html#isXCF,ptr.RWops	sdl2_image: isXCF(src: ptr RWops): cint	
+isXPM	sdl2/sdl2_image.html#isXPM,ptr.RWops	sdl2_image: isXPM(src: ptr RWops): cint	
+isXV	sdl2/sdl2_image.html#isXV,ptr.RWops	sdl2_image: isXV(src: ptr RWops): cint	
+isWEBP	sdl2/sdl2_image.html#isWEBP,ptr.RWops	sdl2_image: isWEBP(src: ptr RWops): cint	
+loadICO_RW	sdl2/sdl2_image.html#loadICO_RW,ptr.RWops	sdl2_image: loadICO_RW(src: ptr RWops): ptr Surface	
+loadCUR_RW	sdl2/sdl2_image.html#loadCUR_RW,ptr.RWops	sdl2_image: loadCUR_RW(src: ptr RWops): ptr Surface	
+loadBMP_RW	sdl2/sdl2_image.html#loadBMP_RW,ptr.RWops	sdl2_image: loadBMP_RW(src: ptr RWops): ptr Surface	
+loadGIF_RW	sdl2/sdl2_image.html#loadGIF_RW,ptr.RWops	sdl2_image: loadGIF_RW(src: ptr RWops): ptr Surface	
+loadJPG_RW	sdl2/sdl2_image.html#loadJPG_RW,ptr.RWops	sdl2_image: loadJPG_RW(src: ptr RWops): ptr Surface	
+loadLBM_RW	sdl2/sdl2_image.html#loadLBM_RW,ptr.RWops	sdl2_image: loadLBM_RW(src: ptr RWops): ptr Surface	
+loadPCX_RW	sdl2/sdl2_image.html#loadPCX_RW,ptr.RWops	sdl2_image: loadPCX_RW(src: ptr RWops): ptr Surface	
+loadPNG_RW	sdl2/sdl2_image.html#loadPNG_RW,ptr.RWops	sdl2_image: loadPNG_RW(src: ptr RWops): ptr Surface	
+loadPNM_RW	sdl2/sdl2_image.html#loadPNM_RW,ptr.RWops	sdl2_image: loadPNM_RW(src: ptr RWops): ptr Surface	
+loadSVG_RW	sdl2/sdl2_image.html#loadSVG_RW,ptr.RWops	sdl2_image: loadSVG_RW(src: ptr RWops): ptr Surface	
+loadTGA_RW	sdl2/sdl2_image.html#loadTGA_RW,ptr.RWops	sdl2_image: loadTGA_RW(src: ptr RWops): ptr Surface	
+loadTIF_RW	sdl2/sdl2_image.html#loadTIF_RW,ptr.RWops	sdl2_image: loadTIF_RW(src: ptr RWops): ptr Surface	
+loadXCF_RW	sdl2/sdl2_image.html#loadXCF_RW,ptr.RWops	sdl2_image: loadXCF_RW(src: ptr RWops): ptr Surface	
+loadXPM_RW	sdl2/sdl2_image.html#loadXPM_RW,ptr.RWops	sdl2_image: loadXPM_RW(src: ptr RWops): ptr Surface	
+loadXV_RW	sdl2/sdl2_image.html#loadXV_RW,ptr.RWops	sdl2_image: loadXV_RW(src: ptr RWops): ptr Surface	
+loadWEBP_RW	sdl2/sdl2_image.html#loadWEBP_RW,ptr.RWops	sdl2_image: loadWEBP_RW(src: ptr RWops): ptr Surface	
+readXPMFromArray	sdl2/sdl2_image.html#readXPMFromArray,ptr.cstring	sdl2_image: readXPMFromArray(xpm: ptr cstring): ptr Surface	
+savePNG	sdl2/sdl2_image.html#savePNG,ptr.Surface,cstring	sdl2_image: savePNG(surface: ptr Surface; file: cstring): cint	
+savePNG_RW	sdl2/sdl2_image.html#savePNG_RW,ptr.Surface,ptr.RWops,cint	sdl2_image: savePNG_RW(surface: ptr Surface; dst: ptr RWops; freedst: cint): cint	
+saveJPG	sdl2/sdl2_image.html#saveJPG,ptr.Surface,cstring,cint	sdl2_image: saveJPG(surface: ptr Surface; file: cstring; quality: cint): cint	
+saveJPG_RW	sdl2/sdl2_image.html#saveJPG_RW,ptr.Surface,ptr.RWops,cint,cint	sdl2_image: saveJPG_RW(surface: ptr Surface; dst: ptr RWops; freedst: cint; quality: cint): cint	

@@ -1,0 +1,62 @@
+SDLnetStd	sdl2/sdl2_net.html#SDLnetStd	sdl2_net: SDLnetStd	
+SDLnetGit	sdl2/sdl2_net.html#SDLnetGit	sdl2_net: SDLnetGit	
+SDLnetDL	sdl2/sdl2_net.html#SDLnetDL	sdl2_net: SDLnetDL	
+SDLnetStatic	sdl2/sdl2_net.html#SDLnetStatic	sdl2_net: SDLnetStatic	
+SDLnetSetVer	sdl2/sdl2_net.html#SDLnetSetVer	sdl2_net: SDLnetSetVer	
+SDLnetLPath	sdl2/sdl2_net.html#SDLnetLPath	sdl2_net: SDLnetLPath	
+SDLnetPath	sdl2/sdl2_net.html#SDLnetPath	sdl2_net: SDLnetPath	
+NET_MAJOR_VERSION	sdl2/sdl2_net.html#NET_MAJOR_VERSION	sdl2_net: NET_MAJOR_VERSION	
+NET_MINOR_VERSION	sdl2/sdl2_net.html#NET_MINOR_VERSION	sdl2_net: NET_MINOR_VERSION	
+NET_PATCHLEVEL	sdl2/sdl2_net.html#NET_PATCHLEVEL	sdl2_net: NET_PATCHLEVEL	
+INADDR_ANY	sdl2/sdl2_net.html#INADDR_ANY	sdl2_net: INADDR_ANY	
+INADDR_NONE	sdl2/sdl2_net.html#INADDR_NONE	sdl2_net: INADDR_NONE	
+INADDR_LOOPBACK	sdl2/sdl2_net.html#INADDR_LOOPBACK	sdl2_net: INADDR_LOOPBACK	
+INADDR_BROADCAST	sdl2/sdl2_net.html#INADDR_BROADCAST	sdl2_net: INADDR_BROADCAST	
+SDLNET_MAX_UDPCHANNELS	sdl2/sdl2_net.html#SDLNET_MAX_UDPCHANNELS	sdl2_net: SDLNET_MAX_UDPCHANNELS	
+SDLNET_MAX_UDPADDRESSES	sdl2/sdl2_net.html#SDLNET_MAX_UDPADDRESSES	sdl2_net: SDLNET_MAX_UDPADDRESSES	
+DATA_ALIGNED	sdl2/sdl2_net.html#DATA_ALIGNED	sdl2_net: DATA_ALIGNED	
+Version	sdl2/sdl2_net.html#Version	sdl2_net: Version	
+IPaddress	sdl2/sdl2_net.html#IPaddress	sdl2_net: IPaddress	
+TCPsocket	sdl2/sdl2_net.html#TCPsocket	sdl2_net: TCPsocket	
+UDPsocket	sdl2/sdl2_net.html#UDPsocket	sdl2_net: UDPsocket	
+UDPpacket	sdl2/sdl2_net.html#UDPpacket	sdl2_net: UDPpacket	
+SocketSet	sdl2/sdl2_net.html#SocketSet	sdl2_net: SocketSet	
+GenericSocket	sdl2/sdl2_net.html#GenericSocket	sdl2_net: GenericSocket	
+linked_Version	sdl2/sdl2_net.html#linked_Version	sdl2_net: linked_Version(): ptr Version	
+init	sdl2/sdl2_net.html#init	sdl2_net: init(): cint	
+quit	sdl2/sdl2_net.html#quit	sdl2_net: quit()	
+resolveHost	sdl2/sdl2_net.html#resolveHost,ptr.IPaddress,cstring,Uint16	sdl2_net: resolveHost(address: ptr IPaddress; host: cstring; port: Uint16): cint	
+resolveIP	sdl2/sdl2_net.html#resolveIP,ptr.IPaddress	sdl2_net: resolveIP(ip: ptr IPaddress): cstring	
+getLocalAddresses	sdl2/sdl2_net.html#getLocalAddresses,ptr.IPaddress,cint	sdl2_net: getLocalAddresses(addresses: ptr IPaddress; maxcount: cint): cint	
+tCP_Open	sdl2/sdl2_net.html#tCP_Open,ptr.IPaddress	sdl2_net: tCP_Open(ip: ptr IPaddress): TCPsocket	
+tCP_Accept	sdl2/sdl2_net.html#tCP_Accept,TCPsocket	sdl2_net: tCP_Accept(server: TCPsocket): TCPsocket	
+tCP_GetPeerAddress	sdl2/sdl2_net.html#tCP_GetPeerAddress,TCPsocket	sdl2_net: tCP_GetPeerAddress(sock: TCPsocket): ptr IPaddress	
+tCP_Send	sdl2/sdl2_net.html#tCP_Send,TCPsocket,pointer,cint	sdl2_net: tCP_Send(sock: TCPsocket; data: pointer; len: cint): cint	
+tCP_Recv	sdl2/sdl2_net.html#tCP_Recv,TCPsocket,pointer,cint	sdl2_net: tCP_Recv(sock: TCPsocket; data: pointer; maxlen: cint): cint	
+tCP_Close	sdl2/sdl2_net.html#tCP_Close,TCPsocket	sdl2_net: tCP_Close(sock: TCPsocket)	
+allocPacket	sdl2/sdl2_net.html#allocPacket,cint	sdl2_net: allocPacket(size: cint): ptr UDPpacket	
+resizePacket	sdl2/sdl2_net.html#resizePacket,ptr.UDPpacket,cint	sdl2_net: resizePacket(packet: ptr UDPpacket; newsize: cint): cint	
+freePacket	sdl2/sdl2_net.html#freePacket,ptr.UDPpacket	sdl2_net: freePacket(packet: ptr UDPpacket)	
+allocPacketV	sdl2/sdl2_net.html#allocPacketV,cint,cint	sdl2_net: allocPacketV(howmany: cint; size: cint): ptr ptr UDPpacket	
+freePacketV	sdl2/sdl2_net.html#freePacketV,ptr.ptr.UDPpacket	sdl2_net: freePacketV(packetV: ptr ptr UDPpacket)	
+uDP_Open	sdl2/sdl2_net.html#uDP_Open,Uint16	sdl2_net: uDP_Open(port: Uint16): UDPsocket	
+uDP_SetPacketLoss	sdl2/sdl2_net.html#uDP_SetPacketLoss,UDPsocket,cint	sdl2_net: uDP_SetPacketLoss(sock: UDPsocket; percent: cint)	
+uDP_Bind	sdl2/sdl2_net.html#uDP_Bind,UDPsocket,cint,ptr.IPaddress	sdl2_net: uDP_Bind(sock: UDPsocket; channel: cint; address: ptr IPaddress): cint	
+uDP_Unbind	sdl2/sdl2_net.html#uDP_Unbind,UDPsocket,cint	sdl2_net: uDP_Unbind(sock: UDPsocket; channel: cint)	
+uDP_GetPeerAddress	sdl2/sdl2_net.html#uDP_GetPeerAddress,UDPsocket,cint	sdl2_net: uDP_GetPeerAddress(sock: UDPsocket; channel: cint): ptr IPaddress	
+uDP_SendV	sdl2/sdl2_net.html#uDP_SendV,UDPsocket,ptr.ptr.UDPpacket,cint	sdl2_net: uDP_SendV(sock: UDPsocket; packets: ptr ptr UDPpacket; npackets: cint): cint	
+uDP_Send	sdl2/sdl2_net.html#uDP_Send,UDPsocket,cint,ptr.UDPpacket	sdl2_net: uDP_Send(sock: UDPsocket; channel: cint; packet: ptr UDPpacket): cint	
+uDP_RecvV	sdl2/sdl2_net.html#uDP_RecvV,UDPsocket,ptr.ptr.UDPpacket	sdl2_net: uDP_RecvV(sock: UDPsocket; packets: ptr ptr UDPpacket): cint	
+uDP_Recv	sdl2/sdl2_net.html#uDP_Recv,UDPsocket,ptr.UDPpacket	sdl2_net: uDP_Recv(sock: UDPsocket; packet: ptr UDPpacket): cint	
+uDP_Close	sdl2/sdl2_net.html#uDP_Close,UDPsocket	sdl2_net: uDP_Close(sock: UDPsocket)	
+allocSocketSet	sdl2/sdl2_net.html#allocSocketSet,cint	sdl2_net: allocSocketSet(maxsockets: cint): SocketSet	
+addSocket	sdl2/sdl2_net.html#addSocket,SocketSet,GenericSocket	sdl2_net: addSocket(set: SocketSet; sock: GenericSocket): cint	
+delSocket	sdl2/sdl2_net.html#delSocket,SocketSet,GenericSocket	sdl2_net: delSocket(set: SocketSet; sock: GenericSocket): cint	
+checkSockets	sdl2/sdl2_net.html#checkSockets,SocketSet,Uint32	sdl2_net: checkSockets(set: SocketSet; timeout: Uint32): cint	
+freeSocketSet	sdl2/sdl2_net.html#freeSocketSet,SocketSet	sdl2_net: freeSocketSet(set: SocketSet)	
+setError	sdl2/sdl2_net.html#setError,cstring	sdl2_net: setError(fmt: cstring)	
+getError	sdl2/sdl2_net.html#getError	sdl2_net: getError(): cstring	
+INVALID_SOCKET	sdl2/sdl2_net.html#INVALID_SOCKET	sdl2_net: INVALID_SOCKET	
+SOCKET_ERROR	sdl2/sdl2_net.html#SOCKET_ERROR	sdl2_net: SOCKET_ERROR	
+getLastError	sdl2/sdl2_net.html#getLastError	sdl2_net: getLastError(): cint	
+setLastError	sdl2/sdl2_net.html#setLastError,cint	sdl2_net: setLastError(err: cint)	

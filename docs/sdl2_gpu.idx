@@ -1,0 +1,480 @@
+SDLgpuStd	sdl2_gpu.html#SDLgpuStd	sdl2_gpu: SDLgpuStd	
+SDLgpuGit	sdl2_gpu.html#SDLgpuGit	sdl2_gpu: SDLgpuGit	
+SDLgpuDL	sdl2_gpu.html#SDLgpuDL	sdl2_gpu: SDLgpuDL	
+SDLgpuStatic	sdl2_gpu.html#SDLgpuStatic	sdl2_gpu: SDLgpuStatic	
+SDLgpuSetVer	sdl2_gpu.html#SDLgpuSetVer	sdl2_gpu: SDLgpuSetVer	
+SDLgpuLPath	sdl2_gpu.html#SDLgpuLPath	sdl2_gpu: SDLgpuLPath	
+SDLgpuPath	sdl2_gpu.html#SDLgpuPath	sdl2_gpu: SDLgpuPath	
+NONE	sdl2_gpu.html#NONE	sdl2_gpu: NONE	
+FEATURE_NON_POWER_OF_TWO	sdl2_gpu.html#FEATURE_NON_POWER_OF_TWO	sdl2_gpu: FEATURE_NON_POWER_OF_TWO	
+FEATURE_RENDER_TARGETS	sdl2_gpu.html#FEATURE_RENDER_TARGETS	sdl2_gpu: FEATURE_RENDER_TARGETS	
+FEATURE_BLEND_EQUATIONS	sdl2_gpu.html#FEATURE_BLEND_EQUATIONS	sdl2_gpu: FEATURE_BLEND_EQUATIONS	
+FEATURE_BLEND_FUNC_SEPARATE	sdl2_gpu.html#FEATURE_BLEND_FUNC_SEPARATE	sdl2_gpu: FEATURE_BLEND_FUNC_SEPARATE	
+FEATURE_BLEND_EQUATIONS_SEPARATE	sdl2_gpu.html#FEATURE_BLEND_EQUATIONS_SEPARATE	sdl2_gpu: FEATURE_BLEND_EQUATIONS_SEPARATE	
+FEATURE_GL_BGR	sdl2_gpu.html#FEATURE_GL_BGR	sdl2_gpu: FEATURE_GL_BGR	
+FEATURE_GL_BGRA	sdl2_gpu.html#FEATURE_GL_BGRA	sdl2_gpu: FEATURE_GL_BGRA	
+FEATURE_GL_ABGR	sdl2_gpu.html#FEATURE_GL_ABGR	sdl2_gpu: FEATURE_GL_ABGR	
+FEATURE_VERTEX_SHADER	sdl2_gpu.html#FEATURE_VERTEX_SHADER	sdl2_gpu: FEATURE_VERTEX_SHADER	
+FEATURE_FRAGMENT_SHADER	sdl2_gpu.html#FEATURE_FRAGMENT_SHADER	sdl2_gpu: FEATURE_FRAGMENT_SHADER	
+FEATURE_PIXEL_SHADER	sdl2_gpu.html#FEATURE_PIXEL_SHADER	sdl2_gpu: FEATURE_PIXEL_SHADER	
+FEATURE_GEOMETRY_SHADER	sdl2_gpu.html#FEATURE_GEOMETRY_SHADER	sdl2_gpu: FEATURE_GEOMETRY_SHADER	
+FEATURE_WRAP_REPEAT_MIRRORED	sdl2_gpu.html#FEATURE_WRAP_REPEAT_MIRRORED	sdl2_gpu: FEATURE_WRAP_REPEAT_MIRRORED	
+FEATURE_CORE_FRAMEBUFFER_OBJECTS	sdl2_gpu.html#FEATURE_CORE_FRAMEBUFFER_OBJECTS	sdl2_gpu: FEATURE_CORE_FRAMEBUFFER_OBJECTS	
+FEATURE_ALL_BASE	sdl2_gpu.html#FEATURE_ALL_BASE	sdl2_gpu: FEATURE_ALL_BASE	
+FEATURE_ALL_BLEND_PRESETS	sdl2_gpu.html#FEATURE_ALL_BLEND_PRESETS	sdl2_gpu: FEATURE_ALL_BLEND_PRESETS	
+FEATURE_ALL_GL_FORMATS	sdl2_gpu.html#FEATURE_ALL_GL_FORMATS	sdl2_gpu: FEATURE_ALL_GL_FORMATS	
+FEATURE_BASIC_SHADERS	sdl2_gpu.html#FEATURE_BASIC_SHADERS	sdl2_gpu: FEATURE_BASIC_SHADERS	
+FEATURE_ALL_SHADERS	sdl2_gpu.html#FEATURE_ALL_SHADERS	sdl2_gpu: FEATURE_ALL_SHADERS	
+INIT_ENABLE_VSYNC	sdl2_gpu.html#INIT_ENABLE_VSYNC	sdl2_gpu: INIT_ENABLE_VSYNC	
+INIT_DISABLE_VSYNC	sdl2_gpu.html#INIT_DISABLE_VSYNC	sdl2_gpu: INIT_DISABLE_VSYNC	
+INIT_DISABLE_DOUBLE_BUFFER	sdl2_gpu.html#INIT_DISABLE_DOUBLE_BUFFER	sdl2_gpu: INIT_DISABLE_DOUBLE_BUFFER	
+INIT_DISABLE_AUTO_VIRTUAL_RESOLUTION	sdl2_gpu.html#INIT_DISABLE_AUTO_VIRTUAL_RESOLUTION	sdl2_gpu: INIT_DISABLE_AUTO_VIRTUAL_RESOLUTION	
+INIT_REQUEST_COMPATIBILITY_PROFILE	sdl2_gpu.html#INIT_REQUEST_COMPATIBILITY_PROFILE	sdl2_gpu: INIT_REQUEST_COMPATIBILITY_PROFILE	
+INIT_USE_ROW_BY_ROW_TEXTURE_UPLOAD_FALLBACK	sdl2_gpu.html#INIT_USE_ROW_BY_ROW_TEXTURE_UPLOAD_FALLBACK	sdl2_gpu: INIT_USE_ROW_BY_ROW_TEXTURE_UPLOAD_FALLBACK	
+INIT_USE_COPY_TEXTURE_UPLOAD_FALLBACK	sdl2_gpu.html#INIT_USE_COPY_TEXTURE_UPLOAD_FALLBACK	sdl2_gpu: INIT_USE_COPY_TEXTURE_UPLOAD_FALLBACK	
+POINTS	sdl2_gpu.html#POINTS	sdl2_gpu: POINTS	
+LINES	sdl2_gpu.html#LINES	sdl2_gpu: LINES	
+LINE_LOOP	sdl2_gpu.html#LINE_LOOP	sdl2_gpu: LINE_LOOP	
+LINE_STRIP	sdl2_gpu.html#LINE_STRIP	sdl2_gpu: LINE_STRIP	
+TRIANGLES	sdl2_gpu.html#TRIANGLES	sdl2_gpu: TRIANGLES	
+TRIANGLE_STRIP	sdl2_gpu.html#TRIANGLE_STRIP	sdl2_gpu: TRIANGLE_STRIP	
+TRIANGLE_FAN	sdl2_gpu.html#TRIANGLE_FAN	sdl2_gpu: TRIANGLE_FAN	
+BATCH_XY	sdl2_gpu.html#BATCH_XY	sdl2_gpu: BATCH_XY	
+BATCH_XYZ	sdl2_gpu.html#BATCH_XYZ	sdl2_gpu: BATCH_XYZ	
+BATCH_ST	sdl2_gpu.html#BATCH_ST	sdl2_gpu: BATCH_ST	
+BATCH_RGB	sdl2_gpu.html#BATCH_RGB	sdl2_gpu: BATCH_RGB	
+BATCH_RGBA	sdl2_gpu.html#BATCH_RGBA	sdl2_gpu: BATCH_RGBA	
+BATCH_RGB8	sdl2_gpu.html#BATCH_RGB8	sdl2_gpu: BATCH_RGB8	
+BATCH_RGBA8	sdl2_gpu.html#BATCH_RGBA8	sdl2_gpu: BATCH_RGBA8	
+BATCH_XY_ST	sdl2_gpu.html#BATCH_XY_ST	sdl2_gpu: BATCH_XY_ST	
+BATCH_XYZ_ST	sdl2_gpu.html#BATCH_XYZ_ST	sdl2_gpu: BATCH_XYZ_ST	
+BATCH_XY_RGB	sdl2_gpu.html#BATCH_XY_RGB	sdl2_gpu: BATCH_XY_RGB	
+BATCH_XYZ_RGB	sdl2_gpu.html#BATCH_XYZ_RGB	sdl2_gpu: BATCH_XYZ_RGB	
+BATCH_XY_RGBA	sdl2_gpu.html#BATCH_XY_RGBA	sdl2_gpu: BATCH_XY_RGBA	
+BATCH_XYZ_RGBA	sdl2_gpu.html#BATCH_XYZ_RGBA	sdl2_gpu: BATCH_XYZ_RGBA	
+BATCH_XY_ST_RGBA	sdl2_gpu.html#BATCH_XY_ST_RGBA	sdl2_gpu: BATCH_XY_ST_RGBA	
+BATCH_XYZ_ST_RGBA	sdl2_gpu.html#BATCH_XYZ_ST_RGBA	sdl2_gpu: BATCH_XYZ_ST_RGBA	
+BATCH_XY_RGB8	sdl2_gpu.html#BATCH_XY_RGB8	sdl2_gpu: BATCH_XY_RGB8	
+BATCH_XYZ_RGB8	sdl2_gpu.html#BATCH_XYZ_RGB8	sdl2_gpu: BATCH_XYZ_RGB8	
+BATCH_XY_RGBA8	sdl2_gpu.html#BATCH_XY_RGBA8	sdl2_gpu: BATCH_XY_RGBA8	
+BATCH_XYZ_RGBA8	sdl2_gpu.html#BATCH_XYZ_RGBA8	sdl2_gpu: BATCH_XYZ_RGBA8	
+BATCH_XY_ST_RGBA8	sdl2_gpu.html#BATCH_XY_ST_RGBA8	sdl2_gpu: BATCH_XY_ST_RGBA8	
+BATCH_XYZ_ST_RGBA8	sdl2_gpu.html#BATCH_XYZ_ST_RGBA8	sdl2_gpu: BATCH_XYZ_ST_RGBA8	
+FLIP_NONE	sdl2_gpu.html#FLIP_NONE	sdl2_gpu: FLIP_NONE	
+FLIP_HORIZONTAL	sdl2_gpu.html#FLIP_HORIZONTAL	sdl2_gpu: FLIP_HORIZONTAL	
+FLIP_VERTICAL	sdl2_gpu.html#FLIP_VERTICAL	sdl2_gpu: FLIP_VERTICAL	
+TYPE_BYTE	sdl2_gpu.html#TYPE_BYTE	sdl2_gpu: TYPE_BYTE	
+TYPE_UNSIGNED_BYTE	sdl2_gpu.html#TYPE_UNSIGNED_BYTE	sdl2_gpu: TYPE_UNSIGNED_BYTE	
+TYPE_SHORT	sdl2_gpu.html#TYPE_SHORT	sdl2_gpu: TYPE_SHORT	
+TYPE_UNSIGNED_SHORT	sdl2_gpu.html#TYPE_UNSIGNED_SHORT	sdl2_gpu: TYPE_UNSIGNED_SHORT	
+TYPE_INT	sdl2_gpu.html#TYPE_INT	sdl2_gpu: TYPE_INT	
+TYPE_UNSIGNED_INT	sdl2_gpu.html#TYPE_UNSIGNED_INT	sdl2_gpu: TYPE_UNSIGNED_INT	
+TYPE_FLOAT	sdl2_gpu.html#TYPE_FLOAT	sdl2_gpu: TYPE_FLOAT	
+TYPE_DOUBLE	sdl2_gpu.html#TYPE_DOUBLE	sdl2_gpu: TYPE_DOUBLE	
+RENDERER_UNKNOWN	sdl2_gpu.html#RENDERER_UNKNOWN	sdl2_gpu: RENDERER_UNKNOWN	
+RENDERER_OPENGL_1_BASE	sdl2_gpu.html#RENDERER_OPENGL_1_BASE	sdl2_gpu: RENDERER_OPENGL_1_BASE	
+RENDERER_OPENGL_1	sdl2_gpu.html#RENDERER_OPENGL_1	sdl2_gpu: RENDERER_OPENGL_1	
+RENDERER_OPENGL_2	sdl2_gpu.html#RENDERER_OPENGL_2	sdl2_gpu: RENDERER_OPENGL_2	
+RENDERER_OPENGL_3	sdl2_gpu.html#RENDERER_OPENGL_3	sdl2_gpu: RENDERER_OPENGL_3	
+RENDERER_OPENGL_4	sdl2_gpu.html#RENDERER_OPENGL_4	sdl2_gpu: RENDERER_OPENGL_4	
+RENDERER_GLES_1	sdl2_gpu.html#RENDERER_GLES_1	sdl2_gpu: RENDERER_GLES_1	
+RENDERER_GLES_2	sdl2_gpu.html#RENDERER_GLES_2	sdl2_gpu: RENDERER_GLES_2	
+RENDERER_GLES_3	sdl2_gpu.html#RENDERER_GLES_3	sdl2_gpu: RENDERER_GLES_3	
+RENDERER_D3D9	sdl2_gpu.html#RENDERER_D3D9	sdl2_gpu: RENDERER_D3D9	
+RENDERER_D3D10	sdl2_gpu.html#RENDERER_D3D10	sdl2_gpu: RENDERER_D3D10	
+RENDERER_D3D11	sdl2_gpu.html#RENDERER_D3D11	sdl2_gpu: RENDERER_D3D11	
+ComparisonEnum	sdl2_gpu.html#ComparisonEnum	sdl2_gpu: ComparisonEnum	
+BlendFuncEnum	sdl2_gpu.html#BlendFuncEnum	sdl2_gpu: BlendFuncEnum	
+BlendEqEnum	sdl2_gpu.html#BlendEqEnum	sdl2_gpu: BlendEqEnum	
+BlendPresetEnum	sdl2_gpu.html#BlendPresetEnum	sdl2_gpu: BlendPresetEnum	
+FilterEnum	sdl2_gpu.html#FilterEnum	sdl2_gpu: FilterEnum	
+SnapEnum	sdl2_gpu.html#SnapEnum	sdl2_gpu: SnapEnum	
+WrapEnum	sdl2_gpu.html#WrapEnum	sdl2_gpu: WrapEnum	
+FormatEnum	sdl2_gpu.html#FormatEnum	sdl2_gpu: FormatEnum	
+FileFormatEnum	sdl2_gpu.html#FileFormatEnum	sdl2_gpu: FileFormatEnum	
+ShaderEnum	sdl2_gpu.html#ShaderEnum	sdl2_gpu: ShaderEnum	
+ShaderLanguageEnum	sdl2_gpu.html#ShaderLanguageEnum	sdl2_gpu: ShaderLanguageEnum	
+ErrorEnum	sdl2_gpu.html#ErrorEnum	sdl2_gpu: ErrorEnum	
+DebugLevelEnum	sdl2_gpu.html#DebugLevelEnum	sdl2_gpu: DebugLevelEnum	
+GPU_VERSION_MAJOR	sdl2_gpu.html#GPU_VERSION_MAJOR	sdl2_gpu: GPU_VERSION_MAJOR	
+GPU_VERSION_MINOR	sdl2_gpu.html#GPU_VERSION_MINOR	sdl2_gpu: GPU_VERSION_MINOR	
+GPU_VERSION_PATCH	sdl2_gpu.html#GPU_VERSION_PATCH	sdl2_gpu: GPU_VERSION_PATCH	
+HAVE_STDC	sdl2_gpu.html#HAVE_STDC	sdl2_gpu: HAVE_STDC	
+HAVE_GNUC	sdl2_gpu.html#HAVE_GNUC	sdl2_gpu: HAVE_GNUC	
+HAVE_MSVC	sdl2_gpu.html#HAVE_MSVC	sdl2_gpu: HAVE_MSVC	
+FALSE	sdl2_gpu.html#FALSE	sdl2_gpu: FALSE	
+TRUE	sdl2_gpu.html#TRUE	sdl2_gpu: TRUE	
+RENDERER_ORDER_MAX	sdl2_gpu.html#RENDERER_ORDER_MAX	sdl2_gpu: RENDERER_ORDER_MAX	
+RENDERER_CUSTOM_0	sdl2_gpu.html#RENDERER_CUSTOM_0	sdl2_gpu: RENDERER_CUSTOM_0	
+NEVER	sdl2_gpu.html#NEVER	sdl2_gpu: NEVER	
+LESS	sdl2_gpu.html#LESS	sdl2_gpu: LESS	
+EQUAL	sdl2_gpu.html#EQUAL	sdl2_gpu: EQUAL	
+LEQUAL	sdl2_gpu.html#LEQUAL	sdl2_gpu: LEQUAL	
+GREATER	sdl2_gpu.html#GREATER	sdl2_gpu: GREATER	
+NOTEQUAL	sdl2_gpu.html#NOTEQUAL	sdl2_gpu: NOTEQUAL	
+GEQUAL	sdl2_gpu.html#GEQUAL	sdl2_gpu: GEQUAL	
+ALWAYS	sdl2_gpu.html#ALWAYS	sdl2_gpu: ALWAYS	
+FUNC_ZERO	sdl2_gpu.html#FUNC_ZERO	sdl2_gpu: FUNC_ZERO	
+FUNC_ONE	sdl2_gpu.html#FUNC_ONE	sdl2_gpu: FUNC_ONE	
+FUNC_SRC_COLOR	sdl2_gpu.html#FUNC_SRC_COLOR	sdl2_gpu: FUNC_SRC_COLOR	
+FUNC_DST_COLOR	sdl2_gpu.html#FUNC_DST_COLOR	sdl2_gpu: FUNC_DST_COLOR	
+FUNC_ONE_MINUS_SRC	sdl2_gpu.html#FUNC_ONE_MINUS_SRC	sdl2_gpu: FUNC_ONE_MINUS_SRC	
+FUNC_ONE_MINUS_DST	sdl2_gpu.html#FUNC_ONE_MINUS_DST	sdl2_gpu: FUNC_ONE_MINUS_DST	
+FUNC_SRC_ALPHA	sdl2_gpu.html#FUNC_SRC_ALPHA	sdl2_gpu: FUNC_SRC_ALPHA	
+FUNC_DST_ALPHA	sdl2_gpu.html#FUNC_DST_ALPHA	sdl2_gpu: FUNC_DST_ALPHA	
+FUNC_ONE_MINUS_SRC_ALPHA	sdl2_gpu.html#FUNC_ONE_MINUS_SRC_ALPHA	sdl2_gpu: FUNC_ONE_MINUS_SRC_ALPHA	
+FUNC_ONE_MINUS_DST_ALPHA	sdl2_gpu.html#FUNC_ONE_MINUS_DST_ALPHA	sdl2_gpu: FUNC_ONE_MINUS_DST_ALPHA	
+EQ_ADD	sdl2_gpu.html#EQ_ADD	sdl2_gpu: EQ_ADD	
+EQ_SUBTRACT	sdl2_gpu.html#EQ_SUBTRACT	sdl2_gpu: EQ_SUBTRACT	
+EQ_REVERSE_SUBTRACT	sdl2_gpu.html#EQ_REVERSE_SUBTRACT	sdl2_gpu: EQ_REVERSE_SUBTRACT	
+BLEND_NORMAL	sdl2_gpu.html#BLEND_NORMAL	sdl2_gpu: BLEND_NORMAL	
+BLEND_PREMULTIPLIED_ALPHA	sdl2_gpu.html#BLEND_PREMULTIPLIED_ALPHA	sdl2_gpu: BLEND_PREMULTIPLIED_ALPHA	
+BLEND_MULTIPLY	sdl2_gpu.html#BLEND_MULTIPLY	sdl2_gpu: BLEND_MULTIPLY	
+BLEND_ADD	sdl2_gpu.html#BLEND_ADD	sdl2_gpu: BLEND_ADD	
+BLEND_SUBTRACT	sdl2_gpu.html#BLEND_SUBTRACT	sdl2_gpu: BLEND_SUBTRACT	
+BLEND_MOD_ALPHA	sdl2_gpu.html#BLEND_MOD_ALPHA	sdl2_gpu: BLEND_MOD_ALPHA	
+BLEND_SET_ALPHA	sdl2_gpu.html#BLEND_SET_ALPHA	sdl2_gpu: BLEND_SET_ALPHA	
+BLEND_SET	sdl2_gpu.html#BLEND_SET	sdl2_gpu: BLEND_SET	
+BLEND_NORMAL_KEEP_ALPHA	sdl2_gpu.html#BLEND_NORMAL_KEEP_ALPHA	sdl2_gpu: BLEND_NORMAL_KEEP_ALPHA	
+BLEND_NORMAL_ADD_ALPHA	sdl2_gpu.html#BLEND_NORMAL_ADD_ALPHA	sdl2_gpu: BLEND_NORMAL_ADD_ALPHA	
+BLEND_NORMAL_FACTOR_ALPHA	sdl2_gpu.html#BLEND_NORMAL_FACTOR_ALPHA	sdl2_gpu: BLEND_NORMAL_FACTOR_ALPHA	
+FILTER_NEAREST	sdl2_gpu.html#FILTER_NEAREST	sdl2_gpu: FILTER_NEAREST	
+FILTER_LINEAR	sdl2_gpu.html#FILTER_LINEAR	sdl2_gpu: FILTER_LINEAR	
+FILTER_LINEAR_MIPMAP	sdl2_gpu.html#FILTER_LINEAR_MIPMAP	sdl2_gpu: FILTER_LINEAR_MIPMAP	
+SNAP_NONE	sdl2_gpu.html#SNAP_NONE	sdl2_gpu: SNAP_NONE	
+SNAP_POSITION	sdl2_gpu.html#SNAP_POSITION	sdl2_gpu: SNAP_POSITION	
+SNAP_DIMENSIONS	sdl2_gpu.html#SNAP_DIMENSIONS	sdl2_gpu: SNAP_DIMENSIONS	
+SNAP_POSITION_AND_DIMENSIONS	sdl2_gpu.html#SNAP_POSITION_AND_DIMENSIONS	sdl2_gpu: SNAP_POSITION_AND_DIMENSIONS	
+WRAP_NONE	sdl2_gpu.html#WRAP_NONE	sdl2_gpu: WRAP_NONE	
+WRAP_REPEAT	sdl2_gpu.html#WRAP_REPEAT	sdl2_gpu: WRAP_REPEAT	
+WRAP_MIRRORED	sdl2_gpu.html#WRAP_MIRRORED	sdl2_gpu: WRAP_MIRRORED	
+FORMAT_LUMINANCE	sdl2_gpu.html#FORMAT_LUMINANCE	sdl2_gpu: FORMAT_LUMINANCE	
+FORMAT_LUMINANCE_ALPHA	sdl2_gpu.html#FORMAT_LUMINANCE_ALPHA	sdl2_gpu: FORMAT_LUMINANCE_ALPHA	
+FORMAT_RGB	sdl2_gpu.html#FORMAT_RGB	sdl2_gpu: FORMAT_RGB	
+FORMAT_RGBA	sdl2_gpu.html#FORMAT_RGBA	sdl2_gpu: FORMAT_RGBA	
+FORMAT_ALPHA	sdl2_gpu.html#FORMAT_ALPHA	sdl2_gpu: FORMAT_ALPHA	
+FORMAT_RG	sdl2_gpu.html#FORMAT_RG	sdl2_gpu: FORMAT_RG	
+FORMAT_YCbCr422	sdl2_gpu.html#FORMAT_YCbCr422	sdl2_gpu: FORMAT_YCbCr422	
+FORMAT_YCbCr420P	sdl2_gpu.html#FORMAT_YCbCr420P	sdl2_gpu: FORMAT_YCbCr420P	
+FORMAT_BGR	sdl2_gpu.html#FORMAT_BGR	sdl2_gpu: FORMAT_BGR	
+FORMAT_BGRA	sdl2_gpu.html#FORMAT_BGRA	sdl2_gpu: FORMAT_BGRA	
+FORMAT_ABGR	sdl2_gpu.html#FORMAT_ABGR	sdl2_gpu: FORMAT_ABGR	
+FILE_AUTO	sdl2_gpu.html#FILE_AUTO	sdl2_gpu: FILE_AUTO	
+FILE_PNG	sdl2_gpu.html#FILE_PNG	sdl2_gpu: FILE_PNG	
+FILE_BMP	sdl2_gpu.html#FILE_BMP	sdl2_gpu: FILE_BMP	
+FILE_TGA	sdl2_gpu.html#FILE_TGA	sdl2_gpu: FILE_TGA	
+MODEL	sdl2_gpu.html#MODEL	sdl2_gpu: MODEL	
+VIEW	sdl2_gpu.html#VIEW	sdl2_gpu: VIEW	
+PROJECTION	sdl2_gpu.html#PROJECTION	sdl2_gpu: PROJECTION	
+DEFAULT_INIT_FLAGS	sdl2_gpu.html#DEFAULT_INIT_FLAGS	sdl2_gpu: DEFAULT_INIT_FLAGS	
+VERTEX_SHADER	sdl2_gpu.html#VERTEX_SHADER	sdl2_gpu: VERTEX_SHADER	
+FRAGMENT_SHADER	sdl2_gpu.html#FRAGMENT_SHADER	sdl2_gpu: FRAGMENT_SHADER	
+PIXEL_SHADER	sdl2_gpu.html#PIXEL_SHADER	sdl2_gpu: PIXEL_SHADER	
+GEOMETRY_SHADER	sdl2_gpu.html#GEOMETRY_SHADER	sdl2_gpu: GEOMETRY_SHADER	
+LANGUAGE_NONE	sdl2_gpu.html#LANGUAGE_NONE	sdl2_gpu: LANGUAGE_NONE	
+LANGUAGE_ARB_ASSEMBLY	sdl2_gpu.html#LANGUAGE_ARB_ASSEMBLY	sdl2_gpu: LANGUAGE_ARB_ASSEMBLY	
+LANGUAGE_GLSL	sdl2_gpu.html#LANGUAGE_GLSL	sdl2_gpu: LANGUAGE_GLSL	
+LANGUAGE_GLSLES	sdl2_gpu.html#LANGUAGE_GLSLES	sdl2_gpu: LANGUAGE_GLSLES	
+LANGUAGE_HLSL	sdl2_gpu.html#LANGUAGE_HLSL	sdl2_gpu: LANGUAGE_HLSL	
+LANGUAGE_CG	sdl2_gpu.html#LANGUAGE_CG	sdl2_gpu: LANGUAGE_CG	
+ERROR_NONE	sdl2_gpu.html#ERROR_NONE	sdl2_gpu: ERROR_NONE	
+ERROR_BACKEND_ERROR	sdl2_gpu.html#ERROR_BACKEND_ERROR	sdl2_gpu: ERROR_BACKEND_ERROR	
+ERROR_DATA_ERROR	sdl2_gpu.html#ERROR_DATA_ERROR	sdl2_gpu: ERROR_DATA_ERROR	
+ERROR_USER_ERROR	sdl2_gpu.html#ERROR_USER_ERROR	sdl2_gpu: ERROR_USER_ERROR	
+ERROR_UNSUPPORTED_FUNCTION	sdl2_gpu.html#ERROR_UNSUPPORTED_FUNCTION	sdl2_gpu: ERROR_UNSUPPORTED_FUNCTION	
+ERROR_NULL_ARGUMENT	sdl2_gpu.html#ERROR_NULL_ARGUMENT	sdl2_gpu: ERROR_NULL_ARGUMENT	
+ERROR_FILE_NOT_FOUND	sdl2_gpu.html#ERROR_FILE_NOT_FOUND	sdl2_gpu: ERROR_FILE_NOT_FOUND	
+DEBUG_LEVEL_0	sdl2_gpu.html#DEBUG_LEVEL_0	sdl2_gpu: DEBUG_LEVEL_0	
+DEBUG_LEVEL_1	sdl2_gpu.html#DEBUG_LEVEL_1	sdl2_gpu: DEBUG_LEVEL_1	
+DEBUG_LEVEL_2	sdl2_gpu.html#DEBUG_LEVEL_2	sdl2_gpu: DEBUG_LEVEL_2	
+DEBUG_LEVEL_3	sdl2_gpu.html#DEBUG_LEVEL_3	sdl2_gpu: DEBUG_LEVEL_3	
+DEBUG_LEVEL_MAX	sdl2_gpu.html#DEBUG_LEVEL_MAX	sdl2_gpu: DEBUG_LEVEL_MAX	
+LOG_LEVEL_INFO	sdl2_gpu.html#LOG_LEVEL_INFO	LogLevelEnum.LOG_LEVEL_INFO	
+LOG_LEVEL_WARNING	sdl2_gpu.html#LOG_LEVEL_WARNING	LogLevelEnum.LOG_LEVEL_WARNING	
+LOG_LEVEL_ERROR	sdl2_gpu.html#LOG_LEVEL_ERROR	LogLevelEnum.LOG_LEVEL_ERROR	
+LogLevelEnum	sdl2_gpu.html#LogLevelEnum	sdl2_gpu: LogLevelEnum	
+WindowFlagEnum	sdl2_gpu.html#WindowFlagEnum	sdl2_gpu: WindowFlagEnum	
+Renderer	sdl2_gpu.html#Renderer	sdl2_gpu: Renderer	
+Target	sdl2_gpu.html#Target	sdl2_gpu: Target	
+Rect	sdl2_gpu.html#Rect	sdl2_gpu: Rect	
+RendererEnum	sdl2_gpu.html#RendererEnum	sdl2_gpu: RendererEnum	
+RendererID	sdl2_gpu.html#RendererID	sdl2_gpu: RendererID	
+BlendMode	sdl2_gpu.html#BlendMode	sdl2_gpu: BlendMode	
+Image	sdl2_gpu.html#Image	sdl2_gpu: Image	
+TextureHandle	sdl2_gpu.html#TextureHandle	sdl2_gpu: TextureHandle	
+Camera	sdl2_gpu.html#Camera	sdl2_gpu: Camera	
+ShaderBlock	sdl2_gpu.html#ShaderBlock	sdl2_gpu: ShaderBlock	
+MatrixStack	sdl2_gpu.html#MatrixStack	sdl2_gpu: MatrixStack	
+Context	sdl2_gpu.html#Context	sdl2_gpu: Context	
+FeatureEnum	sdl2_gpu.html#FeatureEnum	sdl2_gpu: FeatureEnum	
+InitFlagEnum	sdl2_gpu.html#InitFlagEnum	sdl2_gpu: InitFlagEnum	
+PrimitiveEnum	sdl2_gpu.html#PrimitiveEnum	sdl2_gpu: PrimitiveEnum	
+BatchFlagEnum	sdl2_gpu.html#BatchFlagEnum	sdl2_gpu: BatchFlagEnum	
+FlipEnum	sdl2_gpu.html#FlipEnum	sdl2_gpu: FlipEnum	
+TypeEnum	sdl2_gpu.html#TypeEnum	sdl2_gpu: TypeEnum	
+AttributeFormat	sdl2_gpu.html#AttributeFormat	sdl2_gpu: AttributeFormat	
+Attribute	sdl2_gpu.html#Attribute	sdl2_gpu: Attribute	
+AttributeSource	sdl2_gpu.html#AttributeSource	sdl2_gpu: AttributeSource	
+ErrorObject	sdl2_gpu.html#ErrorObject	sdl2_gpu: ErrorObject	
+RendererImpl	sdl2_gpu.html#RendererImpl	sdl2_gpu: RendererImpl	
+getLinkedVersion	sdl2_gpu.html#getLinkedVersion	sdl2_gpu: getLinkedVersion(): Version	
+setInitWindow	sdl2_gpu.html#setInitWindow,Uint32	sdl2_gpu: setInitWindow(windowID: Uint32)	
+getInitWindow	sdl2_gpu.html#getInitWindow	sdl2_gpu: getInitWindow(): Uint32	
+setPreInitFlags	sdl2_gpu.html#setPreInitFlags,InitFlagEnum	sdl2_gpu: setPreInitFlags(flags: InitFlagEnum)	
+getPreInitFlags	sdl2_gpu.html#getPreInitFlags	sdl2_gpu: getPreInitFlags(): InitFlagEnum	
+setRequiredFeatures	sdl2_gpu.html#setRequiredFeatures,FeatureEnum	sdl2_gpu: setRequiredFeatures(features: FeatureEnum)	
+getRequiredFeatures	sdl2_gpu.html#getRequiredFeatures	sdl2_gpu: getRequiredFeatures(): FeatureEnum	
+getDefaultRendererOrder	sdl2_gpu.html#getDefaultRendererOrder,ptr.cint,ptr.RendererID	sdl2_gpu: getDefaultRendererOrder(orderSize: ptr cint; order: ptr RendererID)	
+getRendererOrder	sdl2_gpu.html#getRendererOrder,ptr.cint,ptr.RendererID	sdl2_gpu: getRendererOrder(orderSize: ptr cint; order: ptr RendererID)	
+setRendererOrder	sdl2_gpu.html#setRendererOrder,cint,ptr.RendererID	sdl2_gpu: setRendererOrder(orderSize: cint; order: ptr RendererID)	
+init	sdl2_gpu.html#init,Uint16,Uint16,WindowFlags	sdl2_gpu: init(w: Uint16; h: Uint16; flags: WindowFlagEnum): ptr Target	
+initRenderer	sdl2_gpu.html#initRenderer,RendererEnum,Uint16,Uint16,WindowFlags	sdl2_gpu: initRenderer(rendererEnum: RendererEnum; w: Uint16; h: Uint16; flags: WindowFlagEnum): ptr Target	
+initRendererByID	sdl2_gpu.html#initRendererByID,RendererID,Uint16,Uint16,WindowFlags	sdl2_gpu: initRendererByID(rendererRequest: RendererID; w: Uint16; h: Uint16;\n                 flags: WindowFlagEnum): ptr Target	
+isFeatureEnabled	sdl2_gpu.html#isFeatureEnabled,FeatureEnum	sdl2_gpu: isFeatureEnabled(feature: FeatureEnum): Bool	
+closeCurrentRenderer	sdl2_gpu.html#closeCurrentRenderer	sdl2_gpu: closeCurrentRenderer()	
+quit	sdl2_gpu.html#quit	sdl2_gpu: quit()	
+setDebugLevel	sdl2_gpu.html#setDebugLevel,DebugLevelEnum	sdl2_gpu: setDebugLevel(level: DebugLevelEnum)	
+getDebugLevel	sdl2_gpu.html#getDebugLevel	sdl2_gpu: getDebugLevel(): DebugLevelEnum	
+logInfo	sdl2_gpu.html#logInfo,cstring	sdl2_gpu: logInfo(format: cstring)	
+logWarning	sdl2_gpu.html#logWarning,cstring	sdl2_gpu: logWarning(format: cstring)	
+logError	sdl2_gpu.html#logError,cstring	sdl2_gpu: logError(format: cstring)	
+setLogCallback	sdl2_gpu.html#setLogCallback,proc(LogLevelEnum,cstring,va_list)	sdl2_gpu: setLogCallback(callback: proc (logLevel: LogLevelEnum; format: cstring; args: va_list): cint {.\n    cdecl.})	
+pushErrorCode	sdl2_gpu.html#pushErrorCode,cstring,ErrorEnum,cstring	sdl2_gpu: pushErrorCode(function: cstring; error: ErrorEnum; details: cstring)	
+popErrorCode	sdl2_gpu.html#popErrorCode	sdl2_gpu: popErrorCode(): ErrorObject	
+getErrorString	sdl2_gpu.html#getErrorString,ErrorEnum	sdl2_gpu: getErrorString(error: ErrorEnum): cstring	
+setErrorQueueMax	sdl2_gpu.html#setErrorQueueMax,cuint	sdl2_gpu: setErrorQueueMax(max: cuint)	
+makeRendererID	sdl2_gpu.html#makeRendererID,cstring,RendererEnum,cint,cint	sdl2_gpu: makeRendererID(name: cstring; renderer: RendererEnum; majorVersion: cint;\n               minorVersion: cint): RendererID	
+getRendererID	sdl2_gpu.html#getRendererID,RendererEnum	sdl2_gpu: getRendererID(renderer: RendererEnum): RendererID	
+getNumRegisteredRenderers	sdl2_gpu.html#getNumRegisteredRenderers	sdl2_gpu: getNumRegisteredRenderers(): cint	
+getRegisteredRendererList	sdl2_gpu.html#getRegisteredRendererList,ptr.RendererID	sdl2_gpu: getRegisteredRendererList(renderersArray: ptr RendererID)	
+registerRenderer	sdl2_gpu.html#registerRenderer,RendererID,proc(RendererID),proc(ptr.Renderer)	sdl2_gpu: registerRenderer(id: RendererID; createRenderer: proc (request: RendererID): ptr Renderer {.\n    cdecl.}; freeRenderer: proc (renderer: ptr Renderer) {.cdecl.})	
+reserveNextRendererEnum	sdl2_gpu.html#reserveNextRendererEnum	sdl2_gpu: reserveNextRendererEnum(): RendererEnum	
+getNumActiveRenderers	sdl2_gpu.html#getNumActiveRenderers	sdl2_gpu: getNumActiveRenderers(): cint	
+getActiveRendererList	sdl2_gpu.html#getActiveRendererList,ptr.RendererID	sdl2_gpu: getActiveRendererList(renderersArray: ptr RendererID)	
+getCurrentRenderer	sdl2_gpu.html#getCurrentRenderer	sdl2_gpu: getCurrentRenderer(): ptr Renderer	
+setCurrentRenderer	sdl2_gpu.html#setCurrentRenderer,RendererID	sdl2_gpu: setCurrentRenderer(id: RendererID)	
+getRenderer	sdl2_gpu.html#getRenderer,RendererID	sdl2_gpu: getRenderer(id: RendererID): ptr Renderer	
+freeRenderer	sdl2_gpu.html#freeRenderer,ptr.Renderer	sdl2_gpu: freeRenderer(renderer: ptr Renderer)	
+resetRendererState	sdl2_gpu.html#resetRendererState	sdl2_gpu: resetRendererState()	
+setCoordinateMode	sdl2_gpu.html#setCoordinateMode,Bool	sdl2_gpu: setCoordinateMode(useMathCoords: Bool)	
+getCoordinateMode	sdl2_gpu.html#getCoordinateMode	sdl2_gpu: getCoordinateMode(): Bool	
+setDefaultAnchor	sdl2_gpu.html#setDefaultAnchor,cfloat,cfloat	sdl2_gpu: setDefaultAnchor(anchorX: cfloat; anchorY: cfloat)	
+getDefaultAnchor	sdl2_gpu.html#getDefaultAnchor,ptr.cfloat,ptr.cfloat	sdl2_gpu: getDefaultAnchor(anchorX: ptr cfloat; anchorY: ptr cfloat)	
+getContextTarget	sdl2_gpu.html#getContextTarget	sdl2_gpu: getContextTarget(): ptr Target	
+getWindowTarget	sdl2_gpu.html#getWindowTarget,Uint32	sdl2_gpu: getWindowTarget(windowID: Uint32): ptr Target	
+createTargetFromWindow	sdl2_gpu.html#createTargetFromWindow,Uint32	sdl2_gpu: createTargetFromWindow(windowID: Uint32): ptr Target	
+makeCurrent	sdl2_gpu.html#makeCurrent,ptr.Target,Uint32	sdl2_gpu: makeCurrent(target: ptr Target; windowID: Uint32)	
+setWindowResolution	sdl2_gpu.html#setWindowResolution,Uint16,Uint16	sdl2_gpu: setWindowResolution(w: Uint16; h: Uint16): Bool	
+setFullscreen	sdl2_gpu.html#setFullscreen,Bool,Bool	sdl2_gpu: setFullscreen(enableFullscreen: Bool; useDesktopResolution: Bool): Bool	
+getFullscreen	sdl2_gpu.html#getFullscreen	sdl2_gpu: getFullscreen(): Bool	
+getActiveTarget	sdl2_gpu.html#getActiveTarget	sdl2_gpu: getActiveTarget(): ptr Target	
+setActiveTarget	sdl2_gpu.html#setActiveTarget,ptr.Target	sdl2_gpu: setActiveTarget(target: ptr Target): Bool	
+setShapeBlending	sdl2_gpu.html#setShapeBlending,Bool	sdl2_gpu: setShapeBlending(enable: Bool)	
+getBlendModeFromPreset	sdl2_gpu.html#getBlendModeFromPreset,BlendPresetEnum	sdl2_gpu: getBlendModeFromPreset(preset: BlendPresetEnum): BlendMode	
+setShapeBlendFunction	sdl2_gpu.html#setShapeBlendFunction,BlendFuncEnum,BlendFuncEnum,BlendFuncEnum,BlendFuncEnum	sdl2_gpu: setShapeBlendFunction(sourceColor: BlendFuncEnum; destColor: BlendFuncEnum;\n                      sourceAlpha: BlendFuncEnum; destAlpha: BlendFuncEnum)	
+setShapeBlendEquation	sdl2_gpu.html#setShapeBlendEquation,BlendEqEnum,BlendEqEnum	sdl2_gpu: setShapeBlendEquation(colorEquation: BlendEqEnum; alphaEquation: BlendEqEnum)	
+setShapeBlendMode	sdl2_gpu.html#setShapeBlendMode,BlendPresetEnum	sdl2_gpu: setShapeBlendMode(mode: BlendPresetEnum)	
+setLineThickness	sdl2_gpu.html#setLineThickness,cfloat	sdl2_gpu: setLineThickness(thickness: cfloat): cfloat	
+getLineThickness	sdl2_gpu.html#getLineThickness	sdl2_gpu: getLineThickness(): cfloat	
+createAliasTarget	sdl2_gpu.html#createAliasTarget,ptr.Target	sdl2_gpu: createAliasTarget(target: ptr Target): ptr Target	
+loadTarget	sdl2_gpu.html#loadTarget,ptr.Image	sdl2_gpu: loadTarget(image: ptr Image): ptr Target	
+getTarget	sdl2_gpu.html#getTarget,ptr.Image	sdl2_gpu: getTarget(image: ptr Image): ptr Target	
+freeTarget	sdl2_gpu.html#freeTarget,ptr.Target	sdl2_gpu: freeTarget(target: ptr Target)	
+setVirtualResolution	sdl2_gpu.html#setVirtualResolution,ptr.Target,Uint16,Uint16	sdl2_gpu: setVirtualResolution(target: ptr Target; w: Uint16; h: Uint16)	
+getVirtualResolution	sdl2_gpu.html#getVirtualResolution,ptr.Target,ptr.Uint16,ptr.Uint16	sdl2_gpu: getVirtualResolution(target: ptr Target; w: ptr Uint16; h: ptr Uint16)	
+getVirtualCoords	sdl2_gpu.html#getVirtualCoords,ptr.Target,ptr.cfloat,ptr.cfloat,cfloat,cfloat	sdl2_gpu: getVirtualCoords(target: ptr Target; x: ptr cfloat; y: ptr cfloat; displayX: cfloat;\n                 displayY: cfloat)	
+unsetVirtualResolution	sdl2_gpu.html#unsetVirtualResolution,ptr.Target	sdl2_gpu: unsetVirtualResolution(target: ptr Target)	
+makeRect	sdl2_gpu.html#makeRect,cfloat,cfloat,cfloat,cfloat	sdl2_gpu: makeRect(x: cfloat; y: cfloat; w: cfloat; h: cfloat): Rect	
+makeColor	sdl2_gpu.html#makeColor,Uint8,Uint8,Uint8,Uint8	sdl2_gpu: makeColor(r: Uint8; g: Uint8; b: Uint8; a: Uint8): Color	
+setViewport	sdl2_gpu.html#setViewport,ptr.Target,Rect	sdl2_gpu: setViewport(target: ptr Target; viewport: Rect)	
+unsetViewport	sdl2_gpu.html#unsetViewport,ptr.Target	sdl2_gpu: unsetViewport(target: ptr Target)	
+getDefaultCamera	sdl2_gpu.html#getDefaultCamera	sdl2_gpu: getDefaultCamera(): Camera	
+getCamera	sdl2_gpu.html#getCamera,ptr.Target	sdl2_gpu: getCamera(target: ptr Target): Camera	
+setCamera	sdl2_gpu.html#setCamera,ptr.Target,ptr.Camera	sdl2_gpu: setCamera(target: ptr Target; cam: ptr Camera): Camera	
+enableCamera	sdl2_gpu.html#enableCamera,ptr.Target,Bool	sdl2_gpu: enableCamera(target: ptr Target; useCamera: Bool)	
+isCameraEnabled	sdl2_gpu.html#isCameraEnabled,ptr.Target	sdl2_gpu: isCameraEnabled(target: ptr Target): Bool	
+addDepthBuffer	sdl2_gpu.html#addDepthBuffer,ptr.Target	sdl2_gpu: addDepthBuffer(target: ptr Target): Bool	
+setDepthTest	sdl2_gpu.html#setDepthTest,ptr.Target,Bool	sdl2_gpu: setDepthTest(target: ptr Target; enable: Bool)	
+setDepthWrite	sdl2_gpu.html#setDepthWrite,ptr.Target,Bool	sdl2_gpu: setDepthWrite(target: ptr Target; enable: Bool)	
+setDepthFunction	sdl2_gpu.html#setDepthFunction,ptr.Target,ComparisonEnum	sdl2_gpu: setDepthFunction(target: ptr Target; compareOperation: ComparisonEnum)	
+getPixel	sdl2_gpu.html#getPixel,ptr.Target,Sint16,Sint16	sdl2_gpu: getPixel(target: ptr Target; x: Sint16; y: Sint16): Color	
+setClipRect	sdl2_gpu.html#setClipRect,ptr.Target,Rect	sdl2_gpu: setClipRect(target: ptr Target; rect: Rect): Rect	
+setClip	sdl2_gpu.html#setClip,ptr.Target,Sint16,Sint16,Uint16,Uint16	sdl2_gpu: setClip(target: ptr Target; x: Sint16; y: Sint16; w: Uint16; h: Uint16): Rect	
+unsetClip	sdl2_gpu.html#unsetClip,ptr.Target	sdl2_gpu: unsetClip(target: ptr Target)	
+intersectRect	sdl2_gpu.html#intersectRect,Rect,Rect,ptr.Rect	sdl2_gpu: intersectRect(A: Rect; B: Rect; result: ptr Rect): Bool	
+intersectClipRect	sdl2_gpu.html#intersectClipRect,ptr.Target,Rect,ptr.Rect	sdl2_gpu: intersectClipRect(target: ptr Target; B: Rect; result: ptr Rect): Bool	
+setTargetColor	sdl2_gpu.html#setTargetColor,ptr.Target,Color	sdl2_gpu: setTargetColor(target: ptr Target; color: Color)	
+setTargetRGB	sdl2_gpu.html#setTargetRGB,ptr.Target,Uint8,Uint8,Uint8	sdl2_gpu: setTargetRGB(target: ptr Target; r: Uint8; g: Uint8; b: Uint8)	
+setTargetRGBA	sdl2_gpu.html#setTargetRGBA,ptr.Target,Uint8,Uint8,Uint8,Uint8	sdl2_gpu: setTargetRGBA(target: ptr Target; r: Uint8; g: Uint8; b: Uint8; a: Uint8)	
+unsetTargetColor	sdl2_gpu.html#unsetTargetColor,ptr.Target	sdl2_gpu: unsetTargetColor(target: ptr Target)	
+loadSurface	sdl2_gpu.html#loadSurface,cstring	sdl2_gpu: loadSurface(filename: cstring): ptr Surface	
+loadSurface_RW	sdl2_gpu.html#loadSurface_RW,ptr.RWops,Bool	sdl2_gpu: loadSurface_RW(rwops: ptr RWops; freeRwops: Bool): ptr Surface	
+saveSurface	sdl2_gpu.html#saveSurface,ptr.Surface,cstring,FileFormatEnum	sdl2_gpu: saveSurface(surface: ptr Surface; filename: cstring; format: FileFormatEnum): Bool	
+saveSurface_RW	sdl2_gpu.html#saveSurface_RW,ptr.Surface,ptr.RWops,Bool,FileFormatEnum	sdl2_gpu: saveSurface_RW(surface: ptr Surface; rwops: ptr RWops; freeRwops: Bool;\n               format: FileFormatEnum): Bool	
+createImage	sdl2_gpu.html#createImage,Uint16,Uint16,FormatEnum	sdl2_gpu: createImage(w: Uint16; h: Uint16; format: FormatEnum): ptr Image	
+createImageUsingTexture	sdl2_gpu.html#createImageUsingTexture,TextureHandle,Bool	sdl2_gpu: createImageUsingTexture(handle: TextureHandle; takeOwnership: Bool): ptr Image	
+loadImage	sdl2_gpu.html#loadImage,cstring	sdl2_gpu: loadImage(filename: cstring): ptr Image	
+loadImage_RW	sdl2_gpu.html#loadImage_RW,ptr.RWops,Bool	sdl2_gpu: loadImage_RW(rwops: ptr RWops; freeRwops: Bool): ptr Image	
+createAliasImage	sdl2_gpu.html#createAliasImage,ptr.Image	sdl2_gpu: createAliasImage(image: ptr Image): ptr Image	
+copyImage	sdl2_gpu.html#copyImage,ptr.Image	sdl2_gpu: copyImage(image: ptr Image): ptr Image	
+freeImage	sdl2_gpu.html#freeImage,ptr.Image	sdl2_gpu: freeImage(image: ptr Image)	
+setImageVirtualResolution	sdl2_gpu.html#setImageVirtualResolution,ptr.Image,Uint16,Uint16	sdl2_gpu: setImageVirtualResolution(image: ptr Image; w: Uint16; h: Uint16)	
+unsetImageVirtualResolution	sdl2_gpu.html#unsetImageVirtualResolution,ptr.Image	sdl2_gpu: unsetImageVirtualResolution(image: ptr Image)	
+updateImage	sdl2_gpu.html#updateImage,ptr.Image,ptr.Rect,ptr.Surface,ptr.Rect	sdl2_gpu: updateImage(image: ptr Image; imageRect: ptr Rect; surface: ptr Surface;\n            surfaceRect: ptr Rect)	
+updateImageBytes	sdl2_gpu.html#updateImageBytes,ptr.Image,ptr.Rect,ptr.cuchar,cint	sdl2_gpu: updateImageBytes(image: ptr Image; imageRect: ptr Rect; bytes: ptr cuchar;\n                 bytesPerRow: cint)	
+replaceImage	sdl2_gpu.html#replaceImage,ptr.Image,ptr.Surface,ptr.Rect	sdl2_gpu: replaceImage(image: ptr Image; surface: ptr Surface; surfaceRect: ptr Rect): Bool	
+saveImage	sdl2_gpu.html#saveImage,ptr.Image,cstring,FileFormatEnum	sdl2_gpu: saveImage(image: ptr Image; filename: cstring; format: FileFormatEnum): Bool	
+saveImage_RW	sdl2_gpu.html#saveImage_RW,ptr.Image,ptr.RWops,Bool,FileFormatEnum	sdl2_gpu: saveImage_RW(image: ptr Image; rwops: ptr RWops; freeRwops: Bool; format: FileFormatEnum): Bool	
+generateMipmaps	sdl2_gpu.html#generateMipmaps,ptr.Image	sdl2_gpu: generateMipmaps(image: ptr Image)	
+setColor	sdl2_gpu.html#setColor,ptr.Image,Color	sdl2_gpu: setColor(image: ptr Image; color: Color)	
+setRGB	sdl2_gpu.html#setRGB,ptr.Image,Uint8,Uint8,Uint8	sdl2_gpu: setRGB(image: ptr Image; r: Uint8; g: Uint8; b: Uint8)	
+setRGBA	sdl2_gpu.html#setRGBA,ptr.Image,Uint8,Uint8,Uint8,Uint8	sdl2_gpu: setRGBA(image: ptr Image; r: Uint8; g: Uint8; b: Uint8; a: Uint8)	
+unsetColor	sdl2_gpu.html#unsetColor,ptr.Image	sdl2_gpu: unsetColor(image: ptr Image)	
+getBlending	sdl2_gpu.html#getBlending,ptr.Image	sdl2_gpu: getBlending(image: ptr Image): Bool	
+setBlending	sdl2_gpu.html#setBlending,ptr.Image,Bool	sdl2_gpu: setBlending(image: ptr Image; enable: Bool)	
+setBlendFunction	sdl2_gpu.html#setBlendFunction,ptr.Image,BlendFuncEnum,BlendFuncEnum,BlendFuncEnum,BlendFuncEnum	sdl2_gpu: setBlendFunction(image: ptr Image; sourceColor: BlendFuncEnum;\n                 destColor: BlendFuncEnum; sourceAlpha: BlendFuncEnum;\n                 destAlpha: BlendFuncEnum)	
+setBlendEquation	sdl2_gpu.html#setBlendEquation,ptr.Image,BlendEqEnum,BlendEqEnum	sdl2_gpu: setBlendEquation(image: ptr Image; colorEquation: BlendEqEnum;\n                 alphaEquation: BlendEqEnum)	
+setBlendMode	sdl2_gpu.html#setBlendMode,ptr.Image,BlendPresetEnum	sdl2_gpu: setBlendMode(image: ptr Image; mode: BlendPresetEnum)	
+setImageFilter	sdl2_gpu.html#setImageFilter,ptr.Image,FilterEnum	sdl2_gpu: setImageFilter(image: ptr Image; filter: FilterEnum)	
+setAnchor	sdl2_gpu.html#setAnchor,ptr.Image,cfloat,cfloat	sdl2_gpu: setAnchor(image: ptr Image; anchorX: cfloat; anchorY: cfloat)	
+getAnchor	sdl2_gpu.html#getAnchor,ptr.Image,ptr.cfloat,ptr.cfloat	sdl2_gpu: getAnchor(image: ptr Image; anchorX: ptr cfloat; anchorY: ptr cfloat)	
+getSnapMode	sdl2_gpu.html#getSnapMode,ptr.Image	sdl2_gpu: getSnapMode(image: ptr Image): SnapEnum	
+setSnapMode	sdl2_gpu.html#setSnapMode,ptr.Image,SnapEnum	sdl2_gpu: setSnapMode(image: ptr Image; mode: SnapEnum)	
+setWrapMode	sdl2_gpu.html#setWrapMode,ptr.Image,WrapEnum,WrapEnum	sdl2_gpu: setWrapMode(image: ptr Image; wrapModeX: WrapEnum; wrapModeY: WrapEnum)	
+getTextureHandle	sdl2_gpu.html#getTextureHandle,ptr.Image	sdl2_gpu: getTextureHandle(image: ptr Image): TextureHandle	
+copyImageFromSurface	sdl2_gpu.html#copyImageFromSurface,ptr.Surface	sdl2_gpu: copyImageFromSurface(surface: ptr Surface): ptr Image	
+copyImageFromTarget	sdl2_gpu.html#copyImageFromTarget,ptr.Target	sdl2_gpu: copyImageFromTarget(target: ptr Target): ptr Image	
+copySurfaceFromTarget	sdl2_gpu.html#copySurfaceFromTarget,ptr.Target	sdl2_gpu: copySurfaceFromTarget(target: ptr Target): ptr Surface	
+copySurfaceFromImage	sdl2_gpu.html#copySurfaceFromImage,ptr.Image	sdl2_gpu: copySurfaceFromImage(image: ptr Image): ptr Surface	
+vectorLength	sdl2_gpu.html#vectorLength,ptr.cfloat	sdl2_gpu: vectorLength(vec3: ptr cfloat): cfloat	
+vectorNormalize	sdl2_gpu.html#vectorNormalize,ptr.cfloat	sdl2_gpu: vectorNormalize(vec3: ptr cfloat)	
+vectorDot	sdl2_gpu.html#vectorDot,ptr.cfloat,ptr.cfloat	sdl2_gpu: vectorDot(A: ptr cfloat; B: ptr cfloat): cfloat	
+vectorCross	sdl2_gpu.html#vectorCross,ptr.cfloat,ptr.cfloat,ptr.cfloat	sdl2_gpu: vectorCross(result: ptr cfloat; A: ptr cfloat; B: ptr cfloat)	
+vectorCopy	sdl2_gpu.html#vectorCopy,ptr.cfloat,ptr.cfloat	sdl2_gpu: vectorCopy(result: ptr cfloat; A: ptr cfloat)	
+vectorApplyMatrix	sdl2_gpu.html#vectorApplyMatrix,ptr.cfloat,ptr.cfloat	sdl2_gpu: vectorApplyMatrix(vec3: ptr cfloat; matrix4x4: ptr cfloat)	
+vector4ApplyMatrix	sdl2_gpu.html#vector4ApplyMatrix,ptr.cfloat,ptr.cfloat	sdl2_gpu: vector4ApplyMatrix(vec4: ptr cfloat; matrix4x4: ptr cfloat)	
+matrixCopy	sdl2_gpu.html#matrixCopy,ptr.cfloat,ptr.cfloat	sdl2_gpu: matrixCopy(result: ptr cfloat; A: ptr cfloat)	
+matrixIdentity	sdl2_gpu.html#matrixIdentity,ptr.cfloat	sdl2_gpu: matrixIdentity(result: ptr cfloat)	
+matrixOrtho	sdl2_gpu.html#matrixOrtho,ptr.cfloat,cfloat,cfloat,cfloat,cfloat,cfloat,cfloat	sdl2_gpu: matrixOrtho(result: ptr cfloat; left: cfloat; right: cfloat; bottom: cfloat; top: cfloat;\n            zNear: cfloat; zFar: cfloat)	
+matrixFrustum	sdl2_gpu.html#matrixFrustum,ptr.cfloat,cfloat,cfloat,cfloat,cfloat,cfloat,cfloat	sdl2_gpu: matrixFrustum(result: ptr cfloat; left: cfloat; right: cfloat; bottom: cfloat;\n              top: cfloat; zNear: cfloat; zFar: cfloat)	
+matrixPerspective	sdl2_gpu.html#matrixPerspective,ptr.cfloat,cfloat,cfloat,cfloat,cfloat	sdl2_gpu: matrixPerspective(result: ptr cfloat; fovy: cfloat; aspect: cfloat; zNear: cfloat;\n                  zFar: cfloat)	
+matrixLookAt	sdl2_gpu.html#matrixLookAt,ptr.cfloat,cfloat,cfloat,cfloat,cfloat,cfloat,cfloat,cfloat,cfloat,cfloat	sdl2_gpu: matrixLookAt(matrix: ptr cfloat; eyeX: cfloat; eyeY: cfloat; eyeZ: cfloat;\n             targetX: cfloat; targetY: cfloat; targetZ: cfloat; upX: cfloat;\n             upY: cfloat; upZ: cfloat)	
+matrixTranslate	sdl2_gpu.html#matrixTranslate,ptr.cfloat,cfloat,cfloat,cfloat	sdl2_gpu: matrixTranslate(result: ptr cfloat; x: cfloat; y: cfloat; z: cfloat)	
+matrixScale	sdl2_gpu.html#matrixScale,ptr.cfloat,cfloat,cfloat,cfloat	sdl2_gpu: matrixScale(result: ptr cfloat; sx: cfloat; sy: cfloat; sz: cfloat)	
+matrixRotate	sdl2_gpu.html#matrixRotate,ptr.cfloat,cfloat,cfloat,cfloat,cfloat	sdl2_gpu: matrixRotate(result: ptr cfloat; degrees: cfloat; x: cfloat; y: cfloat; z: cfloat)	
+matrixMultiply	sdl2_gpu.html#matrixMultiply,ptr.cfloat,ptr.cfloat,ptr.cfloat	sdl2_gpu: matrixMultiply(result: ptr cfloat; A: ptr cfloat; B: ptr cfloat)	
+multiplyAndAssign	sdl2_gpu.html#multiplyAndAssign,ptr.cfloat,ptr.cfloat	sdl2_gpu: multiplyAndAssign(result: ptr cfloat; B: ptr cfloat)	
+getMatrixString	sdl2_gpu.html#getMatrixString,ptr.cfloat	sdl2_gpu: getMatrixString(A: ptr cfloat): cstring	
+getCurrentMatrix	sdl2_gpu.html#getCurrentMatrix	sdl2_gpu: getCurrentMatrix(): ptr cfloat	
+getTopMatrix	sdl2_gpu.html#getTopMatrix,ptr.MatrixStack	sdl2_gpu: getTopMatrix(stack: ptr MatrixStack): ptr cfloat	
+getModel	sdl2_gpu.html#getModel	sdl2_gpu: getModel(): ptr cfloat	
+getView	sdl2_gpu.html#getView	sdl2_gpu: getView(): ptr cfloat	
+getProjection	sdl2_gpu.html#getProjection	sdl2_gpu: getProjection(): ptr cfloat	
+getModelViewProjection	sdl2_gpu.html#getModelViewProjection,ptr.cfloat	sdl2_gpu: getModelViewProjection(result: ptr cfloat)	
+createMatrixStack	sdl2_gpu.html#createMatrixStack	sdl2_gpu: createMatrixStack(): ptr MatrixStack	
+freeMatrixStack	sdl2_gpu.html#freeMatrixStack,ptr.MatrixStack	sdl2_gpu: freeMatrixStack(stack: ptr MatrixStack)	
+initMatrixStack	sdl2_gpu.html#initMatrixStack,ptr.MatrixStack	sdl2_gpu: initMatrixStack(stack: ptr MatrixStack)	
+copyMatrixStack	sdl2_gpu.html#copyMatrixStack,ptr.MatrixStack,ptr.MatrixStack	sdl2_gpu: copyMatrixStack(source: ptr MatrixStack; dest: ptr MatrixStack)	
+clearMatrixStack	sdl2_gpu.html#clearMatrixStack,ptr.MatrixStack	sdl2_gpu: clearMatrixStack(stack: ptr MatrixStack)	
+resetProjection	sdl2_gpu.html#resetProjection,ptr.Target	sdl2_gpu: resetProjection(target: ptr Target)	
+matrixMode	sdl2_gpu.html#matrixMode,ptr.Target,cint	sdl2_gpu: matrixMode(target: ptr Target; matrixMode: cint)	
+setProjection	sdl2_gpu.html#setProjection,ptr.cfloat	sdl2_gpu: setProjection(A: ptr cfloat)	
+setView	sdl2_gpu.html#setView,ptr.cfloat	sdl2_gpu: setView(A: ptr cfloat)	
+setModel	sdl2_gpu.html#setModel,ptr.cfloat	sdl2_gpu: setModel(A: ptr cfloat)	
+setProjectionFromStack	sdl2_gpu.html#setProjectionFromStack,ptr.MatrixStack	sdl2_gpu: setProjectionFromStack(stack: ptr MatrixStack)	
+setViewFromStack	sdl2_gpu.html#setViewFromStack,ptr.MatrixStack	sdl2_gpu: setViewFromStack(stack: ptr MatrixStack)	
+setModelFromStack	sdl2_gpu.html#setModelFromStack,ptr.MatrixStack	sdl2_gpu: setModelFromStack(stack: ptr MatrixStack)	
+pushMatrix	sdl2_gpu.html#pushMatrix	sdl2_gpu: pushMatrix()	
+popMatrix	sdl2_gpu.html#popMatrix	sdl2_gpu: popMatrix()	
+loadIdentity	sdl2_gpu.html#loadIdentity	sdl2_gpu: loadIdentity()	
+loadMatrix	sdl2_gpu.html#loadMatrix,ptr.cfloat	sdl2_gpu: loadMatrix(matrix4x4: ptr cfloat)	
+ortho	sdl2_gpu.html#ortho,cfloat,cfloat,cfloat,cfloat,cfloat,cfloat	sdl2_gpu: ortho(left: cfloat; right: cfloat; bottom: cfloat; top: cfloat; zNear: cfloat;\n      zFar: cfloat)	
+frustum	sdl2_gpu.html#frustum,cfloat,cfloat,cfloat,cfloat,cfloat,cfloat	sdl2_gpu: frustum(left: cfloat; right: cfloat; bottom: cfloat; top: cfloat; zNear: cfloat;\n        zFar: cfloat)	
+perspective	sdl2_gpu.html#perspective,cfloat,cfloat,cfloat,cfloat	sdl2_gpu: perspective(fovy: cfloat; aspect: cfloat; zNear: cfloat; zFar: cfloat)	
+lookAt	sdl2_gpu.html#lookAt,cfloat,cfloat,cfloat,cfloat,cfloat,cfloat,cfloat,cfloat,cfloat	sdl2_gpu: lookAt(eyeX: cfloat; eyeY: cfloat; eyeZ: cfloat; targetX: cfloat; targetY: cfloat;\n       targetZ: cfloat; upX: cfloat; upY: cfloat; upZ: cfloat)	
+translate	sdl2_gpu.html#translate,cfloat,cfloat,cfloat	sdl2_gpu: translate(x: cfloat; y: cfloat; z: cfloat)	
+scale	sdl2_gpu.html#scale,cfloat,cfloat,cfloat	sdl2_gpu: scale(sx: cfloat; sy: cfloat; sz: cfloat)	
+rotate	sdl2_gpu.html#rotate,cfloat,cfloat,cfloat,cfloat	sdl2_gpu: rotate(degrees: cfloat; x: cfloat; y: cfloat; z: cfloat)	
+multMatrix	sdl2_gpu.html#multMatrix,ptr.cfloat	sdl2_gpu: multMatrix(matrix4x4: ptr cfloat)	
+clear	sdl2_gpu.html#clear,ptr.Target	sdl2_gpu: clear(target: ptr Target)	
+clearColor	sdl2_gpu.html#clearColor,ptr.Target,Color	sdl2_gpu: clearColor(target: ptr Target; color: Color)	
+clearRGB	sdl2_gpu.html#clearRGB,ptr.Target,Uint8,Uint8,Uint8	sdl2_gpu: clearRGB(target: ptr Target; r: Uint8; g: Uint8; b: Uint8)	
+clearRGBA	sdl2_gpu.html#clearRGBA,ptr.Target,Uint8,Uint8,Uint8,Uint8	sdl2_gpu: clearRGBA(target: ptr Target; r: Uint8; g: Uint8; b: Uint8; a: Uint8)	
+blit	sdl2_gpu.html#blit,ptr.Image,ptr.Rect,ptr.Target,cfloat,cfloat	sdl2_gpu: blit(image: ptr Image; srcRect: ptr Rect; target: ptr Target; x: cfloat; y: cfloat)	
+blitRotate	sdl2_gpu.html#blitRotate,ptr.Image,ptr.Rect,ptr.Target,cfloat,cfloat,cfloat	sdl2_gpu: blitRotate(image: ptr Image; srcRect: ptr Rect; target: ptr Target; x: cfloat; y: cfloat;\n           degrees: cfloat)	
+blitScale	sdl2_gpu.html#blitScale,ptr.Image,ptr.Rect,ptr.Target,cfloat,cfloat,cfloat,cfloat	sdl2_gpu: blitScale(image: ptr Image; srcRect: ptr Rect; target: ptr Target; x: cfloat; y: cfloat;\n          scaleX: cfloat; scaleY: cfloat)	
+blitTransform	sdl2_gpu.html#blitTransform,ptr.Image,ptr.Rect,ptr.Target,cfloat,cfloat,cfloat,cfloat,cfloat	sdl2_gpu: blitTransform(image: ptr Image; srcRect: ptr Rect; target: ptr Target; x: cfloat;\n              y: cfloat; degrees: cfloat; scaleX: cfloat; scaleY: cfloat)	
+blitTransformX	sdl2_gpu.html#blitTransformX,ptr.Image,ptr.Rect,ptr.Target,cfloat,cfloat,cfloat,cfloat,cfloat,cfloat,cfloat	sdl2_gpu: blitTransformX(image: ptr Image; srcRect: ptr Rect; target: ptr Target; x: cfloat;\n               y: cfloat; pivotX: cfloat; pivotY: cfloat; degrees: cfloat;\n               scaleX: cfloat; scaleY: cfloat)	
+blitRect	sdl2_gpu.html#blitRect,ptr.Image,ptr.Rect,ptr.Target,ptr.Rect	sdl2_gpu: blitRect(image: ptr Image; srcRect: ptr Rect; target: ptr Target; destRect: ptr Rect)	
+blitRectX	sdl2_gpu.html#blitRectX,ptr.Image,ptr.Rect,ptr.Target,ptr.Rect,cfloat,cfloat,cfloat,FlipEnum	sdl2_gpu: blitRectX(image: ptr Image; srcRect: ptr Rect; target: ptr Target; destRect: ptr Rect;\n          degrees: cfloat; pivotX: cfloat; pivotY: cfloat; flipDirection: FlipEnum)	
+triangleBatch	sdl2_gpu.html#triangleBatch,ptr.Image,ptr.Target,cushort,ptr.cfloat,cuint,ptr.cushort,BatchFlagEnum	sdl2_gpu: triangleBatch(image: ptr Image; target: ptr Target; numVertices: cushort;\n              values: ptr cfloat; numIndices: cuint; indices: ptr cushort;\n              flags: BatchFlagEnum)	
+triangleBatchX	sdl2_gpu.html#triangleBatchX,ptr.Image,ptr.Target,cushort,pointer,cuint,ptr.cushort,BatchFlagEnum	sdl2_gpu: triangleBatchX(image: ptr Image; target: ptr Target; numVertices: cushort;\n               values: pointer; numIndices: cuint; indices: ptr cushort;\n               flags: BatchFlagEnum)	
+primitiveBatch	sdl2_gpu.html#primitiveBatch,ptr.Image,ptr.Target,PrimitiveEnum,cushort,ptr.cfloat,cuint,ptr.cushort,BatchFlagEnum	sdl2_gpu: primitiveBatch(image: ptr Image; target: ptr Target; primitiveType: PrimitiveEnum;\n               numVertices: cushort; values: ptr cfloat; numIndices: cuint;\n               indices: ptr cushort; flags: BatchFlagEnum)	
+primitiveBatchV	sdl2_gpu.html#primitiveBatchV,ptr.Image,ptr.Target,PrimitiveEnum,cushort,pointer,cuint,ptr.cushort,BatchFlagEnum	sdl2_gpu: primitiveBatchV(image: ptr Image; target: ptr Target; primitiveType: PrimitiveEnum;\n                numVertices: cushort; values: pointer; numIndices: cuint;\n                indices: ptr cushort; flags: BatchFlagEnum)	
+flushBlitBuffer	sdl2_gpu.html#flushBlitBuffer	sdl2_gpu: flushBlitBuffer()	
+flip	sdl2_gpu.html#flip,ptr.Target	sdl2_gpu: flip(target: ptr Target)	
+pixel	sdl2_gpu.html#pixel,ptr.Target,cfloat,cfloat,Color	sdl2_gpu: pixel(target: ptr Target; x: cfloat; y: cfloat; color: Color)	
+line	sdl2_gpu.html#line,ptr.Target,cfloat,cfloat,cfloat,cfloat,Color	sdl2_gpu: line(target: ptr Target; x1: cfloat; y1: cfloat; x2: cfloat; y2: cfloat; color: Color)	
+arc	sdl2_gpu.html#arc,ptr.Target,cfloat,cfloat,cfloat,cfloat,cfloat,Color	sdl2_gpu: arc(target: ptr Target; x: cfloat; y: cfloat; radius: cfloat; startAngle: cfloat;\n    endAngle: cfloat; color: Color)	
+arcFilled	sdl2_gpu.html#arcFilled,ptr.Target,cfloat,cfloat,cfloat,cfloat,cfloat,Color	sdl2_gpu: arcFilled(target: ptr Target; x: cfloat; y: cfloat; radius: cfloat; startAngle: cfloat;\n          endAngle: cfloat; color: Color)	
+circle	sdl2_gpu.html#circle,ptr.Target,cfloat,cfloat,cfloat,Color	sdl2_gpu: circle(target: ptr Target; x: cfloat; y: cfloat; radius: cfloat; color: Color)	
+circleFilled	sdl2_gpu.html#circleFilled,ptr.Target,cfloat,cfloat,cfloat,Color	sdl2_gpu: circleFilled(target: ptr Target; x: cfloat; y: cfloat; radius: cfloat; color: Color)	
+ellipse	sdl2_gpu.html#ellipse,ptr.Target,cfloat,cfloat,cfloat,cfloat,cfloat,Color	sdl2_gpu: ellipse(target: ptr Target; x: cfloat; y: cfloat; rx: cfloat; ry: cfloat; degrees: cfloat;\n        color: Color)	
+ellipseFilled	sdl2_gpu.html#ellipseFilled,ptr.Target,cfloat,cfloat,cfloat,cfloat,cfloat,Color	sdl2_gpu: ellipseFilled(target: ptr Target; x: cfloat; y: cfloat; rx: cfloat; ry: cfloat;\n              degrees: cfloat; color: Color)	
+sector	sdl2_gpu.html#sector,ptr.Target,cfloat,cfloat,cfloat,cfloat,cfloat,cfloat,Color	sdl2_gpu: sector(target: ptr Target; x: cfloat; y: cfloat; innerRadius: cfloat;\n       outerRadius: cfloat; startAngle: cfloat; endAngle: cfloat; color: Color)	
+sectorFilled	sdl2_gpu.html#sectorFilled,ptr.Target,cfloat,cfloat,cfloat,cfloat,cfloat,cfloat,Color	sdl2_gpu: sectorFilled(target: ptr Target; x: cfloat; y: cfloat; innerRadius: cfloat;\n             outerRadius: cfloat; startAngle: cfloat; endAngle: cfloat; color: Color)	
+tri	sdl2_gpu.html#tri,ptr.Target,cfloat,cfloat,cfloat,cfloat,cfloat,cfloat,Color	sdl2_gpu: tri(target: ptr Target; x1: cfloat; y1: cfloat; x2: cfloat; y2: cfloat; x3: cfloat;\n    y3: cfloat; color: Color)	
+triFilled	sdl2_gpu.html#triFilled,ptr.Target,cfloat,cfloat,cfloat,cfloat,cfloat,cfloat,Color	sdl2_gpu: triFilled(target: ptr Target; x1: cfloat; y1: cfloat; x2: cfloat; y2: cfloat; x3: cfloat;\n          y3: cfloat; color: Color)	
+rectangle	sdl2_gpu.html#rectangle,ptr.Target,cfloat,cfloat,cfloat,cfloat,Color	sdl2_gpu: rectangle(target: ptr Target; x1: cfloat; y1: cfloat; x2: cfloat; y2: cfloat; color: Color)	
+rectangle2	sdl2_gpu.html#rectangle2,ptr.Target,Rect,Color	sdl2_gpu: rectangle2(target: ptr Target; rect: Rect; color: Color)	
+rectangleFilled	sdl2_gpu.html#rectangleFilled,ptr.Target,cfloat,cfloat,cfloat,cfloat,Color	sdl2_gpu: rectangleFilled(target: ptr Target; x1: cfloat; y1: cfloat; x2: cfloat; y2: cfloat;\n                color: Color)	
+rectangleFilled2	sdl2_gpu.html#rectangleFilled2,ptr.Target,Rect,Color	sdl2_gpu: rectangleFilled2(target: ptr Target; rect: Rect; color: Color)	
+rectangleRound	sdl2_gpu.html#rectangleRound,ptr.Target,cfloat,cfloat,cfloat,cfloat,cfloat,Color	sdl2_gpu: rectangleRound(target: ptr Target; x1: cfloat; y1: cfloat; x2: cfloat; y2: cfloat;\n               radius: cfloat; color: Color)	
+rectangleRound2	sdl2_gpu.html#rectangleRound2,ptr.Target,Rect,cfloat,Color	sdl2_gpu: rectangleRound2(target: ptr Target; rect: Rect; radius: cfloat; color: Color)	
+rectangleRoundFilled	sdl2_gpu.html#rectangleRoundFilled,ptr.Target,cfloat,cfloat,cfloat,cfloat,cfloat,Color	sdl2_gpu: rectangleRoundFilled(target: ptr Target; x1: cfloat; y1: cfloat; x2: cfloat; y2: cfloat;\n                     radius: cfloat; color: Color)	
+rectangleRoundFilled2	sdl2_gpu.html#rectangleRoundFilled2,ptr.Target,Rect,cfloat,Color	sdl2_gpu: rectangleRoundFilled2(target: ptr Target; rect: Rect; radius: cfloat; color: Color)	
+polygon	sdl2_gpu.html#polygon,ptr.Target,cuint,ptr.cfloat,Color	sdl2_gpu: polygon(target: ptr Target; numVertices: cuint; vertices: ptr cfloat; color: Color)	
+polyline	sdl2_gpu.html#polyline,ptr.Target,cuint,ptr.cfloat,Color,Bool	sdl2_gpu: polyline(target: ptr Target; numVertices: cuint; vertices: ptr cfloat; color: Color;\n         closeLoop: Bool)	
+polygonFilled	sdl2_gpu.html#polygonFilled,ptr.Target,cuint,ptr.cfloat,Color	sdl2_gpu: polygonFilled(target: ptr Target; numVertices: cuint; vertices: ptr cfloat; color: Color)	
+createShaderProgram	sdl2_gpu.html#createShaderProgram	sdl2_gpu: createShaderProgram(): Uint32	
+freeShaderProgram	sdl2_gpu.html#freeShaderProgram,Uint32	sdl2_gpu: freeShaderProgram(programObject: Uint32)	
+compileShader_RW	sdl2_gpu.html#compileShader_RW,ShaderEnum,ptr.RWops,Bool	sdl2_gpu: compileShader_RW(shaderType: ShaderEnum; shaderSource: ptr RWops; freeRwops: Bool): Uint32	
+compileShader	sdl2_gpu.html#compileShader,ShaderEnum,cstring	sdl2_gpu: compileShader(shaderType: ShaderEnum; shaderSource: cstring): Uint32	
+loadShader	sdl2_gpu.html#loadShader,ShaderEnum,cstring	sdl2_gpu: loadShader(shaderType: ShaderEnum; filename: cstring): Uint32	
+linkShaders	sdl2_gpu.html#linkShaders,Uint32,Uint32	sdl2_gpu: linkShaders(shaderObject1: Uint32; shaderObject2: Uint32): Uint32	
+linkManyShaders	sdl2_gpu.html#linkManyShaders,ptr.Uint32,cint	sdl2_gpu: linkManyShaders(shaderObjects: ptr Uint32; count: cint): Uint32	
+freeShader	sdl2_gpu.html#freeShader,Uint32	sdl2_gpu: freeShader(shaderObject: Uint32)	
+attachShader	sdl2_gpu.html#attachShader,Uint32,Uint32	sdl2_gpu: attachShader(programObject: Uint32; shaderObject: Uint32)	
+detachShader	sdl2_gpu.html#detachShader,Uint32,Uint32	sdl2_gpu: detachShader(programObject: Uint32; shaderObject: Uint32)	
+linkShaderProgram	sdl2_gpu.html#linkShaderProgram,Uint32	sdl2_gpu: linkShaderProgram(programObject: Uint32): Bool	
+getCurrentShaderProgram	sdl2_gpu.html#getCurrentShaderProgram	sdl2_gpu: getCurrentShaderProgram(): Uint32	
+isDefaultShaderProgram	sdl2_gpu.html#isDefaultShaderProgram,Uint32	sdl2_gpu: isDefaultShaderProgram(programObject: Uint32): Bool	
+activateShaderProgram	sdl2_gpu.html#activateShaderProgram,Uint32,ptr.ShaderBlock	sdl2_gpu: activateShaderProgram(programObject: Uint32; `block`: ptr ShaderBlock)	
+deactivateShaderProgram	sdl2_gpu.html#deactivateShaderProgram	sdl2_gpu: deactivateShaderProgram()	
+getShaderMessage	sdl2_gpu.html#getShaderMessage	sdl2_gpu: getShaderMessage(): cstring	
+getAttributeLocation	sdl2_gpu.html#getAttributeLocation,Uint32,cstring	sdl2_gpu: getAttributeLocation(programObject: Uint32; attribName: cstring): cint	
+makeAttributeFormat	sdl2_gpu.html#makeAttributeFormat,cint,TypeEnum,Bool,cint,cint	sdl2_gpu: makeAttributeFormat(numElemsPerVertex: cint; kind: TypeEnum; normalize: Bool;\n                    strideBytes: cint; offsetBytes: cint): AttributeFormat	
+makeAttribute	sdl2_gpu.html#makeAttribute,cint,pointer,AttributeFormat	sdl2_gpu: makeAttribute(location: cint; values: pointer; format: AttributeFormat): Attribute	
+getUniformLocation	sdl2_gpu.html#getUniformLocation,Uint32,cstring	sdl2_gpu: getUniformLocation(programObject: Uint32; uniformName: cstring): cint	
+loadShaderBlock	sdl2_gpu.html#loadShaderBlock,Uint32,cstring,cstring,cstring,cstring	sdl2_gpu: loadShaderBlock(programObject: Uint32; positionName: cstring; texcoordName: cstring;\n                colorName: cstring; modelViewMatrixName: cstring): ShaderBlock	
+setShaderBlock	sdl2_gpu.html#setShaderBlock,ShaderBlock	sdl2_gpu: setShaderBlock(`block`: ShaderBlock)	
+getShaderBlock	sdl2_gpu.html#getShaderBlock	sdl2_gpu: getShaderBlock(): ShaderBlock	
+setShaderImage	sdl2_gpu.html#setShaderImage,ptr.Image,cint,cint	sdl2_gpu: setShaderImage(image: ptr Image; location: cint; imageUnit: cint)	
+getUniformiv	sdl2_gpu.html#getUniformiv,Uint32,cint,ptr.cint	sdl2_gpu: getUniformiv(programObject: Uint32; location: cint; values: ptr cint)	
+setUniformi	sdl2_gpu.html#setUniformi,cint,cint	sdl2_gpu: setUniformi(location: cint; value: cint)	
+setUniformiv	sdl2_gpu.html#setUniformiv,cint,cint,cint,ptr.cint	sdl2_gpu: setUniformiv(location: cint; numElementsPerValue: cint; numValues: cint;\n             values: ptr cint)	
+getUniformuiv	sdl2_gpu.html#getUniformuiv,Uint32,cint,ptr.cuint	sdl2_gpu: getUniformuiv(programObject: Uint32; location: cint; values: ptr cuint)	
+setUniformui	sdl2_gpu.html#setUniformui,cint,cuint	sdl2_gpu: setUniformui(location: cint; value: cuint)	
+setUniformuiv	sdl2_gpu.html#setUniformuiv,cint,cint,cint,ptr.cuint	sdl2_gpu: setUniformuiv(location: cint; numElementsPerValue: cint; numValues: cint;\n              values: ptr cuint)	
+getUniformfv	sdl2_gpu.html#getUniformfv,Uint32,cint,ptr.cfloat	sdl2_gpu: getUniformfv(programObject: Uint32; location: cint; values: ptr cfloat)	
+setUniformf	sdl2_gpu.html#setUniformf,cint,cfloat	sdl2_gpu: setUniformf(location: cint; value: cfloat)	
+setUniformfv	sdl2_gpu.html#setUniformfv,cint,cint,cint,ptr.cfloat	sdl2_gpu: setUniformfv(location: cint; numElementsPerValue: cint; numValues: cint;\n             values: ptr cfloat)	
+getUniformMatrixfv	sdl2_gpu.html#getUniformMatrixfv,Uint32,cint,ptr.cfloat	sdl2_gpu: getUniformMatrixfv(programObject: Uint32; location: cint; values: ptr cfloat)	
+setUniformMatrixfv	sdl2_gpu.html#setUniformMatrixfv,cint,cint,cint,cint,Bool,ptr.cfloat	sdl2_gpu: setUniformMatrixfv(location: cint; numMatrices: cint; numRows: cint; numColumns: cint;\n                   transpose: Bool; values: ptr cfloat)	
+setAttributef	sdl2_gpu.html#setAttributef,cint,cfloat	sdl2_gpu: setAttributef(location: cint; value: cfloat)	
+setAttributei	sdl2_gpu.html#setAttributei,cint,cint	sdl2_gpu: setAttributei(location: cint; value: cint)	
+setAttributeui	sdl2_gpu.html#setAttributeui,cint,cuint	sdl2_gpu: setAttributeui(location: cint; value: cuint)	
+setAttributefv	sdl2_gpu.html#setAttributefv,cint,cint,ptr.cfloat	sdl2_gpu: setAttributefv(location: cint; numElements: cint; value: ptr cfloat)	
+setAttributeiv	sdl2_gpu.html#setAttributeiv,cint,cint,ptr.cint	sdl2_gpu: setAttributeiv(location: cint; numElements: cint; value: ptr cint)	
+setAttributeuiv	sdl2_gpu.html#setAttributeuiv,cint,cint,ptr.cuint	sdl2_gpu: setAttributeuiv(location: cint; numElements: cint; value: ptr cuint)	
+setAttributeSource	sdl2_gpu.html#setAttributeSource,cint,Attribute	sdl2_gpu: setAttributeSource(numValues: cint; source: Attribute)	

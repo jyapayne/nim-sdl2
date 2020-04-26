@@ -1,0 +1,124 @@
+SDLmixerStd	sdl2/sdl2_mixer.html#SDLmixerStd	sdl2_mixer: SDLmixerStd	
+SDLmixerGit	sdl2/sdl2_mixer.html#SDLmixerGit	sdl2_mixer: SDLmixerGit	
+SDLmixerDL	sdl2/sdl2_mixer.html#SDLmixerDL	sdl2_mixer: SDLmixerDL	
+SDLmixerStatic	sdl2/sdl2_mixer.html#SDLmixerStatic	sdl2_mixer: SDLmixerStatic	
+SDLmixerSetVer	sdl2/sdl2_mixer.html#SDLmixerSetVer	sdl2_mixer: SDLmixerSetVer	
+SDLmixerLPath	sdl2/sdl2_mixer.html#SDLmixerLPath	sdl2_mixer: SDLmixerLPath	
+SDLmixerPath	sdl2/sdl2_mixer.html#SDLmixerPath	sdl2_mixer: SDLmixerPath	
+MIX_InitFlags	sdl2/sdl2_mixer.html#MIX_InitFlags	sdl2_mixer: MIX_InitFlags	
+Fading	sdl2/sdl2_mixer.html#Fading	sdl2_mixer: Fading	
+MusicType	sdl2/sdl2_mixer.html#MusicType	sdl2_mixer: MusicType	
+SetError	sdl2/sdl2_mixer.html#SetError	sdl2_mixer: SetError	
+GetError	sdl2/sdl2_mixer.html#GetError	sdl2_mixer: GetError	
+ClearError	sdl2/sdl2_mixer.html#ClearError	sdl2_mixer: ClearError	
+MIXER_MAJOR_VERSION	sdl2/sdl2_mixer.html#MIXER_MAJOR_VERSION	sdl2_mixer: MIXER_MAJOR_VERSION	
+MIXER_MINOR_VERSION	sdl2/sdl2_mixer.html#MIXER_MINOR_VERSION	sdl2_mixer: MIXER_MINOR_VERSION	
+MIXER_PATCHLEVEL	sdl2/sdl2_mixer.html#MIXER_PATCHLEVEL	sdl2_mixer: MIXER_PATCHLEVEL	
+MIX_MAJOR_VERSION	sdl2/sdl2_mixer.html#MIX_MAJOR_VERSION	sdl2_mixer: MIX_MAJOR_VERSION	
+MIX_MINOR_VERSION	sdl2/sdl2_mixer.html#MIX_MINOR_VERSION	sdl2_mixer: MIX_MINOR_VERSION	
+MIX_PATCHLEVEL	sdl2/sdl2_mixer.html#MIX_PATCHLEVEL	sdl2_mixer: MIX_PATCHLEVEL	
+MIX_INIT_FLAC	sdl2/sdl2_mixer.html#MIX_INIT_FLAC	sdl2_mixer: MIX_INIT_FLAC	
+MIX_INIT_MOD	sdl2/sdl2_mixer.html#MIX_INIT_MOD	sdl2_mixer: MIX_INIT_MOD	
+MIX_INIT_MP3	sdl2/sdl2_mixer.html#MIX_INIT_MP3	sdl2_mixer: MIX_INIT_MP3	
+MIX_INIT_OGG	sdl2/sdl2_mixer.html#MIX_INIT_OGG	sdl2_mixer: MIX_INIT_OGG	
+MIX_INIT_MID	sdl2/sdl2_mixer.html#MIX_INIT_MID	sdl2_mixer: MIX_INIT_MID	
+MIX_INIT_OPUS	sdl2/sdl2_mixer.html#MIX_INIT_OPUS	sdl2_mixer: MIX_INIT_OPUS	
+MIX_CHANNELS	sdl2/sdl2_mixer.html#MIX_CHANNELS	sdl2_mixer: MIX_CHANNELS	
+MIX_DEFAULT_FREQUENCY	sdl2/sdl2_mixer.html#MIX_DEFAULT_FREQUENCY	sdl2_mixer: MIX_DEFAULT_FREQUENCY	
+MIX_DEFAULT_CHANNELS	sdl2/sdl2_mixer.html#MIX_DEFAULT_CHANNELS	sdl2_mixer: MIX_DEFAULT_CHANNELS	
+MIX_NO_FADING	sdl2/sdl2_mixer.html#MIX_NO_FADING	sdl2_mixer: MIX_NO_FADING	
+MIX_FADING_OUT	sdl2/sdl2_mixer.html#MIX_FADING_OUT	sdl2_mixer: MIX_FADING_OUT	
+MIX_FADING_IN	sdl2/sdl2_mixer.html#MIX_FADING_IN	sdl2_mixer: MIX_FADING_IN	
+MUS_NONE	sdl2/sdl2_mixer.html#MUS_NONE	sdl2_mixer: MUS_NONE	
+MUS_CMD	sdl2/sdl2_mixer.html#MUS_CMD	sdl2_mixer: MUS_CMD	
+MUS_WAV	sdl2/sdl2_mixer.html#MUS_WAV	sdl2_mixer: MUS_WAV	
+MUS_MOD	sdl2/sdl2_mixer.html#MUS_MOD	sdl2_mixer: MUS_MOD	
+MUS_MID	sdl2/sdl2_mixer.html#MUS_MID	sdl2_mixer: MUS_MID	
+MUS_OGG	sdl2/sdl2_mixer.html#MUS_OGG	sdl2_mixer: MUS_OGG	
+MUS_MP3	sdl2/sdl2_mixer.html#MUS_MP3	sdl2_mixer: MUS_MP3	
+MUS_MP3_MAD_UNUSED	sdl2/sdl2_mixer.html#MUS_MP3_MAD_UNUSED	sdl2_mixer: MUS_MP3_MAD_UNUSED	
+MUS_FLAC	sdl2/sdl2_mixer.html#MUS_FLAC	sdl2_mixer: MUS_FLAC	
+MUS_MODPLUG_UNUSED	sdl2/sdl2_mixer.html#MUS_MODPLUG_UNUSED	sdl2_mixer: MUS_MODPLUG_UNUSED	
+MUS_OPUS	sdl2/sdl2_mixer.html#MUS_OPUS	sdl2_mixer: MUS_OPUS	
+MIX_CHANNEL_POST	sdl2/sdl2_mixer.html#MIX_CHANNEL_POST	sdl2_mixer: MIX_CHANNEL_POST	
+MIX_EFFECTSMAXSPEED	sdl2/sdl2_mixer.html#MIX_EFFECTSMAXSPEED	sdl2_mixer: MIX_EFFECTSMAXSPEED	
+Chunk	sdl2/sdl2_mixer.html#Chunk	sdl2_mixer: Chunk	
+Music	sdl2/sdl2_mixer.html#Music	sdl2_mixer: Music	
+EffectFunc_t	sdl2/sdl2_mixer.html#EffectFunc_t	sdl2_mixer: EffectFunc_t	
+EffectDone_t	sdl2/sdl2_mixer.html#EffectDone_t	sdl2_mixer: EffectDone_t	
+linked_Version	sdl2/sdl2_mixer.html#linked_Version	sdl2_mixer: linked_Version(): ptr Version	
+init	sdl2/sdl2_mixer.html#init,cint	sdl2_mixer: init(flags: cint): cint	
+quit	sdl2/sdl2_mixer.html#quit	sdl2_mixer: quit()	
+openAudio	sdl2/sdl2_mixer.html#openAudio,cint,Uint16,cint,cint	sdl2_mixer: openAudio(frequency: cint; format: Uint16; channels: cint; chunksize: cint): cint	
+openAudioDevice	sdl2/sdl2_mixer.html#openAudioDevice,cint,Uint16,cint,cint,cstring,cint	sdl2_mixer: openAudioDevice(frequency: cint; format: Uint16; channels: cint; chunksize: cint;\n                device: cstring; allowedChanges: cint): cint	
+allocateChannels	sdl2/sdl2_mixer.html#allocateChannels,cint	sdl2_mixer: allocateChannels(numchans: cint): cint	
+querySpec	sdl2/sdl2_mixer.html#querySpec,ptr.cint,ptr.Uint16,ptr.cint	sdl2_mixer: querySpec(frequency: ptr cint; format: ptr Uint16; channels: ptr cint): cint	
+loadWAV_RW	sdl2/sdl2_mixer.html#loadWAV_RW,ptr.RWops,cint	sdl2_mixer: loadWAV_RW(src: ptr RWops; freesrc: cint): ptr Chunk	
+loadMUS	sdl2/sdl2_mixer.html#loadMUS,cstring	sdl2_mixer: loadMUS(file: cstring): ptr Music	
+loadMUS_RW	sdl2/sdl2_mixer.html#loadMUS_RW,ptr.RWops,cint	sdl2_mixer: loadMUS_RW(src: ptr RWops; freesrc: cint): ptr Music	
+loadMUSType_RW	sdl2/sdl2_mixer.html#loadMUSType_RW,ptr.RWops,MusicType,cint	sdl2_mixer: loadMUSType_RW(src: ptr RWops; kind: MusicType; freesrc: cint): ptr Music	
+quickLoad_WAV	sdl2/sdl2_mixer.html#quickLoad_WAV,ptr.Uint8	sdl2_mixer: quickLoad_WAV(mem: ptr Uint8): ptr Chunk	
+quickLoad_RAW	sdl2/sdl2_mixer.html#quickLoad_RAW,ptr.Uint8,Uint32	sdl2_mixer: quickLoad_RAW(mem: ptr Uint8; len: Uint32): ptr Chunk	
+freeChunk	sdl2/sdl2_mixer.html#freeChunk,ptr.Chunk	sdl2_mixer: freeChunk(chunk: ptr Chunk)	
+freeMusic	sdl2/sdl2_mixer.html#freeMusic,ptr.Music	sdl2_mixer: freeMusic(music: ptr Music)	
+getNumChunkDecoders	sdl2/sdl2_mixer.html#getNumChunkDecoders	sdl2_mixer: getNumChunkDecoders(): cint	
+getChunkDecoder	sdl2/sdl2_mixer.html#getChunkDecoder,cint	sdl2_mixer: getChunkDecoder(index: cint): cstring	
+hasChunkDecoder	sdl2/sdl2_mixer.html#hasChunkDecoder,cstring	sdl2_mixer: hasChunkDecoder(name: cstring): bool	
+getNumMusicDecoders	sdl2/sdl2_mixer.html#getNumMusicDecoders	sdl2_mixer: getNumMusicDecoders(): cint	
+getMusicDecoder	sdl2/sdl2_mixer.html#getMusicDecoder,cint	sdl2_mixer: getMusicDecoder(index: cint): cstring	
+hasMusicDecoder	sdl2/sdl2_mixer.html#hasMusicDecoder,cstring	sdl2_mixer: hasMusicDecoder(name: cstring): bool	
+getMusicType	sdl2/sdl2_mixer.html#getMusicType,ptr.Music	sdl2_mixer: getMusicType(music: ptr Music): MusicType	
+setPostMix	sdl2/sdl2_mixer.html#setPostMix,proc(pointer,ptr.Uint8,cint),pointer	sdl2_mixer: setPostMix(mixFunc: proc (udata: pointer; stream: ptr Uint8; len: cint) {.cdecl.};\n           arg: pointer)	
+hookMusic	sdl2/sdl2_mixer.html#hookMusic,proc(pointer,ptr.Uint8,cint),pointer	sdl2_mixer: hookMusic(mixFunc: proc (udata: pointer; stream: ptr Uint8; len: cint) {.cdecl.};\n          arg: pointer)	
+hookMusicFinished	sdl2/sdl2_mixer.html#hookMusicFinished,proc)	sdl2_mixer: hookMusicFinished(musicFinished: proc () {.cdecl.})	
+getMusicHookData	sdl2/sdl2_mixer.html#getMusicHookData	sdl2_mixer: getMusicHookData(): pointer	
+channelFinished	sdl2/sdl2_mixer.html#channelFinished,proc(cint)	sdl2_mixer: channelFinished(channelFinished: proc (channel: cint) {.cdecl.})	
+registerEffect	sdl2/sdl2_mixer.html#registerEffect,cint,EffectFunc_t,EffectDone_t,pointer	sdl2_mixer: registerEffect(chan: cint; f: EffectFunc_t; d: EffectDone_t; arg: pointer): cint	
+unregisterEffect	sdl2/sdl2_mixer.html#unregisterEffect,cint,EffectFunc_t	sdl2_mixer: unregisterEffect(channel: cint; f: EffectFunc_t): cint	
+unregisterAllEffects	sdl2/sdl2_mixer.html#unregisterAllEffects,cint	sdl2_mixer: unregisterAllEffects(channel: cint): cint	
+setPanning	sdl2/sdl2_mixer.html#setPanning,cint,Uint8,Uint8	sdl2_mixer: setPanning(channel: cint; left: Uint8; right: Uint8): cint	
+setPosition	sdl2/sdl2_mixer.html#setPosition,cint,Sint16,Uint8	sdl2_mixer: setPosition(channel: cint; angle: Sint16; distance: Uint8): cint	
+setDistance	sdl2/sdl2_mixer.html#setDistance,cint,Uint8	sdl2_mixer: setDistance(channel: cint; distance: Uint8): cint	
+setReverseStereo	sdl2/sdl2_mixer.html#setReverseStereo,cint,cint	sdl2_mixer: setReverseStereo(channel: cint; flip: cint): cint	
+reserveChannels	sdl2/sdl2_mixer.html#reserveChannels,cint	sdl2_mixer: reserveChannels(num: cint): cint	
+groupChannel	sdl2/sdl2_mixer.html#groupChannel,cint,cint	sdl2_mixer: groupChannel(which: cint; tag: cint): cint	
+groupChannels	sdl2/sdl2_mixer.html#groupChannels,cint,cint,cint	sdl2_mixer: groupChannels(`from`: cint; to: cint; tag: cint): cint	
+groupAvailable	sdl2/sdl2_mixer.html#groupAvailable,cint	sdl2_mixer: groupAvailable(tag: cint): cint	
+groupCount	sdl2/sdl2_mixer.html#groupCount,cint	sdl2_mixer: groupCount(tag: cint): cint	
+groupOldest	sdl2/sdl2_mixer.html#groupOldest,cint	sdl2_mixer: groupOldest(tag: cint): cint	
+groupNewer	sdl2/sdl2_mixer.html#groupNewer,cint	sdl2_mixer: groupNewer(tag: cint): cint	
+playChannelTimed	sdl2/sdl2_mixer.html#playChannelTimed,cint,ptr.Chunk,cint,cint	sdl2_mixer: playChannelTimed(channel: cint; chunk: ptr Chunk; loops: cint; ticks: cint): cint	
+playMusic	sdl2/sdl2_mixer.html#playMusic,ptr.Music,cint	sdl2_mixer: playMusic(music: ptr Music; loops: cint): cint	
+fadeInMusic	sdl2/sdl2_mixer.html#fadeInMusic,ptr.Music,cint,cint	sdl2_mixer: fadeInMusic(music: ptr Music; loops: cint; ms: cint): cint	
+fadeInMusicPos	sdl2/sdl2_mixer.html#fadeInMusicPos,ptr.Music,cint,cint,cdouble	sdl2_mixer: fadeInMusicPos(music: ptr Music; loops: cint; ms: cint; position: cdouble): cint	
+fadeInChannelTimed	sdl2/sdl2_mixer.html#fadeInChannelTimed,cint,ptr.Chunk,cint,cint,cint	sdl2_mixer: fadeInChannelTimed(channel: cint; chunk: ptr Chunk; loops: cint; ms: cint; ticks: cint): cint	
+volume	sdl2/sdl2_mixer.html#volume,cint,cint	sdl2_mixer: volume(channel: cint; volume: cint): cint	
+volumeChunk	sdl2/sdl2_mixer.html#volumeChunk,ptr.Chunk,cint	sdl2_mixer: volumeChunk(chunk: ptr Chunk; volume: cint): cint	
+volumeMusic	sdl2/sdl2_mixer.html#volumeMusic,cint	sdl2_mixer: volumeMusic(volume: cint): cint	
+haltChannel	sdl2/sdl2_mixer.html#haltChannel,cint	sdl2_mixer: haltChannel(channel: cint): cint	
+haltGroup	sdl2/sdl2_mixer.html#haltGroup,cint	sdl2_mixer: haltGroup(tag: cint): cint	
+haltMusic	sdl2/sdl2_mixer.html#haltMusic	sdl2_mixer: haltMusic(): cint	
+expireChannel	sdl2/sdl2_mixer.html#expireChannel,cint,cint	sdl2_mixer: expireChannel(channel: cint; ticks: cint): cint	
+fadeOutChannel	sdl2/sdl2_mixer.html#fadeOutChannel,cint,cint	sdl2_mixer: fadeOutChannel(which: cint; ms: cint): cint	
+fadeOutGroup	sdl2/sdl2_mixer.html#fadeOutGroup,cint,cint	sdl2_mixer: fadeOutGroup(tag: cint; ms: cint): cint	
+fadeOutMusic	sdl2/sdl2_mixer.html#fadeOutMusic,cint	sdl2_mixer: fadeOutMusic(ms: cint): cint	
+fadingMusic	sdl2/sdl2_mixer.html#fadingMusic	sdl2_mixer: fadingMusic(): Fading	
+fadingChannel	sdl2/sdl2_mixer.html#fadingChannel,cint	sdl2_mixer: fadingChannel(which: cint): Fading	
+pause	sdl2/sdl2_mixer.html#pause,cint	sdl2_mixer: pause(channel: cint)	
+resume	sdl2/sdl2_mixer.html#resume,cint	sdl2_mixer: resume(channel: cint)	
+paused	sdl2/sdl2_mixer.html#paused,cint	sdl2_mixer: paused(channel: cint): cint	
+pauseMusic	sdl2/sdl2_mixer.html#pauseMusic	sdl2_mixer: pauseMusic()	
+resumeMusic	sdl2/sdl2_mixer.html#resumeMusic	sdl2_mixer: resumeMusic()	
+rewindMusic	sdl2/sdl2_mixer.html#rewindMusic	sdl2_mixer: rewindMusic()	
+pausedMusic	sdl2/sdl2_mixer.html#pausedMusic	sdl2_mixer: pausedMusic(): cint	
+setMusicPosition	sdl2/sdl2_mixer.html#setMusicPosition,cdouble	sdl2_mixer: setMusicPosition(position: cdouble): cint	
+playing	sdl2/sdl2_mixer.html#playing,cint	sdl2_mixer: playing(channel: cint): cint	
+playingMusic	sdl2/sdl2_mixer.html#playingMusic	sdl2_mixer: playingMusic(): cint	
+setMusicCMD	sdl2/sdl2_mixer.html#setMusicCMD,cstring	sdl2_mixer: setMusicCMD(command: cstring): cint	
+setSynchroValue	sdl2/sdl2_mixer.html#setSynchroValue,cint	sdl2_mixer: setSynchroValue(value: cint): cint	
+getSynchroValue	sdl2/sdl2_mixer.html#getSynchroValue	sdl2_mixer: getSynchroValue(): cint	
+setSoundFonts	sdl2/sdl2_mixer.html#setSoundFonts,cstring	sdl2_mixer: setSoundFonts(paths: cstring): cint	
+getSoundFonts	sdl2/sdl2_mixer.html#getSoundFonts	sdl2_mixer: getSoundFonts(): cstring	
+eachSoundFont	sdl2/sdl2_mixer.html#eachSoundFont,proc(cstring,pointer),pointer	sdl2_mixer: eachSoundFont(function: proc (a1: cstring; a2: pointer): cint {.cdecl.}; data: pointer): cint	
+getChunk	sdl2/sdl2_mixer.html#getChunk,cint	sdl2_mixer: getChunk(channel: cint): ptr Chunk	
+closeAudio	sdl2/sdl2_mixer.html#closeAudio	sdl2_mixer: closeAudio()	
