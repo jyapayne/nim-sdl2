@@ -94,17 +94,6 @@ cOverride:
       of CONTROLLER_BINDTYPE_NONE:
         discard
 
-    Uint64* = uint64
-    Uint32* = uint32
-    Uint16* = uint16
-    Uint8* = uint8
-
-    Sint64* = int64
-    Sint32* = int32
-    Sint16* = int16
-    Sint8* = int8
-    Bool* = bool
-
 cPluginPath(symbolPluginPath)
 
 static:
@@ -117,7 +106,7 @@ static:
 when defined(SDL_Static):
   cImport(SDL_Path, recurse = true, flags = "-f=ast2 -DDOXYGEN_SHOULD_IGNORE_THIS -E__,_ -F__,_")
 else:
-  cImport(SDL_Path, recurse = true, dynlib = "SDL_LPath", flags = "-f=ast2 -DDOXYGEN_SHOULD_IGNORE_THIS")
+  cImport(SDL_Path, recurse = true, dynlib = "SDL_LPath", flags = "-f=ast2 -DDOXYGEN_SHOULD_IGNORE_THIS -E__,_ -F__,_")
 
 proc getDynlibExt(): string =
   when defined(windows):
@@ -146,20 +135,3 @@ const
   BUTTON_RMASK* = sdl_button(BUTTON_RIGHT)
   BUTTON_X1MASK* = sdl_button(BUTTON_X1)
   BUTTON_X2MASK* = sdl_button(BUTTON_X2)
-
-  HAPTIC_CONSTANT_TYPE* = (1 shl 0)
-  HAPTIC_SINE_TYPE* = (1 shl 1)
-  HAPTIC_LEFTRIGHT_TYPE* = (1 shl 2)
-  HAPTIC_TRIANGLE_TYPE* = (1 shl 3)
-  HAPTIC_SAWTOOTHUP_TYPE* = (1 shl 4)
-  HAPTIC_SAWTOOTHDOWN_TYPE* = (1 shl 5)
-  HAPTIC_RAMP_TYPE* = (1 shl 6)
-  HAPTIC_SPRING_TYPE* = (1 shl 7)
-  HAPTIC_DAMPER_TYPE* = (1 shl 8)
-  HAPTIC_INERTIA_TYPE* = (1 shl 9)
-  HAPTIC_FRICTION_TYPE* = (1 shl 10)
-  HAPTIC_CUSTOM_TYPE* = (1 shl 11)
-  HAPTIC_GAIN_TYPE* = (1 shl 12)
-  HAPTIC_AUTOCENTER_TYPE* = (1 shl 13)
-  HAPTIC_STATUS_TYPE* = (1 shl 14)
-  HAPTIC_PAUSE_TYPE* = (1 shl 15)
