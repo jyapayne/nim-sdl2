@@ -14,12 +14,14 @@ proc nothing(m: RegexMatch, s: string): string =
   if m.groupsCount > 0 and m.group(0).len > 0:
     return s[m.group(0)[0]]
 
-const gpuReg = re"^GPU_(.)"
-const sdlReg = re"^SDL_(.)"
-const ttfReg = re"^TTF_(.)"
-const netReg = re"^SDLNet_(.)"
-const mixReg = re"^Mix_(.)"
-const imgReg = re"^IMG_(.)"
+const replacements = [
+  re"^GPU_(.)",
+  re"^SDL_(.)",
+  re"^TTF_(.)",
+  re"^SDLNet_(.)",
+  re"^Mix_(.)",
+  re"^IMG_(.)"
+]
 const underscoreReg = re"_(.)"
 
 const EVENT_TYPES = toHashSet([
@@ -87,7 +89,6 @@ const INT_TYPES = toHashSet([
   "Sint8",
 ])
 
-
 # Symbol renaming examples
 proc onSymbol*(sym: var Symbol) {.exportc, dynlib.} =
   if sym.kind == nskType:
@@ -106,56 +107,17 @@ proc onSymbol*(sym: var Symbol) {.exportc, dynlib.} =
     if sym.name != "_":
       sym.name = sym.name.strip(chars={'_'}).replace("__", "_")
 
-  if sym.kind == nskProc:
-    try:
-      sym.name = sym.name.replace(gpuReg, firstLetterLower)
-    except:
-      discard
-    try:
-      sym.name = sym.name.replace(sdlReg, firstLetterLower)
-    except:
-      discard
-    try:
-      sym.name = sym.name.replace(ttfReg, firstLetterLower)
-    except:
-      discard
-    try:
-      sym.name = sym.name.replace(netReg, firstLetterLower)
-    except:
-      discard
-    try:
-      sym.name = sym.name.replace(mixReg, firstLetterLower)
-    except:
-      discard
-    try:
-      sym.name = sym.name.replace(imgReg, firstLetterLower)
-    except:
-      discard
-  else:
-    try:
-      sym.name = sym.name.replace(gpuReg, nothing)
-    except:
-      discard
-    try:
-      sym.name = sym.name.replace(sdlReg, nothing)
-    except:
-      discard
-    try:
-      sym.name = sym.name.replace(ttfReg, nothing)
-    except:
-      discard
-    try:
-      sym.name = sym.name.replace(netReg, nothing)
-    except:
-      discard
-    try:
-      sym.name = sym.name.replace(mixReg, nothing)
-    except:
-      discard
-    try:
-      sym.name = sym.name.replace(imgReg, nothing)
-    except:
-      discard
+  for rep in replacements:
+    if sym.kind == nskProc:
+      try:
+        sym.name = sym.name.replace(rep, firstLetterLower)
+      except:
+        discard
+    else:
+      try:
+        sym.name = sym.name.replace(rep, nothing)
+      except:
+        discard
 
   if sym.name.startsWith("SDLK_"):
     sym.name = sym.name.replace("SDLK_", "KEYCODE_")
