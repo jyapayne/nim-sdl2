@@ -6,13 +6,20 @@ const
   baseDir = SDLCacheDir
   srcDir = baseDir / "sdl2"
   buildDir = srcDir / "buildcache"
+  includeDir = srcDir / "include"
   symbolPluginPath = currentSourcePath.parentDir() / "cleansymbols.nim"
+
+when defined(windows):
+  const dlurl = "https://www.libsdl.org/release/SDL2-$1.zip"
+else:
+  const dlurl = "https://www.libsdl.org/release/SDL2-$1.tar.gz"
 
 getHeader(
   "SDL.h",
-  dlurl = "https://www.libsdl.org/release/SDL2-$1.tar.gz",
+  dlurl = dlurl,
   outdir = srcDir,
-  cmakeFlags = "-DSDL_STATIC_PIC=ON"
+  cmakeFlags = "-DSDL_STATIC_PIC=ON",
+  altNames = "SDL2"
 )
 
 # {.passL: "-framework GLUT -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo -framework Carbon -framework CoreAudio -lm".}
@@ -20,7 +27,7 @@ static:
   cSkipSymbol @[
     "bool", "compile_time_assert_SDL_Event", "INLINE", "FUNCTION",
     "FILE", "LINE", "PRIu64", "PRIx64", "SDLPRIX64", "assert_state",
-    "assert_data",
+    "assert_data", "NULL"
     # "SDL_AssertState", "SDL_AssertData", "SDL_threadID", "SDL_Keycode", "SDL_HapticConstant", "SDL_HapticRamp", "SDL_HapticLeftRight", "SDL_HapticCustom", "SDL_HapticPause", "SDL_Log"
   ]
   # cDebug()
@@ -99,16 +106,59 @@ cOverride:
 cPluginPath(symbolPluginPath)
 
 static:
-  when SDL_Static:
-    const conf = staticExec(&"cd {srcDir}; ./sdl2-config --static-libs || (./configure --silent; ./sdl2-config --static-libs)").replace("-lSDL2 ", "").split('\n')[^1]
+  # when SDL_Static:
+  #   when defined(windows):
+  #     const conf = "-lmingw32 -mwindows -Wl,--no-undefined -Wl,--dynamicbase -Wl,--nxcompat -Wl,--high-entropy-va -lm -ldinput8 -ldxguid -ldxerr8 -luser32 -lgdi32 -lwinmm -limm32 -lole32 -loleaut32 -lshell32 -lsetupapi -lversion -luuid -static-libgcc"
+  #   else:
+  #     const conf = staticExec(&"cd {srcDir}; ./sdl2-config --static-libs").replace("-lSDL2 ", "").replace("-lSDL2main", "").split('\n')[^1]
+  # else:
+  #   when defined(windows):
+  #     const conf = "-lmingw32 -lSDL2main -lSDL2 -mwindows"
+  #   else:
+  #     const conf = staticExec(&"cd {srcDir}; ./sdl2-config --libs || (./configure --silent; ./sdl2-config --libs)").split('\n')[^1]
+
+  when defined(windows):
+    when defined(amd64):
+      const flags = "--host=x86_64-w64-mingw32"
+    else:
+      const flags = "--host=i686-w64-mingw32"
   else:
-    const conf = staticExec(&"cd {srcDir}; ./sdl2-config --libs || (./configure --silent; ./sdl2-config --libs)").split('\n')[^1]
-  {.passL: conf.}
+    const flags = ""
+  configure(srcDir.sanitizePath, "sdl2-config", flags)
+
+proc unixizePath*(path: string, noQuote = false, sep = $DirSep): string =
+  result = path.multiReplace([("C:\\", "/c/"), (sep, "/")])
+  if not noQuote:
+    result = result.quoteShell
+
+static:
+  proc getLibOutput(output: string): string =
+    for line in output.split('\l'):
+      if "lSDL2" in line:
+        return line.strip()#.replace("-lSDL2 ", "").replace("-lSDL2main ", "")
+
+  when defined(SDL_Static):
+    when defined(windows):
+      #TODO: Find a way to automate this on Windows reliably
+      const conf = "-lmingw32 -lSDL2main -lSDL2 -mwindows -Wl,--no-undefined -Wl,--dynamicbase -Wl,--nxcompat -Wl,--high-entropy-va -lm -ldinput8 -ldxguid -ldxerr8 -luser32 -lgdi32 -lwinmm -limm32 -lole32 -loleaut32 -lshell32 -lsetupapi -lversion -luuid -static-libgcc"
+    else:
+      const cmd = &"cd {srcDir.sanitizePath} && bash ./sdl2-config --static-libs"
+      const conf = execAction(cmd).output.getLibOutput
+  else:
+    when defined(windows):
+      #TODO: Find a way to automate this on Windows reliably
+      const conf = "-lmingw32 -lSDL2main -lSDL2 -mwindows"
+    else:
+      const cmd = &"cd {srcDir.sanitizePath} && bash ./sdl2-config --libs"
+      const conf = execAction(cmd).output.getLibOutput
+  echo conf
+  echo buildDir.unixizePath
+  {.passL: &"-L{buildDir.sanitizePath} -L{buildDir.unixizePath} {conf}".}
 
 when defined(SDL_Static):
-  cImport(SDL_Path, recurse = true, flags = "-f=ast2 -DDOXYGEN_SHOULD_IGNORE_THIS -E__,_ -F__,_")
+  cImport(srcDir/"include"/"SDL.h", recurse = true, flags = "-f=ast2 -DDOXYGEN_SHOULD_IGNORE_THIS -E__,_ -F__,_")
 else:
-  cImport(SDL_Path, recurse = true, dynlib = "SDL_LPath", flags = "-f=ast2 -DDOXYGEN_SHOULD_IGNORE_THIS -E__,_ -F__,_")
+  cImport(srcDir/"include"/"SDL.h", recurse = true, dynlib = "SDL_LPath", flags = "-f=ast2 -DDOXYGEN_SHOULD_IGNORE_THIS -E__,_ -F__,_")
 
 proc getDynlibExt(): string =
   when defined(windows):
@@ -122,9 +172,35 @@ proc findDynlib(): string =
   const pathRegex = "(lib)?SDL2[_-]?(static)?[0-9.\\-]*\\" & getDynlibExt()
   return findFile(pathRegex, buildDir, regex = true)
 
+proc findStaticlib(): string =
+  const pathRegex = "(lib)?SDL2[_-]?(static)?[0-9.\\-]*\\.a"
+  return findFile(pathRegex, buildDir, regex = true)
+
+proc findStaticMainlib(): string =
+  const pathRegex = "(lib)?SDL2[_-]?(static)?[0-9.\\-]*\\main.a"
+  return findFile(pathRegex, buildDir, regex = true)
+
 const SDLDyLibPath* = findDynlib()
-const SDLMainLib* = buildDir / "libSDL2main.a"
-const SDLStaticLib* = buildDir / "libSDL2.a"
+const SDLMainLib* = buildDir / findStaticMainlib()
+const SDLStaticLib* = buildDir / findStaticlib()
+const SDL2ConfigPath* = srcDir / "sdl2-config"
+const SDLSrcDir* = srcDir
+
+static:
+  let pathenv = getEnv("PATH")
+  when defined(windows):
+    putEnv("PATH", buildDir.sanitizePath & ";" & pathenv)
+  else:
+    putEnv("PATH", buildDir.sanitizePath & ":" & pathenv)
+  echo pathenv
+  echo includeDir
+  putEnv("CFLAGS", "-I" & includeDir.sanitizePath)
+  putEnv("LDFLAGS", &"-L{buildDir.sanitizePath} -L{buildDir.unixizePath}") # & " " & buildDir/"libSDL2main.a")
+  putEnv("SDL2_CONFIG", (srcDir/"sdl2-config").sanitizePath)
+  putEnv("LIBS", &"-L{buildDir.sanitizePath} -L{buildDir.unixizePath}")
+  putEnv("SDL_CFLAGS", "-I" & includeDir.sanitizePath)
+  putEnv("LD_LIBRARY_PATH", &"{buildDir.sanitizePath}:{buildDir.unixizePath}")
+  putEnv("SDL2_PATH", srcDir.sanitizePath)
 
 const
   WINDOWPOS_UNDEFINED* = WINDOWPOS_UNDEFINED_DISPLAY(0)

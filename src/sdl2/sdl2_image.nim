@@ -8,9 +8,14 @@ const
   srcDir = baseDir / "sdl2_image"
   symbolPluginPath = currentSourcePath.parentDir() / "cleansymbols.nim"
 
+when defined(windows):
+  const dlurl = "https://www.libsdl.org/projects/SDL_image/release/SDL2_image-$1.zip"
+else:
+  const dlurl = "https://www.libsdl.org/projects/SDL_image/release/SDL2_image-$1.tar.gz"
+
 getHeader(
   "SDL_image.h",
-  dlurl = "https://www.libsdl.org/projects/SDL_image/release/SDL2_image-$1.tar.gz",
+  dlurl = dlurl,
   outdir = srcDir,
   altNames = "SDL2_image"
 )
@@ -28,6 +33,6 @@ cOverride:
 cPluginPath(symbolPluginPath)
 
 when defined(SDL_image_Static):
-  cImport(SDL_image_Path, recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
+  cImport(srcDir/"SDL_image.h", recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
 else:
-  cImport(SDL_image_Path, recurse = false, dynlib = "SDL_image_LPath", flags = &"-I={sdlIncludeDir} -f=ast2")
+  cImport(srcDir/"SDL_image.h", recurse = false, dynlib = "SDL_image_LPath", flags = &"-I={sdlIncludeDir} -f=ast2")
