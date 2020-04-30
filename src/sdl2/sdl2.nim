@@ -181,8 +181,8 @@ proc findStaticMainlib(): string =
   return findFile(pathRegex, buildDir, regex = true)
 
 const SDLDyLibPath* = findDynlib()
-const SDLMainLib* = buildDir / findStaticMainlib()
-const SDLStaticLib* = buildDir / findStaticlib()
+const SDLMainLib* = findStaticMainlib()
+const SDLStaticLib* = findStaticlib()
 const SDL2ConfigPath* = srcDir / "sdl2-config"
 const SDLSrcDir* = srcDir
 

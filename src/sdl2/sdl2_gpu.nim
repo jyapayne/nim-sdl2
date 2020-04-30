@@ -4,18 +4,18 @@ import nimterop/[build, cimport]
 
 const
   baseDir = SDLCacheDir
-  sdlDir = baseDir / "sdl2"
-  sdlIncludeDir = sdlDir / "include"
-  srcDir = baseDir / "sdl2_gpu"
-  currentPath = currentSourcePath().parentDir().parentDir()
-  cmakeModPath = currentPath / "cmake" / "sdl2"
-  symbolPluginPath = currentPath / "sdl2" / "cleansymbols.nim"
+  sdlDir = (baseDir / "sdl2").sanitizePath
+  sdlIncludeDir = (sdlDir / "include").sanitizePath
+  srcDir = (baseDir / "sdl2_gpu").sanitizePath
+  currentPath = currentSourcePath().parentDir().parentDir().sanitizePath
+  cmakeModPath = (currentPath / "cmake" / "sdl2").replace("\\", "/")
+  symbolPluginPath = (currentPath / "sdl2" / "cleansymbols.nim").sanitizePath
 
 getHeader(
   "SDL_gpu.h",
   giturl = "https://github.com/grimfang4/sdl-gpu",
   outdir = srcDir,
-  altNames = "SDL2_gpu",
+  altNames = "SDL2_gpu,SDL2_gpu_s",
   cmakeFlags = &"-DCMAKE_C_FLAGS=-I{sdlIncludeDir} -DCMAKE_MODULE_PATH={cmakeModPath} -DSDL2_LIBRARY={SDLDyLibPath} " &
                &"-DSDL2MAIN_LIBRARY={SDLMainLib} -DSDL2_PATH={sdlDir} -DSDL2_INCLUDE_DIR={sdlIncludeDir} -DSDL_gpu_BUILD_DEMOS=OFF"
 )
@@ -123,6 +123,6 @@ const
 cPluginPath(symbolPluginPath)
 
 when defined(SDL_gpu_Static):
-  cImport(SDL_gpuPath, recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
+  cImport(srcDir/"include"/"SDL_gpu.h", recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
 else:
-  cImport(SDL_gpuPath, recurse = false, dynlib = "SDL_gpuLPath", flags = &"-I={sdlIncludeDir} -f=ast2")
+  cImport(srcDir/"include"/"SDL_gpu.h", recurse = false, dynlib = "SDL_gpuLPath", flags = &"-I={sdlIncludeDir} -f=ast2")

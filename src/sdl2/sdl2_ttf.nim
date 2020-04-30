@@ -4,12 +4,12 @@ import nimterop/[cimport, build]
 
 const
   baseDir = SDLCacheDir
-  sdlDir = baseDir / "sdl2"
-  sdlIncludeDir = sdlDir / "include"
-  srcDir = baseDir / "sdl2_ttf"
-  currentPath = currentSourcePath().parentDir().parentDir()
+  sdlDir = (baseDir / "sdl2").sanitizePath
+  sdlIncludeDir = (sdlDir / "include").sanitizePath
+  srcDir = (baseDir / "sdl2_ttf").sanitizePath
+  currentPath = currentSourcePath().parentDir().parentDir().sanitizePath
   cmakeModPath = (currentPath / "cmake" / "sdl2").replace("\\", "/")
-  symbolPluginPath = currentPath / "sdl2" / "cleansymbols.nim"
+  symbolPluginPath = (currentPath / "sdl2" / "cleansymbols.nim").sanitizePath
 
 when defined(windows):
   const dlurl = "https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-$1.zip"
@@ -21,8 +21,8 @@ getHeader(
   dlurl = dlurl,
   outdir = srcDir,
   altNames = "SDL2_ttf",
-  cmakeFlags = &"-DCMAKE_C_FLAGS=-I{sdlIncludeDir.sanitizePath} -DCMAKE_MODULE_PATH={cmakeModPath} " &
-               &"-DSDL2MAIN_LIBRARY={SDLMainLib.sanitizePath} -DSDL2_LIBRARY={SDLDyLibPath.sanitizePath} -DSDL2_PATH={sdlDir.sanitizePath}"
+  cmakeFlags = &"-DCMAKE_C_FLAGS=-I{sdlIncludeDir} -DCMAKE_MODULE_PATH={cmakeModPath} " &
+               &"-DSDL2MAIN_LIBRARY={SDLMainLib} -DSDL2_LIBRARY={SDLDyLibPath} -DSDL2_PATH={sdlDir}"
 )
 
 # static:
