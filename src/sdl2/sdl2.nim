@@ -151,9 +151,22 @@ static:
     else:
       const cmd = &"cd {srcDir.sanitizePath} && bash ./sdl2-config --libs"
       const conf = execAction(cmd).output.getLibOutput
-  echo conf
-  echo buildDir.unixizePath
-  {.passL: &"-L{buildDir.sanitizePath} -L{buildDir.unixizePath} {conf}".}
+  {.passL: &"-L{buildDir.sanitizePath} -L{buildDir.unixizePath} {conf} -Wl,--no-as-needed -ldl -lsndio".}
+
+  let pathenv = getEnv("PATH")
+  when defined(windows):
+    putEnv("PATH", buildDir.sanitizePath & ";" & pathenv)
+  else:
+    putEnv("PATH", buildDir.sanitizePath & ":" & pathenv)
+  putEnv("CFLAGS", "-I" & includeDir.sanitizePath)
+  putEnv("LDFLAGS", &"-L{buildDir.sanitizePath} -L{buildDir.unixizePath} {conf} -Wl,--no-as-needed -lsndio -ldl") # & " " & buildDir/"libSDL2main.a")
+  putEnv("SDL2_CONFIG", (srcDir/"sdl2-config").sanitizePath)
+  putEnv("SDL_CONFIG", (srcDir/"sdl2-config").sanitizePath)
+  putEnv("LIBS", &"-L{buildDir.sanitizePath} -L{buildDir.unixizePath}")
+  putEnv("SDL_CFLAGS", "-I" & includeDir.sanitizePath)
+  let ldpath = getEnv("LD_LIBRARY_PATH")
+  putEnv("LD_LIBRARY_PATH", &"{buildDir.sanitizePath}:{buildDir.unixizePath}:{ldpath}")
+  putEnv("SDL2_PATH", srcDir.sanitizePath)
 
 when defined(SDL_Static):
   cImport(srcDir/"include"/"SDL.h", recurse = true, flags = "-f=ast2 -DDOXYGEN_SHOULD_IGNORE_THIS -E__,_ -F__,_")
@@ -185,22 +198,6 @@ const SDLMainLib* = findStaticMainlib()
 const SDLStaticLib* = findStaticlib()
 const SDL2ConfigPath* = srcDir / "sdl2-config"
 const SDLSrcDir* = srcDir
-
-static:
-  let pathenv = getEnv("PATH")
-  when defined(windows):
-    putEnv("PATH", buildDir.sanitizePath & ";" & pathenv)
-  else:
-    putEnv("PATH", buildDir.sanitizePath & ":" & pathenv)
-  echo pathenv
-  echo includeDir
-  putEnv("CFLAGS", "-I" & includeDir.sanitizePath)
-  putEnv("LDFLAGS", &"-L{buildDir.sanitizePath} -L{buildDir.unixizePath}") # & " " & buildDir/"libSDL2main.a")
-  putEnv("SDL2_CONFIG", (srcDir/"sdl2-config").sanitizePath)
-  putEnv("LIBS", &"-L{buildDir.sanitizePath} -L{buildDir.unixizePath}")
-  putEnv("SDL_CFLAGS", "-I" & includeDir.sanitizePath)
-  putEnv("LD_LIBRARY_PATH", &"{buildDir.sanitizePath}:{buildDir.unixizePath}")
-  putEnv("SDL2_PATH", srcDir.sanitizePath)
 
 const
   WINDOWPOS_UNDEFINED* = WINDOWPOS_UNDEFINED_DISPLAY(0)
