@@ -157,14 +157,14 @@ static:
   when defined(SDL_Static):
     when defined(windows):
       #TODO: Find a way to automate this on Windows reliably
-      const conf = "-lmingw32 -lSDL2main -lSDL2 -mwindows -Wl,--no-undefined -Wl,--dynamicbase -Wl,--nxcompat -Wl,--high-entropy-va -lm -ldinput8 -ldxguid -ldxerr8 -luser32 -lgdi32 -lwinmm -limm32 -lole32 -loleaut32 -lshell32 -lsetupapi -lversion -luuid -static-libgcc"
+      const conf = &"-lmingw32 {SDLStaticLib} {SDLMainLib} -mwindows -Wl,--no-undefined -Wl,--dynamicbase -Wl,--nxcompat -Wl,--high-entropy-va -lm -ldinput8 -ldxguid -ldxerr8 -luser32 -lgdi32 -lwinmm -limm32 -lole32 -loleaut32 -lshell32 -lsetupapi -lversion -luuid -static-libgcc"
     else:
       const cmd = &"cd {srcDir.sanitizePath} && bash ./sdl2-config --static-libs"
       const conf = execAction(cmd).output.getLibOutput.replace("-lSDL2", SDLStaticLib)
   else:
     when defined(windows):
       #TODO: Find a way to automate this on Windows reliably
-      const conf = "-lmingw32 -lSDL2main -lSDL2 -mwindows"
+      const conf = &"-L{buildDir} -lmingw32 -lSDL2main -lSDL2 -mwindows"
     else:
       const cmd = &"cd {srcDir} && bash ./sdl2-config --libs"
       const conf = execAction(cmd).output.getLibOutput
