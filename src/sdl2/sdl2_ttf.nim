@@ -8,7 +8,6 @@ const
   sdlIncludeDir = (sdlDir / "include").sanitizePath
   srcDir = (baseDir / "sdl2_ttf").sanitizePath
   currentPath = currentSourcePath().parentDir().parentDir().sanitizePath
-  cmakeModPath = (currentPath / "cmake" / "sdl2").replace("\\", "/")
   symbolPluginPath = (currentPath / "sdl2" / "cleansymbols.nim").sanitizePath
 
 when defined(windows):
@@ -16,13 +15,22 @@ when defined(windows):
 else:
   const dlurl = "https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-$1.tar.gz"
 
+when defined(windows):
+  when defined(amd64):
+    const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir} --host=x86_64-w64-mingw32"
+  else:
+    const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir} --host=i686-w64-mingw32"
+else:
+  const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir}"
+
+
 getHeader(
   "SDL_ttf.h",
   dlurl = dlurl,
   outdir = srcDir,
   altNames = "SDL2_ttf",
-  cmakeFlags = &"-DCMAKE_C_FLAGS=-I{sdlIncludeDir} -DCMAKE_MODULE_PATH={cmakeModPath} " &
-               &"-DSDL2MAIN_LIBRARY={SDLMainLib} -DSDL2_LIBRARY={SDLDyLibPath} -DSDL2_PATH={sdlDir}"
+  conFlags = flags,
+  buildTypes = [btAutoConf]
 )
 
 # static:

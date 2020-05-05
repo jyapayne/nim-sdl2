@@ -8,11 +8,21 @@ const
   srcDir = baseDir / "sdl2_gfx"
   symbolPluginPath = currentSourcePath.parentDir() / "cleansymbols.nim"
 
+when defined(windows):
+  when defined(amd64):
+    const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir} --host=x86_64-w64-mingw32"
+  else:
+    const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir} --host=i686-w64-mingw32"
+else:
+  const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir}"
+
 getHeader(
   "SDL2_gfxPrimitives.h",
   dlurl = "http://www.ferzkopp.net/Software/SDL2_gfx/SDL2_gfx-$1.tar.gz",
   outdir = srcDir,
-  altNames = "SDL2_gfx,SDL_gfx"
+  altNames = "SDL2_gfx,SDL_gfx",
+  conFlags = flags,
+  buildTypes = [btAutoConf]
 )
 
 # static:

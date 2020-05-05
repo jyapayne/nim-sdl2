@@ -8,7 +8,7 @@ srcDir        = "src"
 skipDirs      = @["build"]
 
 # Dependencies
-requires "nim >= 1.0.6", "nimterop#head", "regex"
+requires "nim >= 1.0.6", "nimterop#head", "regex >= 0.14.1"
 
 when gorgeEx("nimble path nimterop").exitCode == 0:
   import nimterop/docs

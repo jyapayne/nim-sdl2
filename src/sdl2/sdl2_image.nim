@@ -13,11 +13,21 @@ when defined(windows):
 else:
   const dlurl = "https://www.libsdl.org/projects/SDL_image/release/SDL2_image-$1.tar.gz"
 
+when defined(windows):
+  when defined(amd64):
+    const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir} --host=x86_64-w64-mingw32"
+  else:
+    const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir} --host=i686-w64-mingw32"
+else:
+  const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir}"
+
 getHeader(
   "SDL_image.h",
   dlurl = dlurl,
   outdir = srcDir,
-  altNames = "SDL2_image"
+  altNames = "SDL2_image",
+  conFlags = flags,
+  buildTypes = [btAutoConf]
 )
 
 # static:

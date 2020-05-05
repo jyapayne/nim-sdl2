@@ -5,7 +5,6 @@ import nimterop/[cimport, build]
 const
   baseDir = SDLCacheDir
   sdlIncludeDir = baseDir / "sdl2" / "include"
-  sdlBuildDir = baseDir / "sdl2" / "buildcache"
   srcDir = baseDir / "sdl2_mixer"
   symbolPluginPath = currentSourcePath.parentDir() / "cleansymbols.nim"
 
@@ -14,11 +13,21 @@ when defined(windows):
 else:
   const dlurl = "https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-$1.tar.gz"
 
+when defined(windows):
+  when defined(amd64):
+    const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir} --host=x86_64-w64-mingw32"
+  else:
+    const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir} --host=i686-w64-mingw32"
+else:
+  const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir}"
+
 getHeader(
   "SDL_mixer.h",
   dlurl = dlurl,
   outdir = srcDir,
+  conFlags = flags,
   altNames = "SDL2_mixer",
+  buildTypes = [btAutoConf]
 )
 
 # static:
