@@ -170,7 +170,7 @@ static:
       const conf = execAction(cmd).output.getLibOutput
 
   when defined(linux):
-    {.passL: &"-L{buildDir} -L{buildDir.unixizePath} {conf} -Wl,--no-as-needed -ldl -lsndio".}
+    {.passL: &"{conf} -Wl,--no-as-needed -ldl -lsndio".}
   else:
     {.passL: &"{conf}".}
 
