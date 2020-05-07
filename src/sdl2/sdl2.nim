@@ -2,7 +2,7 @@ import os, strutils, strformat
 import nimterop/[cimport, build]
 
 const
-  SDLCacheDir* = currentSourcePath.parentDir().parentDir() / "build" #getProjectCacheDir("nimsdl2")
+  SDLCacheDir* = getProjectCacheDir("nimsdl2")
   baseDir = SDLCacheDir
   srcDir = (baseDir / "sdl2").sanitizePath
   buildDir = (srcDir / "build" / ".libs").sanitizePath
