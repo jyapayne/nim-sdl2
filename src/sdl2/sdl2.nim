@@ -175,8 +175,6 @@ static:
     {.passL: &"{conf}".}
 
   echo conf
-  when defined(SDL_Static):
-    {.passC: "-static".}
 
   # let pathenv = getEnv("PATH")
   # when defined(windows):
@@ -198,6 +196,8 @@ static:
   #   let dyldpath = getEnv("DYLD_LIBRARY_PATH")
   #   putEnv("DYLD_LIBRARY_PATH", &"{buildDir}:{buildDir.unixizePath}:{dyldpath}")
   # putEnv("SDL2_PATH", srcDir)
+
+{.passC: "-isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -fPIC".}
 
 when defined(SDL_Static):
   cImport(srcDir/"include"/"SDL.h", recurse = true, flags = "-f=ast2 -DDOXYGEN_SHOULD_IGNORE_THIS -E__,_ -F__,_")

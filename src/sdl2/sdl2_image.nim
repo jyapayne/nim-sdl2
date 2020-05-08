@@ -6,6 +6,7 @@ const
   baseDir = SDLCacheDir
   sdlIncludeDir = baseDir / "sdl2" / "include"
   srcDir = baseDir / "sdl2_image"
+  buildDir = srcDir / ".libs"
   symbolPluginPath = currentSourcePath.parentDir() / "cleansymbols.nim"
 
 when defined(windows):
@@ -21,6 +22,8 @@ when defined(windows):
 else:
   const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir}"
 
+{.passC: "-isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -fPIC".}
+
 getHeader(
   "SDL_image.h",
   dlurl = dlurl,
@@ -30,9 +33,27 @@ getHeader(
   buildTypes = [btAutoConf]
 )
 
-# static:
-#   cDebug()
-#   cDisableCaching()
+proc findStaticlib(): string =
+  const pathRegex = "(lib)?SDL2_image[0-9.\\-]*\\.a"
+  return findFile(pathRegex, buildDir, regex = true)
+
+static:
+  when defined(macosx):
+    # For some reason on MacOSX Catalina, the default static
+    # binary is linked weird and causes the error:
+    # "ld: warning: ignoring file
+    #  /path/to/sdl2_image/.libs/libSDL2_image.a,
+    #  building for macOS-x86_64 but attempting to link
+    #  with file built for macOS-x86_64"
+    #
+    # Simply recombining the object files into a static file seems to work
+    let staticFile = findStaticlib()
+    rmFile(staticFile)
+    let res = execAction(&"ar ru {staticFile} {buildDir}/*.o")
+    if res.ret != 0:
+      raise newException(CatchableError, &"Error: could not build static lib {staticFile}")
+  # cDebug()
+  # cDisableCaching()
 
 cOverride:
   const
@@ -41,8 +62,9 @@ cOverride:
     ClearError* = ""
 
 cPluginPath(symbolPluginPath)
+cIncludeDir(sdlIncludeDir)
 
 when defined(SDL_image_Static):
-  cImport(srcDir/"SDL_image.h", recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
+  cImport(srcDir/"SDL_image.h", recurse = false, flags = &"-f=ast2")
 else:
-  cImport(srcDir/"SDL_image.h", recurse = false, dynlib = "SDL_image_LPath", flags = &"-I={sdlIncludeDir} -f=ast2")
+  cImport(srcDir/"SDL_image.h", recurse = false, dynlib = "SDL_image_LPath", flags = &"-f=ast2")
