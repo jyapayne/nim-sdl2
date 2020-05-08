@@ -51,10 +51,10 @@ static:
     rmFile(staticFile)
     let res = execAction(&"ar ru {staticFile} {buildDir}/*.o")
     if res.ret != 0:
-      raise newException(CatchableError, &"Error: could not build static lib {staticFile}")
+      raise newException(CatchableError, &"Error: could not build static lib {staticFile}: {res.output}")
     let ranres = execAction(&"ranlib {staticFile}")
     if ranres.ret != 0:
-      raise newException(CatchableError, &"Error: could not build static lib {staticFile}")
+      raise newException(CatchableError, &"Error: could not build static lib {staticFile}: {ranres.output}")
   # cDebug()
   # cDisableCaching()
 
