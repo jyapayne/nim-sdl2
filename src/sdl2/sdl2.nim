@@ -16,11 +16,13 @@ else:
 
 when defined(windows):
   when defined(amd64):
-    const flags = &"--libdir={buildDir} --includedir={includeDir} --host=x86_64-w64-mingw32"
+    const flags = &"--libdir={buildDir} --includedir={includeDir} --host=x86_64-w64-mingw32 CFLAGS=\"-fPIC\""
   else:
-    const flags = &"--libdir={buildDir} --includedir={includeDir} --host=i686-w64-mingw32"
+    const flags = &"--libdir={buildDir} --includedir={includeDir} --host=i686-w64-mingw32 CFLAGS=\"-fPIC\""
+elif defined(macosx):
+  const flags = &"--libdir={buildDir} --includedir={includeDir} CFLAGS=\"-fPIC\""
 else:
-  const flags = &"--libdir={buildDir} --includedir={includeDir}"
+  const flags = &"CFLAGS=\"-fPIC\""
 
 getHeader(
   "SDL.h",
@@ -200,7 +202,7 @@ static:
   # else:
   #   putEnv("PATH", buildDir & ":" & pathenv)
   let cflags = getEnv("CFLAGS")
-  putEnv("CFLAGS", &"-I{includeDir} {cflags}")
+  putEnv("CFLAGS", &"-I{includeDir} -fPIC {cflags}")
   when defined(linux):
     putEnv("LDFLAGS", &"-L{buildDir} -L{buildDir.unixizePath} {conf} -Wl,--no-as-needed -lsndio -ldl") # & " " & buildDir/"libSDL2main.a")
   else:
@@ -215,7 +217,10 @@ static:
   #   putEnv("DYLD_LIBRARY_PATH", &"{buildDir}:{buildDir.unixizePath}:{dyldpath}")
   # putEnv("SDL2_PATH", srcDir)
 
-{.passC: "-isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -fPIC".}
+when defined(macosx):
+  {.passC: "-isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -fPIC".}
+else:
+  {.passC: "-fPIC".}
 
 when defined(SDL_Static):
   cImport(srcDir/"include"/"SDL.h", recurse = true, flags = "-f=ast2 -DDOXYGEN_SHOULD_IGNORE_THIS -E__,_ -F__,_")

@@ -4,7 +4,6 @@ import nimterop/[cimport, build]
 
 const
   baseDir = SDLCacheDir
-  sdlIncludeDir = baseDir / "sdl2" / "include"
   srcDir = baseDir / "sdl2_net"
   buildDir = srcDir / ".libs"
   symbolPluginPath = currentSourcePath.parentDir() / "cleansymbols.nim"
@@ -16,11 +15,11 @@ else:
 
 when defined(windows):
   when defined(amd64):
-    const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir} --host=x86_64-w64-mingw32"
+    const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir} --host=x86_64-w64-mingw32 CFLAGS=\"-fPIC -I{SDLIncludeDir}\""
   else:
-    const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir} --host=i686-w64-mingw32"
+    const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir} --host=i686-w64-mingw32 CFLAGS=\"-fPIC -I{SDLIncludeDir}\""
 else:
-  const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir}"
+  const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir} CFLAGS=\"-fPIC -I{SDLIncludeDir}\""
 
 getHeader(
   "SDL_net.h",
@@ -44,8 +43,8 @@ cOverride:
 cPluginPath(symbolPluginPath)
 
 when defined(SDL_net_Static):
-  cImport(srcDir / "SDL_net.h", recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
-  cImport(srcDir / "SDLnetsys.h", recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
+  cImport(srcDir / "SDL_net.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2")
+  cImport(srcDir / "SDLnetsys.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2")
 else:
   cImport(srcDir / "SDL_net.h", recurse = false, dynlib = "SDL_net_LPath", flags = &"-I={sdlIncludeDir} -f=ast2")
-  cImport(srcDir / "SDLnetsys.h", recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
+  cImport(srcDir / "SDLnetsys.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2")

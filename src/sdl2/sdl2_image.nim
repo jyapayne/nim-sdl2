@@ -4,7 +4,6 @@ import nimterop/[cimport, build]
 
 const
   baseDir = SDLCacheDir
-  sdlIncludeDir = baseDir / "sdl2" / "include"
   srcDir = baseDir / "sdl2_image"
   buildDir = srcDir / ".libs"
   symbolPluginPath = currentSourcePath.parentDir() / "cleansymbols.nim"
@@ -16,13 +15,16 @@ else:
 
 when defined(windows):
   when defined(amd64):
-    const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir} --host=x86_64-w64-mingw32"
+    const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir} --host=x86_64-w64-mingw32 CFLAGS=\"-fPIC -I{SDLIncludeDir}\""
   else:
-    const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir} --host=i686-w64-mingw32"
+    const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir} --host=i686-w64-mingw32 CFLAGS=\"-fPIC -I{SDLIncludeDir}\""
 else:
-  const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir}"
+  const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir} CFLAGS=\"-fPIC -I{SDLIncludeDir}\""
 
-{.passC: "-isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -fPIC".}
+when defined(macosx):
+  {.passC: "-isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -fPIC".}
+else:
+  {.passC: "-fPIC -I{SDLIncludeDir}".}
 
 getHeader(
   "SDL_image.h",
@@ -46,7 +48,7 @@ cOverride:
     ClearError* = ""
 
 cPluginPath(symbolPluginPath)
-cIncludeDir(sdlIncludeDir)
+cIncludeDir(SDLIncludeDir)
 
 when defined(SDL_image_Static):
   cImport(srcDir/"SDL_image.h", recurse = false, flags = &"-f=ast2")
