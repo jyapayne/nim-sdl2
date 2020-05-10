@@ -43,17 +43,35 @@ proc findDynlib(): string =
   const pathRegex = "(lib)?SDL2[_-]?(static)?[0-9.\\-]*\\" & getDynlibExt()
   return findFile(pathRegex, buildDir, regex = true)
 
-proc findStaticlib(): string =
-  const pathRegex = "(lib)?SDL2[_-]?(static)?[0-9.\\-]*\\.a"
-  return findFile(pathRegex, buildDir, regex = true)
+proc findStaticlib*(dir: string): string =
+  const pathRegex = "(lib)?SDL2[_-]?(static)?([a-zA-Z]+)?[0-9.\\-]*\\.a"
+  return findFile(pathRegex, dir, regex = true)
 
 proc findStaticMainlib(): string =
   const pathRegex = "(lib)?SDL2[_-]?(static)?[0-9.\\-]*\\main.a"
   return findFile(pathRegex, buildDir, regex = true)
 
+proc fixStaticFile*(dir: string) =
+  # For some reason on MacOSX Catalina, the default static
+  # binary is linked weird and causes the error:
+  # "ld: warning: ignoring file
+  #  /path/to/sdl2_image/.libs/libSDL2_image.a,
+  #  building for macOS-x86_64 but attempting to link
+  #  with file built for macOS-x86_64"
+  #
+  # Simply recombining the object files into a static file seems to work
+  let staticFile = findStaticlib(buildDir)
+  rmFile(staticFile)
+  let res = execAction(&"ar ru {staticFile} {dir}/*.o")
+  if res.ret != 0:
+    raise newException(CatchableError, &"Error: could not build static lib {staticFile}: {res.output}")
+  let ranres = execAction(&"ranlib {staticFile}")
+  if ranres.ret != 0:
+    raise newException(CatchableError, &"Error: could not build static lib {staticFile}: {ranres.output}")
+
 const SDLDyLibPath* = findDynlib()
 const SDLMainLib* = findStaticMainlib()
-const SDLStaticLib* = findStaticlib()
+const SDLStaticLib* = findStaticlib(buildDir)
 const SDL2ConfigPath* = srcDir / "sdl2-config"
 const SDLSrcDir* = srcDir
 const SDLBuildDir* = buildDir

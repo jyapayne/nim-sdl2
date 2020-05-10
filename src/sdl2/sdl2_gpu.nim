@@ -15,6 +15,7 @@ getHeader(
   giturl = "https://github.com/grimfang4/sdl-gpu",
   outdir = srcDir,
   altNames = "SDL2_gpu,SDL2_gpu_s",
+  buildTypes = [btCmake],
   cmakeFlags = &"-DCMAKE_C_FLAGS=-I{SDLIncludeDir} -DCMAKE_MODULE_PATH={cmakeModPath} -DSDL2_LIBRARY={SDLDyLibPath} " &
                &"-DSDL2MAIN_LIBRARY={SDLMainLib} -DSDL2_PATH={sdlDir} -DSDL2_INCLUDE_DIR={SDLIncludeDir} -DSDL_gpu_BUILD_DEMOS=OFF"
 )

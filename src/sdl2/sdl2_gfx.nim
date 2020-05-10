@@ -6,6 +6,7 @@ const
   baseDir = SDLCacheDir
   sdlIncludeDir = baseDir / "sdl2" / "include"
   srcDir = baseDir / "sdl2_gfx"
+  buildDir = srcDir / ".libs"
   symbolPluginPath = currentSourcePath.parentDir() / "cleansymbols.nim"
 
 when defined(windows):
@@ -25,7 +26,9 @@ getHeader(
   buildTypes = [btAutoConf]
 )
 
-# static:
+static:
+  when defined(macosx):
+    fixStaticFile(buildDir)
 #   cDebug()
 #   cDisableCaching()
 

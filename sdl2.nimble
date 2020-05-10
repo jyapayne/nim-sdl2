@@ -21,3 +21,10 @@ else:
 
 task buildSDL2, "Build SDL2 example":
   exec "nimble c -f -r src/sdl2.nim"
+  exec "nimble c -f -r src/sdl2/sdl2_gpu.nim"
+
+task test, "Test":
+  buildSDL2Task()
+  # Doc building doesn't work on linux yet
+  when not defined(linux):
+    docsTask()

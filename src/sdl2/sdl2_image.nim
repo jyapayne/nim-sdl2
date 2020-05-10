@@ -33,28 +33,9 @@ getHeader(
   buildTypes = [btAutoConf]
 )
 
-proc findStaticlib(): string =
-  const pathRegex = "(lib)?SDL2_image[0-9.\\-]*\\.a"
-  return findFile(pathRegex, buildDir, regex = true)
-
 static:
   when defined(macosx):
-    # For some reason on MacOSX Catalina, the default static
-    # binary is linked weird and causes the error:
-    # "ld: warning: ignoring file
-    #  /path/to/sdl2_image/.libs/libSDL2_image.a,
-    #  building for macOS-x86_64 but attempting to link
-    #  with file built for macOS-x86_64"
-    #
-    # Simply recombining the object files into a static file seems to work
-    let staticFile = findStaticlib()
-    rmFile(staticFile)
-    let res = execAction(&"ar ru {staticFile} {buildDir}/*.o")
-    if res.ret != 0:
-      raise newException(CatchableError, &"Error: could not build static lib {staticFile}: {res.output}")
-    let ranres = execAction(&"ranlib {staticFile}")
-    if ranres.ret != 0:
-      raise newException(CatchableError, &"Error: could not build static lib {staticFile}: {ranres.output}")
+    fixStaticFile(buildDir)
   # cDebug()
   # cDisableCaching()
 

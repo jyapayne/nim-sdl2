@@ -5,8 +5,8 @@ import nimterop/[cimport, build]
 const
   baseDir = SDLCacheDir
   sdlDir = (baseDir / "sdl2").sanitizePath
-  sdlIncludeDir = (sdlDir / "include").sanitizePath
   srcDir = (baseDir / "sdl2_ttf").sanitizePath
+  buildDir = srcDir / ".libs"
   currentPath = currentSourcePath().parentDir().parentDir().sanitizePath
   symbolPluginPath = (currentPath / "sdl2" / "cleansymbols.nim").sanitizePath
 
@@ -33,7 +33,9 @@ getHeader(
   buildTypes = [btAutoConf]
 )
 
-# static:
+static:
+  when defined(macosx):
+    fixStaticFile(buildDir)
 #   cDebug()
 #   cDisableCaching()
 
@@ -45,6 +47,6 @@ cOverride:
     SetError* = ""
 
 when defined(SDL_ttf_Static):
-  cImport(srcDir / "SDL_ttf.h", recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2 -d")
+  cImport(srcDir / "SDL_ttf.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -d")
 else:
-  cImport(srcDir / "SDL_ttf.h", recurse = false, dynlib = "SDL_ttf_LPath", flags = &"-I={sdlIncludeDir} -f=ast2")
+  cImport(srcDir / "SDL_ttf.h", recurse = false, dynlib = "SDL_ttf_LPath", flags = &"-I={SDLIncludeDir} -f=ast2")
