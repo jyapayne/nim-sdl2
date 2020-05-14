@@ -4,7 +4,6 @@ import nimterop/[cimport, build]
 
 const
   baseDir = SDLCacheDir
-  sdlIncludeDir = baseDir / "sdl2" / "include"
   srcDir = baseDir / "sdl2_gfx"
   buildDir = srcDir / ".libs"
   symbolPluginPath = currentSourcePath.parentDir() / "cleansymbols.nim"
@@ -29,18 +28,18 @@ getHeader(
 static:
   when defined(macosx):
     fixStaticFile(buildDir)
-#   cDebug()
-#   cDisableCaching()
+  # cDebug()
+  # cDisableCaching()
 
 cPluginPath(symbolPluginPath)
 
 when defined(SDL2_GfxPrimitives_Static):
-  cImport(srcDir / "SDL2_gfxPrimitives.h", recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
-  cImport(srcDir / "SDL2_rotozoom.h", recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
-  cImport(srcDir / "SDL2_framerate.h", recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
-  cImport(srcDir / "SDL2_imageFilter.h", recurse = false, flags = &"-I={sdlIncludeDir} -f=ast2")
+  cImport(srcDir / "SDL2_gfxPrimitives.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H")
+  cImport(srcDir / "SDL2_rotozoom.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H")
+  cImport(srcDir / "SDL2_framerate.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H")
+  cImport(srcDir / "SDL2_imageFilter.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H")
 else:
-  cImport(srcDir / "SDL2_gfxPrimitives.h", recurse = false, dynlib="SDL2_GfxPrimitives_LPath", flags = &"-I={sdlIncludeDir} -f=ast2")
-  cImport(srcDir / "SDL2_rotozoom.h", recurse = false, dynlib="SDL2_GfxPrimitives_LPath", flags = &"-I={sdlIncludeDir} -f=ast2")
-  cImport(srcDir / "SDL2_framerate.h", recurse = false, dynlib="SDL2_GfxPrimitives_LPath", flags = &"-I={sdlIncludeDir} -f=ast2")
-  cImport(srcDir / "SDL2_imageFilter.h", recurse = false, dynlib="SDL2_GfxPrimitives_LPath", flags = &"-I={sdlIncludeDir} -f=ast2")
+  cImport(srcDir / "SDL2_gfxPrimitives.h", recurse = false, dynlib="SDL2_GfxPrimitives_LPath", flags = &"-I={SDLIncludeDir} -f=ast2 -H")
+  cImport(srcDir / "SDL2_rotozoom.h", recurse = false, dynlib="SDL2_GfxPrimitives_LPath", flags = &"-I={SDLIncludeDir} -f=ast2 -H")
+  cImport(srcDir / "SDL2_framerate.h", recurse = false, dynlib="SDL2_GfxPrimitives_LPath", flags = &"-I={SDLIncludeDir} -f=ast2 -H")
+  cImport(srcDir / "SDL2_imageFilter.h", recurse = false, dynlib="SDL2_GfxPrimitives_LPath", flags = &"-I={SDLIncludeDir} -f=ast2 -H")

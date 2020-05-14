@@ -43,8 +43,8 @@ cOverride:
 cPluginPath(symbolPluginPath)
 
 when defined(SDL_net_Static):
-  cImport(srcDir / "SDL_net.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2")
-  cImport(srcDir / "SDLnetsys.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2")
+  cImport(srcDir / "SDL_net.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H")
+  cImport(srcDir / "SDLnetsys.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H")
 else:
-  cImport(srcDir / "SDL_net.h", recurse = false, dynlib = "SDL_net_LPath", flags = &"-I={sdlIncludeDir} -f=ast2")
-  cImport(srcDir / "SDLnetsys.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2")
+  cImport(srcDir / "SDL_net.h", recurse = false, dynlib = "SDL_net_LPath", flags = &"-I={sdlIncludeDir} -f=ast2 -H")
+  cImport(srcDir / "SDLnetsys.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H")

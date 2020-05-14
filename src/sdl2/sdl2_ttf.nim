@@ -47,6 +47,6 @@ cOverride:
     SetError* = ""
 
 when defined(SDL_ttf_Static):
-  cImport(srcDir / "SDL_ttf.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -d")
+  cImport(srcDir / "SDL_ttf.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H")
 else:
-  cImport(srcDir / "SDL_ttf.h", recurse = false, dynlib = "SDL_ttf_LPath", flags = &"-I={SDLIncludeDir} -f=ast2")
+  cImport(srcDir / "SDL_ttf.h", recurse = false, dynlib = "SDL_ttf_LPath", flags = &"-I={SDLIncludeDir} -f=ast2 -H")

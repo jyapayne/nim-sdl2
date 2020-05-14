@@ -45,6 +45,6 @@ cOverride:
 cPluginPath(symbolPluginPath)
 
 when defined(SDL_Mixer_Static):
-  cImport(srcDir/"SDL_mixer.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2")
+  cImport(srcDir/"SDL_mixer.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H")
 else:
-  cImport(srcDir/"SDL_mixer.h", recurse = false, dynlib = "SDL_mixer_LPath", flags = &"-I={SDLIncludeDir} -f=ast2")
+  cImport(srcDir/"SDL_mixer.h", recurse = false, dynlib = "SDL_mixer_LPath", flags = &"-I={SDLIncludeDir} -f=ast2 -H")

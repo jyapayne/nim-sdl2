@@ -123,6 +123,6 @@ const
 cPluginPath(symbolPluginPath)
 
 when defined(SDL_gpu_Static):
-  cImport(srcDir/"include"/"SDL_gpu.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2")
+  cImport(srcDir/"include"/"SDL_gpu.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H")
 else:
-  cImport(srcDir/"include"/"SDL_gpu.h", recurse = false, dynlib = "SDL_gpuLPath", flags = &"-I={SDLIncludeDir} -f=ast2")
+  cImport(srcDir/"include"/"SDL_gpu.h", recurse = false, dynlib = "SDL_gpuLPath", flags = &"-I={SDLIncludeDir} -f=ast2 -H")

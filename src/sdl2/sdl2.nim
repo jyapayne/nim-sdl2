@@ -62,7 +62,7 @@ proc fixStaticFile*(dir: string) =
   #  with file built for macOS-x86_64"
   #
   # Simply recombining the object files into a static file seems to work
-  let staticFile = findStaticlib(buildDir)
+  let staticFile = findStaticlib(dir)
   rmFile(staticFile)
   let res = execAction(&"ar ru {staticFile} {dir}/*.o")
   if res.ret != 0:
@@ -218,14 +218,14 @@ static:
   # putEnv("SDL2_PATH", srcDir)
 
 when defined(macosx):
-  {.passC: "-isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -fPIC".}
+  {.passC: "-isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk".}
 else:
   {.passC: "-fPIC".}
 
 when defined(SDL_Static):
-  cImport(srcDir/"include"/"SDL.h", recurse = true, flags = "-f=ast2 -DDOXYGEN_SHOULD_IGNORE_THIS -E__,_ -F__,_")
+  cImport(srcDir/"include"/"SDL.h", recurse = true, flags = "-f=ast2 -H -DDOXYGEN_SHOULD_IGNORE_THIS -E__,_ -F__,_")
 else:
-  cImport(srcDir/"include"/"SDL.h", recurse = true, dynlib = "SDL_LPath", flags = "-f=ast2 -DDOXYGEN_SHOULD_IGNORE_THIS -E__,_ -F__,_")
+  cImport(srcDir/"include"/"SDL.h", recurse = true, dynlib = "SDL_LPath", flags = "-f=ast2 -H -DDOXYGEN_SHOULD_IGNORE_THIS -E__,_ -F__,_")
 
 const
   WINDOWPOS_UNDEFINED* = WINDOWPOS_UNDEFINED_DISPLAY(0)

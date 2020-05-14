@@ -19,7 +19,7 @@ when defined(windows):
   else:
     const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir} --host=i686-w64-mingw32 CFLAGS=\"-fPIC -I{SDLIncludeDir}\""
 else:
-  const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir} CFLAGS=\"-fPIC -I{SDLIncludeDir}\""
+  const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir} --with-pic CFLAGS=\"-fPIC -I{SDLIncludeDir}\""
 
 when defined(macosx):
   {.passC: "-isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -fPIC".}
@@ -50,7 +50,9 @@ cOverride:
 cPluginPath(symbolPluginPath)
 cIncludeDir(SDLIncludeDir)
 
+{.passL: "-lwebp -lpng -ltiff -ljpeg".}
+
 when defined(SDL_image_Static):
-  cImport(srcDir/"SDL_image.h", recurse = false, flags = &"-f=ast2")
+  cImport(srcDir/"SDL_image.h", recurse = false, flags = &"-f=ast2 -H")
 else:
-  cImport(srcDir/"SDL_image.h", recurse = false, dynlib = "SDL_image_LPath", flags = &"-f=ast2")
+  cImport(srcDir/"SDL_image.h", recurse = false, dynlib = "SDL_image_LPath", flags = &"-f=ast2 -H")
