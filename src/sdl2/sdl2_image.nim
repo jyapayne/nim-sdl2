@@ -1,6 +1,6 @@
 import os, strutils, strformat
 import sdl2
-import nimterop/[cimport, build]
+import nimterop/[cimport, build, globals]
 
 const
   baseDir = SDLCacheDir
