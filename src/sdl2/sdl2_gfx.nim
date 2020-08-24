@@ -8,6 +8,15 @@ const
   buildDir = srcDir / ".libs"
   symbolPluginPath = currentSourcePath.parentDir() / "cleansymbols.nim"
 
+  defs = """
+    SDL2gfxPrimitivesSetVer=1.0.4
+    SDL2gfxPrimitivesDL
+    SDL2gfxPrimitivesStatic
+    SDL2gfxStatic
+  """
+
+setDefines(defs.splitLines())
+
 when defined(windows):
   when defined(amd64):
     const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir} --host=x86_64-w64-mingw32 CFLAGS=\"-fPIC -I{SDLIncludeDir}\""
@@ -33,7 +42,7 @@ static:
 
 cPluginPath(symbolPluginPath)
 
-when defined(SDL2_GfxPrimitives_Static):
+when isDefined(SDL2gfxPrimitivesStatic):
   cImport(srcDir / "SDL2_gfxPrimitives.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H")
   cImport(srcDir / "SDL2_rotozoom.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H")
   cImport(srcDir / "SDL2_framerate.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H")

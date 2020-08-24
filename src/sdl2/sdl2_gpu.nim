@@ -10,6 +10,14 @@ const
   cmakeModPath = (currentPath / "cmake" / "sdl2").replace("\\", "/")
   symbolPluginPath = (currentPath / "sdl2" / "cleansymbols.nim").sanitizePath
 
+  defs = """
+    SDLgpuSetVer=def5ea1
+    SDLgpuGit
+    SDLgpuStatic
+  """
+
+setDefines(defs.splitLines())
+
 getHeader(
   "SDL_gpu.h",
   giturl = "https://github.com/grimfang4/sdl-gpu",
@@ -102,7 +110,7 @@ cOverride:
 
 cPluginPath(symbolPluginPath)
 
-when defined(SDL_gpu_Static):
+when isDefined(SDLgpuStatic):
   cImport(srcDir/"include"/"SDL_gpu.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H")
 else:
   cImport(srcDir/"include"/"SDL_gpu.h", recurse = false, dynlib = "SDL_gpuLPath", flags = &"-I={SDLIncludeDir} -f=ast2 -H")

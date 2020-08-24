@@ -9,6 +9,14 @@ const
   includeDir = (srcDir / "include").sanitizePath
   symbolPluginPath = (currentSourcePath.parentDir() / "cleansymbols.nim").sanitizePath
 
+  defs = """
+    SDLSetVer=2.0.12
+    SDLDL
+    SDLStatic
+  """
+
+setDefines(defs.splitLines())
+
 when defined(windows):
   const dlurl = "https://www.libsdl.org/release/SDL2-$1.zip"
 else:
@@ -174,7 +182,7 @@ static:
       if "lSDL2" in line:
         return line.strip()#.replace("-lSDL2 ", "").replace("-lSDL2main ", "")
 
-  when defined(SDL_Static):
+  when isDefined(SDLStatic):
     when defined(windows):
       #TODO: Find a way to automate this on Windows reliably
       const conf = &"-lmingw32 {SDLStaticLib} {SDLMainLib} -mwindows -Wl,--no-undefined -Wl,--dynamicbase -Wl,--nxcompat -Wl,--high-entropy-va -lm -ldinput8 -ldxguid -ldxerr8 -luser32 -lgdi32 -lwinmm -limm32 -lole32 -loleaut32 -lshell32 -lsetupapi -lversion -luuid -static-libgcc"
@@ -222,7 +230,7 @@ when defined(macosx):
 else:
   {.passC: "-fPIC".}
 
-when defined(SDL_Static):
+when isDefined(SDLStatic):
   cImport(srcDir/"include"/"SDL.h", recurse = true, flags = "-f=ast2 -H -DDOXYGEN_SHOULD_IGNORE_THIS -E__,_ -F__,_")
 else:
   cImport(srcDir/"include"/"SDL.h", recurse = true, dynlib = "SDL_LPath", flags = "-f=ast2 -H -DDOXYGEN_SHOULD_IGNORE_THIS -E__,_ -F__,_")

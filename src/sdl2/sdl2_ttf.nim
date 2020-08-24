@@ -10,6 +10,14 @@ const
   currentPath = currentSourcePath().parentDir().parentDir().sanitizePath
   symbolPluginPath = (currentPath / "sdl2" / "cleansymbols.nim").sanitizePath
 
+  defs = """
+    SDLttfSetVer=2.0.15
+    SDLttfDL
+    SDLttfStatic
+  """
+
+setDefines(defs.splitLines())
+
 when defined(windows):
   const dlurl = "https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-$1.zip"
 else:
@@ -46,7 +54,7 @@ cOverride:
     GetError* = ""
     SetError* = ""
 
-when defined(SDL_ttf_Static):
+when isDefined(SDLttfStatic):
   cImport(srcDir / "SDL_ttf.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H")
 else:
   cImport(srcDir / "SDL_ttf.h", recurse = false, dynlib = "SDL_ttf_LPath", flags = &"-I={SDLIncludeDir} -f=ast2 -H")

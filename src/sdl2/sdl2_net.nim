@@ -8,6 +8,14 @@ const
   buildDir = srcDir / ".libs"
   symbolPluginPath = currentSourcePath.parentDir() / "cleansymbols.nim"
 
+  defs = """
+    SDLnetSetVer=2.0.1
+    SDLnetDL
+    SDLnetStatic
+  """
+
+setDefines(defs.splitLines())
+
 when defined(windows):
   const dlurl = "https://www.libsdl.org/projects/SDL_net/release/SDL2_net-$1.zip"
 else:
@@ -42,7 +50,7 @@ cOverride:
 
 cPluginPath(symbolPluginPath)
 
-when defined(SDL_net_Static):
+when isDefined(SDLnetStatic):
   cImport(srcDir / "SDL_net.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H")
   cImport(srcDir / "SDLnetsys.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H")
 else:

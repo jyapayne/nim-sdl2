@@ -8,6 +8,14 @@ const
   buildDir = srcDir / "build" / ".libs"
   symbolPluginPath = currentSourcePath.parentDir() / "cleansymbols.nim"
 
+  defs = """
+    SDLmixerSetVer=2.0.4
+    SDLmixerDL
+    SDLmixerStatic
+  """
+
+setDefines(defs.splitLines())
+
 when defined(windows):
   const dlurl = "https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-$1.zip"
 else:
@@ -44,7 +52,7 @@ cOverride:
 
 cPluginPath(symbolPluginPath)
 
-when defined(SDL_Mixer_Static):
+when isDefined(SDLmixerStatic):
   cImport(srcDir/"SDL_mixer.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H")
 else:
   cImport(srcDir/"SDL_mixer.h", recurse = false, dynlib = "SDL_mixer_LPath", flags = &"-I={SDLIncludeDir} -f=ast2 -H")

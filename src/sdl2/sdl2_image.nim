@@ -8,6 +8,15 @@ const
   buildDir = srcDir / ".libs"
   symbolPluginPath = currentSourcePath.parentDir() / "cleansymbols.nim"
 
+  defs = """
+    SDLimageSetVer=2.0.5
+    SDLimageDL
+    SDLimageStatic
+  """
+
+setDefines(defs.splitLines())
+
+
 when defined(windows):
   const dlurl = "https://www.libsdl.org/projects/SDL_image/release/SDL2_image-$1.zip"
 else:
@@ -52,7 +61,7 @@ cIncludeDir(SDLIncludeDir)
 
 {.passL: "-lwebp -lpng -ltiff -ljpeg".}
 
-when defined(SDL_image_Static):
+when isDefined(SDLimageStatic):
   cImport(srcDir/"SDL_image.h", recurse = false, flags = &"-f=ast2 -H")
 else:
   cImport(srcDir/"SDL_image.h", recurse = false, dynlib = "SDL_image_LPath", flags = &"-f=ast2 -H")
