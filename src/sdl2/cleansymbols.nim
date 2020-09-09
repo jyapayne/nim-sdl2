@@ -1,28 +1,41 @@
 import macros, nimterop / plugin
-import strutils, regex
+import strutils
 import sets
 
-proc firstLetterLower(m: RegexMatch, s: string): string =
-  if m.groupsCount > 0 and m.group(0).len > 0:
-    return s[m.group(0)[0]].toLowerAscii
+template camelCase(str: string): string =
+  var res = newStringOfCap(str.len)
+  var i = 0
+  while i < str.len:
+    if str[i] == '_' and i < str.len - 1:
+      res.add(str[i+1].toUpperAscii)
+      i += 1
+    else:
+      res.add(str[i])
+    i += 1
+  res
 
-proc camelCase(m: RegexMatch, s: string): string =
-  if m.groupsCount > 0 and m.group(0).len > 0:
-    return s[m.group(0)[0]].toUpperAscii
+template lowerFirstLetter(str, rep: string): string =
+  if str.startsWith(rep):
+    var res = str[rep.len .. ^1]
+    res[0] = res[0].toLowerAscii
+    res
+  else:
+    str
 
-proc nothing(m: RegexMatch, s: string): string =
-  if m.groupsCount > 0 and m.group(0).len > 0:
-    return s[m.group(0)[0]]
+template removeBeginning(str, rep: string): string =
+  if str.startsWith(rep):
+    str[rep.len .. ^1]
+  else:
+    str
 
 const replacements = [
-  re"^GPU_(.)",
-  re"^SDL_(.)",
-  re"^TTF_(.)",
-  re"^SDLNet_(.)",
-  re"^Mix_(.)",
-  re"^IMG_(.)"
+  "GPU_",
+  "SDL_",
+  "TTF_",
+  "SDLNet_",
+  "Mix_",
+  "IMG_"
 ]
-const underscoreReg = re"_(.)"
 
 const EVENT_TYPES = toHashSet([
   "FIRSTEVENT",
@@ -109,15 +122,13 @@ proc onSymbol*(sym: var Symbol) {.exportc, dynlib.} =
 
   for rep in replacements:
     if sym.kind == nskProc:
-      try:
-        sym.name = sym.name.replace(rep, firstLetterLower)
-      except:
-        discard
+      sym.name = lowerFirstLetter(sym.name, rep)
+    # elif sym.kind == nskType:
+    #   if sym.name.startsWith(rep):
+    #     sym.name = camelCase(removeBeginning(sym.name, rep))
     else:
-      try:
-        sym.name = sym.name.replace(rep, nothing)
-      except:
-        discard
+      sym.name = removeBeginning(sym.name, rep)
+
 
   if sym.name.startsWith("SDLK_"):
     sym.name = sym.name.replace("SDLK_", "KEYCODE_")
@@ -139,7 +150,7 @@ proc onSymbol*(sym: var Symbol) {.exportc, dynlib.} =
     sym.name = "SDLPRIX64"
 
   if sym.kind == nskField:
-    sym.name = sym.name.replace(underscoreReg, camelCase)
+    sym.name = camelCase(sym.name)
     if sym.name == "type":
       sym.name = "kind"
 
