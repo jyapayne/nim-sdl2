@@ -1,3 +1,4 @@
+import macros
 import os, strutils, strformat
 import sdl2
 import nimterop/[cimport, build, globals]
@@ -6,7 +7,7 @@ const
   baseDir = SDLCacheDir
   srcDir = baseDir / "sdl2_gfx"
   buildDir = srcDir / ".libs"
-  currentPath = currentSourcePath().parentDir().parentDir().sanitizePath
+  currentPath = getProjectPath().parentDir().sanitizePath
   generatedPath = (currentPath / "generated" / "sdl2_gfx").replace("\\", "/")
   symbolPluginPath = currentSourcePath.parentDir() / "cleansymbols.nim"
 

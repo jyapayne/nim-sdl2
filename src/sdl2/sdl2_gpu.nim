@@ -1,3 +1,4 @@
+import macros
 import os, strformat, strutils
 import sdl2
 import nimterop/[build, cimport, globals]
@@ -6,8 +7,8 @@ const
   baseDir = SDLCacheDir
   sdlDir = (baseDir / "sdl2").sanitizePath
   srcDir = (baseDir / "sdl2_gpu").sanitizePath
-  currentPath = currentSourcePath().parentDir().parentDir().sanitizePath
-  generatedPath = (currentPath / "generated").replace("\\", "/")
+  currentPath = getProjectPath().parentDir().sanitizePath
+  generatedPath = (currentPath / "generated" / "sdl2_gpu").replace("\\", "/")
   cmakeModPath = (currentPath / "cmake" / "sdl2").replace("\\", "/")
   symbolPluginPath = (currentPath / "sdl2" / "cleansymbols.nim").sanitizePath
 
