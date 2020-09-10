@@ -8,6 +8,7 @@ const
   srcDir = (baseDir / "sdl2_ttf").sanitizePath
   buildDir = srcDir / ".libs"
   currentPath = currentSourcePath().parentDir().parentDir().sanitizePath
+  generatedPath = (currentPath / "generated").replace("\\", "/")
   symbolPluginPath = (currentPath / "sdl2" / "cleansymbols.nim").sanitizePath
 
   defs = """
@@ -55,6 +56,6 @@ cOverride:
     SetError* = ""
 
 when isDefined(SDLttfStatic):
-  cImport(srcDir / "SDL_ttf.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H")
+  cImport(srcDir / "SDL_ttf.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H", nimFile = generatedPath / "sdl2_ttf.nim")
 else:
-  cImport(srcDir / "SDL_ttf.h", recurse = false, dynlib = "SDL_ttf_LPath", flags = &"-I={SDLIncludeDir} -f=ast2 -H")
+  cImport(srcDir / "SDL_ttf.h", recurse = false, dynlib = "SDL_ttf_LPath", flags = &"-I={SDLIncludeDir} -f=ast2 -H", nimFile = generatedPath / "sdl2_ttf.nim")

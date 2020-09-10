@@ -6,6 +6,8 @@ const
   baseDir = SDLCacheDir
   srcDir = baseDir / "sdl2_net"
   buildDir = srcDir / ".libs"
+  currentPath = currentSourcePath().parentDir().parentDir().sanitizePath
+  generatedPath = (currentPath / "generated" / "sdl2_net").replace("\\", "/")
   symbolPluginPath = currentSourcePath.parentDir() / "cleansymbols.nim"
 
   defs = """
@@ -51,8 +53,8 @@ cOverride:
 cPluginPath(symbolPluginPath)
 
 when isDefined(SDLnetStatic):
-  cImport(srcDir / "SDL_net.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H")
-  cImport(srcDir / "SDLnetsys.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H")
+  cImport(srcDir / "SDL_net.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H", nimFile = generatedPath / "sdl2_net.nim")
+  cImport(srcDir / "SDLnetsys.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H", nimFile = generatedPath / "sdl2_netsys.nim")
 else:
-  cImport(srcDir / "SDL_net.h", recurse = false, dynlib = "SDL_net_LPath", flags = &"-I={sdlIncludeDir} -f=ast2 -H")
-  cImport(srcDir / "SDLnetsys.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H")
+  cImport(srcDir / "SDL_net.h", recurse = false, dynlib = "SDL_net_LPath", flags = &"-I={sdlIncludeDir} -f=ast2 -H", nimFile = generatedPath / "sdl2_net.nim")
+  cImport(srcDir / "SDLnetsys.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H", nimFile = generatedPath / "sdl2_netsys.nim")

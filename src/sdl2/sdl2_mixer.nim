@@ -6,6 +6,8 @@ const
   baseDir = SDLCacheDir
   srcDir = baseDir / "sdl2_mixer"
   buildDir = srcDir / "build" / ".libs"
+  currentPath = currentSourcePath().parentDir().parentDir().sanitizePath
+  generatedPath = (currentPath / "generated").replace("\\", "/")
   symbolPluginPath = currentSourcePath.parentDir() / "cleansymbols.nim"
 
   defs = """
@@ -53,6 +55,6 @@ cOverride:
 cPluginPath(symbolPluginPath)
 
 when isDefined(SDLmixerStatic):
-  cImport(srcDir/"SDL_mixer.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H")
+  cImport(srcDir/"SDL_mixer.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H", nimFile = generatedPath / "sdl2_mixer.nim")
 else:
-  cImport(srcDir/"SDL_mixer.h", recurse = false, dynlib = "SDL_mixer_LPath", flags = &"-I={SDLIncludeDir} -f=ast2 -H")
+  cImport(srcDir/"SDL_mixer.h", recurse = false, dynlib = "SDL_mixer_LPath", flags = &"-I={SDLIncludeDir} -f=ast2 -H", nimFile = generatedPath / "sdl2_mixer.nim")

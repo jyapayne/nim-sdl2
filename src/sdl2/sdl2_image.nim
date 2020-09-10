@@ -6,6 +6,8 @@ const
   baseDir = SDLCacheDir
   srcDir = baseDir / "sdl2_image"
   buildDir = srcDir / ".libs"
+  currentPath = currentSourcePath().parentDir().parentDir().sanitizePath
+  generatedPath = (currentPath / "generated").replace("\\", "/")
   symbolPluginPath = currentSourcePath.parentDir() / "cleansymbols.nim"
 
   defs = """
@@ -62,6 +64,6 @@ cIncludeDir(SDLIncludeDir)
 {.passL: "-lwebp -lpng -ltiff -ljpeg".}
 
 when isDefined(SDLimageStatic):
-  cImport(srcDir/"SDL_image.h", recurse = false, flags = &"-f=ast2 -H")
+  cImport(srcDir/"SDL_image.h", recurse = false, flags = &"-f=ast2 -H", nimFile = generatedPath / "sdl2_image.nim")
 else:
-  cImport(srcDir/"SDL_image.h", recurse = false, dynlib = "SDL_image_LPath", flags = &"-f=ast2 -H")
+  cImport(srcDir/"SDL_image.h", recurse = false, dynlib = "SDL_image_LPath", flags = &"-f=ast2 -H", nimFile = generatedPath / "sdl2_image.nim")

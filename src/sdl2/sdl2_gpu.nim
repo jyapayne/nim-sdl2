@@ -7,6 +7,7 @@ const
   sdlDir = (baseDir / "sdl2").sanitizePath
   srcDir = (baseDir / "sdl2_gpu").sanitizePath
   currentPath = currentSourcePath().parentDir().parentDir().sanitizePath
+  generatedPath = (currentPath / "generated").replace("\\", "/")
   cmakeModPath = (currentPath / "cmake" / "sdl2").replace("\\", "/")
   symbolPluginPath = (currentPath / "sdl2" / "cleansymbols.nim").sanitizePath
 
@@ -111,9 +112,9 @@ cOverride:
 cPluginPath(symbolPluginPath)
 
 when isDefined(SDLgpuStatic):
-  cImport(srcDir/"include"/"SDL_gpu.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H")
+  cImport(srcDir/"include"/"SDL_gpu.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H", nimFile = generatedPath / "sdl2_gpu.nim")
 else:
-  cImport(srcDir/"include"/"SDL_gpu.h", recurse = false, dynlib = "SDL_gpuLPath", flags = &"-I={SDLIncludeDir} -f=ast2 -H")
+  cImport(srcDir/"include"/"SDL_gpu.h", recurse = false, dynlib = "SDL_gpuLPath", flags = &"-I={SDLIncludeDir} -f=ast2 -H", nimFile = generatedPath / "sdl2_gpu.nim")
 
 
 let

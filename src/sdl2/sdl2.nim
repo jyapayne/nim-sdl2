@@ -7,6 +7,8 @@ const
   srcDir = (baseDir / "sdl2").sanitizePath
   buildDir = (srcDir / "build" / ".libs").sanitizePath
   includeDir = (srcDir / "include").sanitizePath
+  currentPath = currentSourcePath().parentDir().parentDir().sanitizePath
+  generatedPath = (currentPath / "generated" / "sdl2").replace("\\", "/")
   symbolPluginPath = (currentSourcePath.parentDir() / "cleansymbols.nim").sanitizePath
 
   defs = """
@@ -231,9 +233,9 @@ else:
   {.passC: "-fPIC".}
 
 when isDefined(SDLStatic):
-  cImport(srcDir/"include"/"SDL.h", recurse = true, flags = "-f=ast2 -H -DDOXYGEN_SHOULD_IGNORE_THIS -E__,_ -F__,_")
+  cImport(srcDir/"include"/"SDL.h", recurse = true, flags = "-f=ast2 -H -DDOXYGEN_SHOULD_IGNORE_THIS -E__,_ -F__,_", nimFile = generatedPath / "sdl2.nim")
 else:
-  cImport(srcDir/"include"/"SDL.h", recurse = true, dynlib = "SDL_LPath", flags = "-f=ast2 -H -DDOXYGEN_SHOULD_IGNORE_THIS -E__,_ -F__,_")
+  cImport(srcDir/"include"/"SDL.h", recurse = true, dynlib = "SDL_LPath", flags = "-f=ast2 -H -DDOXYGEN_SHOULD_IGNORE_THIS -E__,_ -F__,_", nimFile = generatedPath / "sdl2.nim")
 
 const
   WINDOWPOS_UNDEFINED* = WINDOWPOS_UNDEFINED_DISPLAY(0)
