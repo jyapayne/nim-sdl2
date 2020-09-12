@@ -26,10 +26,12 @@ else:
   const dlurl = "https://www.libsdl.org/projects/SDL_image/release/SDL2_image-$1.tar.gz"
 
 when defined(windows):
+  const winBDir = SDLBuildDir.replace("C:\\", "/c/").replace("\\", "/")
+  const winIDir = SDLIncludeDir.replace("C:\\", "/c/").replace("\\", "/")
   when defined(amd64):
-    const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir} --host=x86_64-w64-mingw32 CFLAGS=\"-fPIC -I{SDLIncludeDir}\""
+    const flags = &"--libdir={winBDir} --includedir={winIDir} --host=x86_64-w64-mingw32 CFLAGS=\"-fPIC -I{winIDir}\""
   else:
-    const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir} --host=i686-w64-mingw32 CFLAGS=\"-fPIC -I{SDLIncludeDir}\""
+    const flags = &"--libdir={winBDir} --includedir={winIDir} --host=i686-w64-mingw32 CFLAGS=\"-fPIC -I{winIDir}\""
 else:
   const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir} --with-pic CFLAGS=\"-fPIC -I{SDLIncludeDir}\""
 

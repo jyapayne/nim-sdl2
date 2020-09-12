@@ -20,38 +20,36 @@ const
 
 setDefines(defs.splitLines())
 
-when defined(windows):
-  when defined(amd64):
-    const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir} --host=x86_64-w64-mingw32 CFLAGS=\"-fPIC -I{SDLIncludeDir}\""
-  else:
-    const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir} --host=i686-w64-mingw32 CFLAGS=\"-fPIC -I{SDLIncludeDir}\""
-else:
-  const flags = &"--libdir={SDLBuildDir} --includedir={SDLIncludeDir} CFLAGS=\"-fPIC -I{SDLIncludeDir}\""
+static:
+  let ver = getDefine("SDL2gfxPrimitivesSetVer")
+  downloadUrl(fmt"http://www.ferzkopp.net/Software/SDL2_gfx/SDL2_gfx-{ver}.tar.gz", outdir=srcDir)
 
-getHeader(
-  "SDL2_gfxPrimitives.h",
-  dlurl = "http://www.ferzkopp.net/Software/SDL2_gfx/SDL2_gfx-$1.tar.gz",
-  outdir = srcDir,
-  altNames = "SDL2_gfx,SDL_gfx",
-  conFlags = flags,
-  buildTypes = [btAutoConf]
-)
+# getHeader(
+#   "SDL2_gfxPrimitives.h",
+#   dlurl = "http://www.ferzkopp.net/Software/SDL2_gfx/SDL2_gfx-$1.tar.gz",
+#   outdir = srcDir,
+#   altNames = "SDL2_gfx,SDL_gfx",
+#   conFlags = flags,
+#   buildTypes = [btAutoConf]
+# )
+
+const ver = getDefine("SDL2gfxPrimitivesSetVer")
+const newSrcDir = srcDir / fmt"SDL2_gfx-{ver}"
+cIncludeDir(newSrcDir)
+cCompile(newSrcDir / "SDL2_gfxPrimitives.c")
+cCompile(newSrcDir / "SDL2_rotozoom.c")
+cCompile(newSrcDir / "SDL2_framerate.c")
+cCompile(newSrcDir / "SDL2_imageFilter.c")
 
 static:
-  when defined(macosx):
-    fixStaticFile(buildDir)
+  discard
   # cDebug()
   # cDisableCaching()
 
 cPluginPath(symbolPluginPath)
 
-when isDefined(SDL2gfxPrimitivesStatic):
-  cImport(srcDir / "SDL2_gfxPrimitives.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H", nimFile = generatedPath / "sdl2_gfxprimitives.nim")
-  cImport(srcDir / "SDL2_rotozoom.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H", nimFile = generatedPath / "sdl2_rotozoom.nim")
-  cImport(srcDir / "SDL2_framerate.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H", nimFile = generatedPath / "sdl2_framerate.nim")
-  cImport(srcDir / "SDL2_imageFilter.h", recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H", nimFile = generatedPath / "sdl2_imagefilter.nim")
-else:
-  cImport(srcDir / "SDL2_gfxPrimitives.h", recurse = false, dynlib="SDL2_GfxPrimitives_LPath", flags = &"-I={SDLIncludeDir} -f=ast2 -H", nimFile = generatedPath / "sdl2_gfxprimitives.nim")
-  cImport(srcDir / "SDL2_rotozoom.h", recurse = false, dynlib="SDL2_GfxPrimitives_LPath", flags = &"-I={SDLIncludeDir} -f=ast2 -H", nimFile = generatedPath / "sdl2_rotozoom.nim")
-  cImport(srcDir / "SDL2_framerate.h", recurse = false, dynlib="SDL2_GfxPrimitives_LPath", flags = &"-I={SDLIncludeDir} -f=ast2 -H", nimFile = generatedPath / "sdl2_framerate.nim")
-  cImport(srcDir / "SDL2_imageFilter.h", recurse = false, dynlib="SDL2_GfxPrimitives_LPath", flags = &"-I={SDLIncludeDir} -f=ast2 -H", nimFile = generatedPath / "sdl2_imagefilter.nim")
+cImport(
+  @[newSrcDir / "SDL2_gfxPrimitives.h", newSrcDir / "SDL2_rotozoom.h",
+   newSrcDir / "SDL2_framerate.h", newSrcDir / "SDL2_imageFilter.h"],
+   recurse = false, flags = &"-I={SDLIncludeDir} -f=ast2 -H", nimFile = generatedPath / "sdl2_gfx.nim"
+)

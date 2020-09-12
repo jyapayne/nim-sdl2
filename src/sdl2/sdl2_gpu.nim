@@ -1,14 +1,16 @@
 import macros
 import os, strformat, strutils
 import sdl2
+import glew
 import nimterop/[build, cimport, globals]
 
 const
   baseDir = SDLCacheDir
   sdlDir = (baseDir / "sdl2").sanitizePath
   srcDir = (baseDir / "sdl2_gpu").sanitizePath
-  currentPath = getProjectPath().parentDir().sanitizePath
-  generatedPath = (currentPath / "generated" / "sdl2_gpu").replace("\\", "/")
+  currentProjectPath = getProjectPath().parentDir().sanitizePath
+  currentPath = currentSourcePath.parentDir().parentDir().sanitizePath
+  generatedPath = (currentProjectPath / "generated" / "sdl2_gpu").replace("\\", "/")
   cmakeModPath = (currentPath / "cmake" / "sdl2").replace("\\", "/")
   symbolPluginPath = (currentPath / "sdl2" / "cleansymbols.nim").sanitizePath
 
@@ -20,15 +22,25 @@ const
 
 setDefines(defs.splitLines())
 
-getHeader(
-  "SDL_gpu.h",
-  giturl = "https://github.com/grimfang4/sdl-gpu",
-  outdir = srcDir,
-  altNames = "SDL2_gpu,SDL2_gpu_s",
-  buildTypes = [btCmake],
-  cmakeFlags = &"-DCMAKE_C_FLAGS=-I{SDLIncludeDir} -DCMAKE_MODULE_PATH={cmakeModPath} -DSDL2_LIBRARY={SDLDyLibPath} " &
-               &"-DSDL2MAIN_LIBRARY={SDLMainLib} -DSDL2_PATH={sdlDir} -DSDL2_INCLUDE_DIR={SDLIncludeDir} -DSDL_gpu_BUILD_DEMOS=OFF"
-)
+cIncludeDir(SDLIncludeDir)
+cDefine("SDL_GPU_DISABLE_GLES", "1")
+
+static:
+  gitPull(
+    "https://github.com/grimfang4/sdl-gpu",
+    outdir=srcDir,
+    checkout="f15d33ccef7f6e063ada7c435e864b7d4b663f88"
+  )
+
+# getHeader(
+#   "SDL_gpu.h",
+#   giturl = "https://github.com/grimfang4/sdl-gpu",
+#   outdir = srcDir,
+#   altNames = "SDL2_gpu,SDL2_gpu_s",
+#   buildTypes = [btCmake],
+#   cmakeFlags = &"-DCMAKE_C_FLAGS=-I{SDLIncludeDir} -DCMAKE_MODULE_PATH={cmakeModPath} -DSDL2_LIBRARY={SDLDyLibPath} " &
+#                &"-DSDL2MAIN_LIBRARY={SDLMainLib} -DSDL2_PATH={sdlDir} -DSDL2_INCLUDE_DIR={SDLIncludeDir} -DSDL_gpu_BUILD_DEMOS=OFF"
+# )
 
 static:
   cSkipSymbol @["Log"]
@@ -109,6 +121,27 @@ cOverride:
       LOG_LEVEL_WARNING
       LOG_LEVEL_ERROR
 
+cIncludeDir(srcDir/"include")
+cIncludeDir(srcDir/"src")
+cIncludeDir(srcDir/"src"/"externals"/"stb_image")
+cIncludeDir(srcDir/"src"/"externals"/"glew"/"GL")
+cIncludeDir(srcDir/"src"/"externals"/"stb_image_write")
+
+cCompile(srcDir/"src"/"externals"/"stb_image_write"/"stb_image_write.c")
+cCompile(srcDir/"src"/"SDL_gpu.c")
+cCompile(srcDir/"src"/"SDL_gpu_matrix.c")
+cCompile(srcDir/"src"/"SDL_gpu_renderer.c")
+cCompile(srcDir/"src"/"SDL_gpu_shapes.c")
+# cCompile(srcDir/"src"/"renderer_GLES_1.c")
+# cCompile(srcDir/"src"/"renderer_GLES_2.c")
+# cCompile(srcDir/"src"/"renderer_GLES_3.c")
+cCompile(srcDir/"src"/"renderer_OpenGL_1.c")
+cCompile(srcDir/"src"/"renderer_OpenGL_1_BASE.c")
+cCompile(srcDir/"src"/"renderer_OpenGL_2.c")
+cCompile(srcDir/"src"/"renderer_OpenGL_3.c")
+cCompile(srcDir/"src"/"renderer_OpenGL_4.c")
+#cCompile(srcDir/"src"/"externals"/"stb_image"/"stb_image.c")
+#cCompile(srcDir/"src"/"externals"/"stb_image_write"/"stb_image_write.c")
 
 cPluginPath(symbolPluginPath)
 

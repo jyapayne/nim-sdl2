@@ -26,8 +26,10 @@ else:
   const dlurl = "https://www.libsdl.org/release/SDL2-$1.tar.gz"
 
 when defined(windows):
+  const winBDir = buildDir.replace("C:\\", "/c/").replace("\\", "/")
+  const winIDir = includeDir.replace("C:\\", "/c/").replace("\\", "/")
   when defined(amd64):
-    const flags = &"--libdir={buildDir} --includedir={includeDir} --host=x86_64-w64-mingw32 CFLAGS=\"-fPIC\""
+    const flags = &"--libdir={winBDir} --includedir={winIDir} --host=x86_64-w64-mingw32 CFLAGS=\"-fPIC\""
   else:
     const flags = &"--libdir={buildDir} --includedir={includeDir} --host=i686-w64-mingw32 CFLAGS=\"-fPIC\""
 elif defined(macosx):
